@@ -3,148 +3,158 @@
 
 @{
     ViewData["Title"] = "Hotel Login";
+    Layout = null; // Ensure this is styled as a standalone page if it's not using a main layout
 }
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
 <style>
-    /* 1. التنسيق الخاص بخلفية الصفحة (تدرج لوني) */
-    body {
-        /* تدرج لوني مطابق للصورة */
-        background: linear-gradient(135deg, #f5a9f3, #e5e9ec, #9370db);
+    :root {
+        /* Consistent Purple Theme */
+        --primary-color: #6b21a8; /* Dark Purple */
+        --primary-light: #8b5cf6; /* Light Purple for buttons/hover */
+        --dark-bg: #f7f9fc;
+    }
+
+    /* Gradient Background for the whole page */
+    .vh-100-container {
+        /* Using the standard vertical height container and flex */
         min-height: 100vh;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, var(--dark-bg), #ffffff);
         padding: 20px;
     }
 
-    /* 2. التنسيق الخاص بالبطاقة الرئيسية (Form Card) */
+    /* Card Styling */
     .login-card {
-        background: white;
-        /* ظل خفيف مع حواف دائرية كبيرة */
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
-        border-radius: 25px;
-        padding: 40px;
-        max-width: 400px; /* حجم أصغر لنموذج تسجيل الدخول */
+        border: 1px solid rgba(107, 33, 168, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+        background-color: #ffffff;
+        border-radius: 15px; /* Unified rounded corners */
+        max-width: 400px;
         width: 100%;
+        padding: 40px;
     }
 
-    /* 3. تنسيق الهيدر العلوي مع التدرج اللوني */
-    .card-header-gradient {
+    /* Primary Text/Title Color */
+    .text-primary {
+        color: var(--primary-color) !important;
+    }
+
+    .card-header-unified {
         text-align: center;
         margin-bottom: 30px;
-        padding: 20px 0 10px 0;
-        /* تدرج لوني للنص يحاكي الجزء العلوي من الصورة */
-        background: linear-gradient(to right, #f47b9c, #d5a6d3, #99a4e1);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 
-        .card-header-gradient h3 {
+        .card-header-unified h3 {
             font-weight: 700;
-            margin-bottom: 5px;
+            color: var(--primary-color);
             font-size: 2rem;
+            margin-bottom: 5px;
         }
 
-        .card-header-gradient .underline {
-            height: 3px;
-            width: 60px;
-            /* خط تحت العنوان بنفس التدرج */
-            background: linear-gradient(to right, #f47b9c, #d5a6d3, #99a4e1);
-            margin: 0 auto;
-        }
 
-    /* 4. تنسيق حقول الإدخال لتكون أنيقة (استخدام form-control فقط) */
-    .form-control {
-        border: 1px solid #ced4da;
-        border-radius: 10px !important; /* overrides form-floating default */
-        box-shadow: none !important;
-        height: 50px;
-        transition: border-color 0.15s ease-in-out;
+    /* Form Floating Labels Focus Color */
+    .form-control:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 0.25rem rgba(107, 33, 168, 0.25);
     }
 
-        .form-control:focus {
-            border-color: #99a4e1; /* لون الحدود عند التركيز */
-            box-shadow: 0 0 0 0.25rem rgba(153, 164, 225, 0.25) !important;
-        }
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label,
+    .form-floating > .form-select ~ label {
+        color: var(--primary-color); /* Color the label purple when active */
+        opacity: 1;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
 
-    /* 5. تنسيق زر الإرسال (Login) */
+    /* Login Button Styling (Gradient) */
     .btn-submit-gradient {
-        /* تدرج لوني لزر الإرسال */
-        background: linear-gradient(to right, #f47b9c, #d5a6d3, #99a4e1);
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
         border: none;
         color: white;
         padding: 12px 0;
         font-size: 1.1em;
-        font-weight: bold;
-        border-radius: 20px;
-        transition: opacity 0.3s;
+        font-weight: 600;
+        border-radius: 8px; /* Unified button radius */
+        transition: all 0.3s ease;
     }
 
         .btn-submit-gradient:hover {
-            opacity: 0.9;
+            background: linear-gradient(135deg, #581c87, var(--primary-color));
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3) !important;
             color: white;
         }
 
-    /* 6. تعديل تصميم form-floating ليناسب الشكل الجديد */
-    .form-floating > .form-control:focus ~ label,
-    .form-floating > .form-control:not(:placeholder-shown) ~ label,
-    .form-floating > .form-select ~ label {
-        color: #99a4e1; /* لون الـ Label عند التركيز/الكتابة */
-        opacity: 1;
-        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    /* Hyperlink Color (Sign Up here) */
+    .signup-link {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+        .signup-link:hover {
+            color: var(--primary-light) !important;
+        }
+
+    /* Alert Styling for consistent look */
+    .alert-danger {
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
     }
 </style>
 
-<div class="login-card">
-    <div class="card-header-gradient">
-        <h3 class="mb-1">Hotel Login</h3>
-        <div class="underline"></div>
-        <p class="text-muted mt-2" style="
-            -webkit-text-fill-color: #555;
-            background: none;
-            font-size: 1rem;
-            font-weight: 400;
-            ">Access your hotel dashboard</p>
-    </div>
-
-    <form method="post" asp-action="Login" asp-controller="Hotel">
-
-        @* حقل البريد الإلكتروني (Email) *@
-        <div class="form-floating mb-3">
-            <input asp-for="email" class="form-control" placeholder="Email address" />
-            <label asp-for="email"><i class="bi bi-envelope-fill me-2"></i>Email address</label>
-            <span asp-validation-for="email" class="text-danger small"></span>
+<div class="vh-100-container">
+    <div class="login-card">
+        <div class="card-header-unified">
+            <h3 class="mb-1">Hotel Login</h3>
+            <p class="text-muted mt-2">Access your hotel dashboard</p>
         </div>
 
-        @* حقل كلمة المرور (Password) *@
-        <div class="form-floating mb-3">
-            <input asp-for="passwordHash" type="password" class="form-control" placeholder="Password" />
-            <label asp-for="passwordHash"><i class="bi bi-lock-fill me-2"></i>Password</label>
-            <span asp-validation-for="passwordHash" class="text-danger small"></span>
+        <form method="post" asp-action="Login" asp-controller="Hotel">
+
+            @* Email Field *@
+            <div class="form-floating mb-3">
+                <input asp-for="email" class="form-control" placeholder="Email address" />
+                <label asp-for="email"><i class="bi bi-envelope-fill me-2"></i>Email address</label>
+                <span asp-validation-for="email" class="text-danger small"></span>
+            </div>
+
+            @* Password Field *@
+            <div class="form-floating mb-3">
+                <input asp-for="passwordHash" type="password" class="form-control" placeholder="Password" />
+                <label asp-for="passwordHash"><i class="bi bi-lock-fill me-2"></i>Password</label>
+                <span asp-validation-for="passwordHash" class="text-danger small"></span>
+            </div>
+
+            @* Error Message *@
+            @if (!string.IsNullOrEmpty(Model.msg))
+            {
+                <div class="alert alert-danger py-2 small">@Model.msg</div>
+            }
+
+            <button type="submit" class="btn btn-submit-gradient w-100 py-2 fw-semibold shadow-sm">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Login
+            </button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small class="text-muted">Don't have an account?</small><br />
+            <a asp-controller="Hotel" asp-action="SignUp" class="text-decoration-none signup-link">Sign Up here</a>
         </div>
 
-        @* رسالة الخطأ *@
-        @if (!string.IsNullOrEmpty(Model.msg))
-        {
-            <div class="alert alert-danger py-2 small">@Model.msg</div>
-        }
+        <hr class="my-3" />
 
-        <button type="submit" class="btn btn-submit-gradient w-100 py-2 fw-semibold shadow-sm">
-            <i class="bi bi-box-arrow-in-right me-1"></i> Login
-        </button>
-    </form>
-
-    <div class="text-center mt-3">
-        <small class="text-muted">Don't have an account?</small><br />
-        <a href="/Hotel/SignUp" class="text-decoration-none fw-semibold" style="color: #9370db !important;">Sign Up here</a>
-    </div>
-
-    <div class="text-center mt-3">
-        <small class="text-muted">© 2025 Alfa Tourism Hotel Portal</small>
+        <div class="text-center">
+            <small class="text-muted">© 2025 Alfa Tourism Hotel Portal</small>
+        </div>
     </div>
 </div>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

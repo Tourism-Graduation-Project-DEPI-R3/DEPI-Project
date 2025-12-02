@@ -51,14 +51,14 @@
     <StaticWebAssetEndpoint Include="_content/Tourism/js/script.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-I3tfhtcgXt6MLuRN\u002B6LU\u002BezQLQxxJyenRTCwD\u002BTsDEU="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13243"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022I3tfhtcgXt6MLuRN\u002B6LU\u002BezQLQxxJyenRTCwD\u002BTsDEU=\u0022"},{"Name":"Last-Modified","Value":"Mon, 01 Dec 2025 15:28:04 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-X1EMzpyz/7au5rL\u002BgvQuE/nloAhuj4iS69B2ooP033w="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13856"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022X1EMzpyz/7au5rL\u002BgvQuE/nloAhuj4iS69B2ooP033w=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 16:12:13 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Tourism/js/script.lqyc228hon.js">
+    <StaticWebAssetEndpoint Include="_content/Tourism/js/script.td7x3qcz7b.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"lqyc228hon"},{"Name":"integrity","Value":"sha256-I3tfhtcgXt6MLuRN\u002B6LU\u002BezQLQxxJyenRTCwD\u002BTsDEU="},{"Name":"label","Value":"_content/Tourism/js/script.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13243"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022I3tfhtcgXt6MLuRN\u002B6LU\u002BezQLQxxJyenRTCwD\u002BTsDEU=\u0022"},{"Name":"Last-Modified","Value":"Mon, 01 Dec 2025 15:28:04 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"td7x3qcz7b"},{"Name":"integrity","Value":"sha256-X1EMzpyz/7au5rL\u002BgvQuE/nloAhuj4iS69B2ooP033w="},{"Name":"label","Value":"_content/Tourism/js/script.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13856"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022X1EMzpyz/7au5rL\u002BgvQuE/nloAhuj4iS69B2ooP033w=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 16:12:13 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
@@ -816,6 +816,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-va9yPT66bTJK6818Z3hZWYgPjTnS59tO\u002B3gyV227Efs="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"11609"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022va9yPT66bTJK6818Z3hZWYgPjTnS59tO\u002B3gyV227Efs=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Nov 2025 20:19:48 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/bilderboken-rlwE8f8anOc-unsplash.61643agr0k.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\bilderboken-rlwE8f8anOc-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"61643agr0k"},{"Name":"integrity","Value":"sha256-dv3DeEDNhmKJQTLn7XfHOX5UoLAtfsnapINbDfAw\u002B8o="},{"Name":"label","Value":"_content/Tourism/pics/bilderboken-rlwE8f8anOc-unsplash.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2366110"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022dv3DeEDNhmKJQTLn7XfHOX5UoLAtfsnapINbDfAw\u002B8o=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:05:03 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/bilderboken-rlwE8f8anOc-unsplash.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\bilderboken-rlwE8f8anOc-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dv3DeEDNhmKJQTLn7XfHOX5UoLAtfsnapINbDfAw\u002B8o="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"2366110"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022dv3DeEDNhmKJQTLn7XfHOX5UoLAtfsnapINbDfAw\u002B8o=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:05:03 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/pics/bread-icon.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\bread-icon.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -840,6 +852,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rr39a2ghym"},{"Name":"integrity","Value":"sha256-qbKWLrZHKQjO/7R1Mb90OauAv8TNKOjvbGF9zMGN1ZI="},{"Name":"label","Value":"_content/Tourism/pics/cart-line-icon.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"14560"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022qbKWLrZHKQjO/7R1Mb90OauAv8TNKOjvbGF9zMGN1ZI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Nov 2025 20:18:58 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/david-vives-ELf8M_YWRTY-unsplash.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\david-vives-ELf8M_YWRTY-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qkItpdRKOqvqXAJFvSpOed2\u002Be6QdavnTjmWPFLXjw/E="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"2097117"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022qkItpdRKOqvqXAJFvSpOed2\u002Be6QdavnTjmWPFLXjw/E=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:36:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/david-vives-ELf8M_YWRTY-unsplash.uq9oyxzr7x.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\david-vives-ELf8M_YWRTY-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"uq9oyxzr7x"},{"Name":"integrity","Value":"sha256-qkItpdRKOqvqXAJFvSpOed2\u002Be6QdavnTjmWPFLXjw/E="},{"Name":"label","Value":"_content/Tourism/pics/david-vives-ELf8M_YWRTY-unsplash.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2097117"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022qkItpdRKOqvqXAJFvSpOed2\u002Be6QdavnTjmWPFLXjw/E=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:36:01 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/pics/health-insurance-icon.ifg7j49rg4.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\health-insurance-icon.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -851,18 +875,6 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7iHv6tOXn8klcmvnUJacWakD8Xc5v3zyuWNqcXy/49Y="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"18538"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00227iHv6tOXn8klcmvnUJacWakD8Xc5v3zyuWNqcXy/49Y=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Nov 2025 20:40:13 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Tourism/pics/hero-background.7l1cs6gwvi.jpg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\hero-background.jpg'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7l1cs6gwvi"},{"Name":"integrity","Value":"sha256-9fi5Ad9m\u002ByeqBnn8z\u002B1jNiT21bEUkPyGO1V3X0fX94U="},{"Name":"label","Value":"_content/Tourism/pics/hero-background.jpg"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"17454"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00229fi5Ad9m\u002ByeqBnn8z\u002B1jNiT21bEUkPyGO1V3X0fX94U=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 22:57:11 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Tourism/pics/hero-background.jpg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\hero-background.jpg'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9fi5Ad9m\u002ByeqBnn8z\u002B1jNiT21bEUkPyGO1V3X0fX94U="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"17454"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00229fi5Ad9m\u002ByeqBnn8z\u002B1jNiT21bEUkPyGO1V3X0fX94U=\u0022"},{"Name":"Last-Modified","Value":"Thu, 20 Nov 2025 22:57:11 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/pics/Hotel.lnnxgca6ep.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\Hotel.png'))</AssetFile>
@@ -888,6 +900,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-C3PjXaiMguYqP49OUbFJlPrg5gDmwgwKYHMiuXEd\u002BIE="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"4199"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022C3PjXaiMguYqP49OUbFJlPrg5gDmwgwKYHMiuXEd\u002BIE=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Nov 2025 20:37:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-wZuRFK8thGXz56/lXJdV7xgs4g7tpo7SXM6tQvZlm0M="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3545698"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022wZuRFK8thGXz56/lXJdV7xgs4g7tpo7SXM6tQvZlm0M=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:20:34 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/lucrezia-carnelos-wQ9VuP_Njr4-unsplash.v0isevviqb.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"v0isevviqb"},{"Name":"integrity","Value":"sha256-wZuRFK8thGXz56/lXJdV7xgs4g7tpo7SXM6tQvZlm0M="},{"Name":"label","Value":"_content/Tourism/pics/lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3545698"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022wZuRFK8thGXz56/lXJdV7xgs4g7tpo7SXM6tQvZlm0M=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:20:34 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/pics/Merchant.52no2735xx.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\Merchant.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -899,6 +923,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Q0fHVN/mS17/OH79Ki9/Aw4iaR03IiT79K1PV4xm4UA="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"18582"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Q0fHVN/mS17/OH79Ki9/Aw4iaR03IiT79K1PV4xm4UA=\u0022"},{"Name":"Last-Modified","Value":"Sat, 01 Nov 2025 17:15:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/michael-rodock-ZsDl4gM69Ms-unsplash.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\michael-rodock-ZsDl4gM69Ms-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-xPVcuq2YCz734tRCn6VwbewVIBKICbx0yHfX99XiUSk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3668621"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022xPVcuq2YCz734tRCn6VwbewVIBKICbx0yHfX99XiUSk=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:12:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/michael-rodock-ZsDl4gM69Ms-unsplash.ke77t3wjmo.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\michael-rodock-ZsDl4gM69Ms-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ke77t3wjmo"},{"Name":"integrity","Value":"sha256-xPVcuq2YCz734tRCn6VwbewVIBKICbx0yHfX99XiUSk="},{"Name":"label","Value":"_content/Tourism/pics/michael-rodock-ZsDl4gM69Ms-unsplash.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3668621"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022xPVcuq2YCz734tRCn6VwbewVIBKICbx0yHfX99XiUSk=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:12:13 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/pics/mobile-icon.4ajm3665g4.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\mobile-icon.png'))</AssetFile>
@@ -1067,6 +1103,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-miyZ9/6XPxS3j0PqcgBDOQ4Nk1CPvcwjvgqqEw6QWjY="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"11196"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022miyZ9/6XPxS3j0PqcgBDOQ4Nk1CPvcwjvgqqEw6QWjY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 08 Nov 2025 20:20:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/zakaria-zayane-0uAVsDcyD0M-unsplash.5kb6d0wd6l.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\zakaria-zayane-0uAVsDcyD0M-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5kb6d0wd6l"},{"Name":"integrity","Value":"sha256-Be222T6ASEtu07tyinKcDxSLophrNayI\u002B9IO760TFt0="},{"Name":"label","Value":"_content/Tourism/pics/zakaria-zayane-0uAVsDcyD0M-unsplash.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5231920"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022Be222T6ASEtu07tyinKcDxSLophrNayI\u002B9IO760TFt0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:05:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Tourism/pics/zakaria-zayane-0uAVsDcyD0M-unsplash.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pics\zakaria-zayane-0uAVsDcyD0M-unsplash.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Be222T6ASEtu07tyinKcDxSLophrNayI\u002B9IO760TFt0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5231920"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022Be222T6ASEtu07tyinKcDxSLophrNayI\u002B9IO760TFt0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Dec 2025 19:05:40 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/Tourism.2sx2ejs3u0.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Tourism.2sx2ejs3u0.bundle.scp.css'))</AssetFile>

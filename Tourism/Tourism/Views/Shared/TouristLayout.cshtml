@@ -82,32 +82,28 @@
             color: #6b21a8;
         }
 
-        /* Wallet Icon */
-        .wallet-icon {
+        .wallet-btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(107, 33, 168, 0.1);
-            border-radius: 50%;
-            color: #6b21a8;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             text-decoration: none;
+            color: #6b21a8;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
-            .wallet-icon:hover {
-                background: rgba(107, 33, 168, 0.2);
-                color: #4b0f6b;
-                transform: scale(1.05);
+            .wallet-btn:hover {
+                background: rgba(107, 33, 168, 0.1);
+                color: #4b0f6b !important;
+                transform: scale(1.02);
             }
 
-            .wallet-icon i {
+            .wallet-btn i {
                 font-size: 1.3rem;
             }
-
-        /* My Booking Link - REMOVED */
-
+       
         .navbar-right a {
             text-decoration: none;
         }
@@ -268,10 +264,10 @@
         </div>
 
         <div class="navbar-right">
-            <!-- Wallet Icon -->
-            <a  asp-action="Balance" asp-controller="Tourist"
-                class="wallet-icon">
+            <!-- Wallet -->
+            <a asp-action="Balance" asp-controller="Tourist" class="wallet-btn">
                 <i class="fas fa-wallet"></i>
+                <span>Balance</span>
             </a>
 
             <!-- User Info -->
@@ -281,7 +277,7 @@
             </div>
 
             <!-- Logout Button -->
-            <button class="logout-btn" onclick="window.location.href='/logout'">
+            <button class="logout-btn" onclick="window.location.href='/tourist/logout'">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
             </button>

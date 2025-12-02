@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Tourism.ViewModel.TableViewModel>
-
+@{
+    Layout = "RestaurantLayout";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +14,11 @@
 
     <style>
         :root {
-            --primary-color: #ff6b6b;
-            --secondary-color: #4ecdc4;
-            --dark-bg: #f7f9fc;
+            --primary-color: #6b21a8;
+            --primary-light: #8b5cf6;
+            --primary-bright: #a78bfa;
+            --secondary-color: #ec4899;
+            --dark-bg: #ffffff;
             --text-color: #2d3436;
         }
 
@@ -23,112 +27,258 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .navbar {
-            background-color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        /* Page Header Section */
+        .page-header {
+            background: linear-gradient(135deg, #6b21a8 0%, #8b5cf6 100%);
+            padding: 2.5rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(107, 33, 168, 0.15);
         }
 
-        .navbar-brand {
-            font-weight: 600;
-            color: var(--primary-color) !important;
-            font-size: 1.5rem;
+        .page-title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .table-card {
-            border-radius: 15px;
-            background: white;
-            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            margin-bottom: 20px;
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
         }
 
-            .table-card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 12px 28px rgba(255,107,107,0.18);
-                border-color: var(--primary-color);
-            }
-
-        .info-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--text-color);
-        }
-
-        .info-text {
-            font-size: .95rem;
-            color: #555;
-        }
-
-        .price-tag {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .book-btn {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            background-color: transparent;
-            font-weight: 600;
-            border-radius: 8px;
-            padding: 6px 12px;
-            transition: .3s ease;
-            text-decoration: none;
-        }
-
-            .book-btn:hover {
-                background-color: var(--primary-color);
-                color: white;
-            }
-
+        /* Back Button */
         .back-btn {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+            border: 2px solid white;
+            color: white;
             background-color: transparent;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 12px;
             text-decoration: none;
-            transition: .3s ease;
+            transition: all .3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
             .back-btn:hover {
-                background-color: var(--primary-color);
-                color: white;
+                background-color: white;
+                color: var(--primary-color);
             }
 
-        .disabled-book-btn {
-            border: 2px solid #888;
-            color: #888;
-            background-color: transparent;
+        /* Table Cards */
+        .table-card {
+            border-radius: 20px;
+            background: white;
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+            border: 2px solid #f3f4f6;
+            cursor: pointer;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .table-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15);
+                border-color: var(--primary-color);
+            }
+
+        /* Table Icon */
+        .table-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            color: rgba(107, 33, 168, 0.1);
+        }
+
+        .info-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            font-size: 1.05rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-badge {
+            background: linear-gradient(135deg, rgba(107, 33, 168, 0.1), rgba(139, 92, 246, 0.1));
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.95rem;
             font-weight: 600;
-            border-radius: 8px;
-            padding: 6px 12px;
-            cursor: not-allowed;
-            transition: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        /* Book Button (Now an Anchor Tag) */
+        .book-link {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 12px 24px;
+            transition: all .3s ease;
+            text-decoration: none;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+            .book-link:hover {
+                background: linear-gradient(135deg, #581c87, var(--primary-color));
+                color: white;
+                transform: scale(1.02);
+            }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+            .empty-state i {
+                font-size: 4rem;
+                color: #d1d5db;
+                margin-bottom: 1rem;
+            }
+
+            .empty-state h3 {
+                color: #6b7280;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            .empty-state p {
+                color: #9ca3af;
+            }
+
+        /* Container Styling */
+        .tables-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Bottom Action Bar */
+        .bottom-action {
+            position: sticky;
+            bottom: 20px;
+            text-align: center;
+            margin-top: 3rem;
+            z-index: 100;
+        }
+
+        .bottom-back-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 25px rgba(107, 33, 168, 0.3);
+            transition: all 0.3s ease;
+        }
+
+            .bottom-back-btn:hover {
+                background: linear-gradient(135deg, #581c87, var(--primary-color));
+                color: white;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 35px rgba(107, 33, 168, 0.4);
+            }
+
+        @@media (max-width: 768px) {
+            .page-header
+
+        {
+            padding: 1.5rem 0;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+        }
+
+        .header-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .back-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .table-card {
+            min-height: 200px;
+        }
+
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand">
-                <i class="fas fa-chair me-2"></i>Available Tables
-            </a>
+    <div class="page-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <h1 class="page-title">
+                    <i class="fas fa-chair"></i>
+                    Available Tables
+                </h1>
+                <div class="header-actions">
+                  
+                </div>
+            </div>
         </div>
-    </nav>
+    </div>
 
-    <div class="container mt-4">
-        <div class="row g-3">
+    <div class="tables-container">
+        <div class="row g-4">
 
             @if (Model == null || !Model.Any())
             {
-                <div class="alert alert-warning text-center w-100 mt-4" style="background-color: transparent; color:dimgrey; border: none;">
-                    No available tables.
+                <div class="col-12">
+                    <div class="empty-state">
+                        <i class="fas fa-chair"></i>
+                        <h3>No Available Tables</h3>
+                        <p>All tables are currently unavailable.</p>
+                    </div>
                 </div>
             }
             else
@@ -136,45 +286,46 @@
                 foreach (var t in Model)
                 {
                     <div class="col-12 col-md-6 col-lg-4">
-                        @{
-                            // This Razor block will now correctly read the IsInCart property set by the Controller
-                            string buttonText = t.IsInCart ? "Already Booked" : "Book Now";
-                            string buttonClass = t.IsInCart ? "disabled-book-btn" : "book-btn add-to-table-cart";
-                            bool isDisabled = t.IsInCart;
-                            string iconClass = t.IsInCart ? "fas fa-check-circle" : "fas fa-calendar-check";
-                            string buttonStyle = t.IsInCart ? "border-color: #888; color: #888; cursor: not-allowed;" : "";
-                        }
-                        <div class="table-card p-3 shadow-sm">
+                        <div class="table-card p-4 shadow-sm">
 
-                            <div class="info-title mb-1">Table #@t.number</div>
+                            <i class="fas fa-chair table-icon"></i>
 
-                            <div class="info-text">Seats: @t.numberOfPersons persons</div>
+                            <div class="info-title">Table #@t.number</div>
 
-                            <div class="price-tag mt-2">$ @t.bookingPrice</div>
+                            <div class="info-badge">
+                                <i class="fas fa-users"></i>
+                                @t.numberOfPersons Persons
+                            </div>
 
-                            <button class="@buttonClass mt-3" data-table-id="@t.id" @(isDisabled ? "disabled" : "") style="@buttonStyle">
-                                <i class="@iconClass me-1"></i>@buttonText
-                            </button>
+                            <div class="price-tag">
+                                $@t.bookingPrice
+                            </div>
+
+                            <a class="book-link"
+                               asp-action="BookTable"
+                               asp-controller="Tourist"
+                               asp-route-tableId="@t.id">
+                                <i class="fas fa-calendar-check"></i>
+                                Book Now
+                            </a>
 
                         </div>
                     </div>
                 }
             }
 
-            <div class="ms-auto">
-                <a class="back-btn" asp-action="ViewMenu" asp-controller="Tourist" asp-route-restaurantId="@ViewBag.RestaurantId">Back</a>
-            </div>
-
         </div>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="bottom-action">
+                <a class="bottom-back-btn" asp-action="ViewMenu" asp-controller="Tourist" asp-route-restaurantId="@ViewBag.RestaurantId">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Menu
+                </a>
+            </div>
+        }
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.book-btn').on('click', function () {
-                var tableId = $(this).data('table-id');
-                window.location.href = '/Tourist/BookTable?tableId=' + tableId;
-            });
-        });
-    </script>
+
 </body>
 </html>

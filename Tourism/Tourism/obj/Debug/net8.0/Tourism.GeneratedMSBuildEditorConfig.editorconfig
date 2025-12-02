@@ -17,377 +17,381 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Tourism
 build_property.RootNamespace = Tourism
-build_property.ProjectDir = C:\Users\MAS\Desktop\TourismProject\Tourism\Tourism\
+build_property.ProjectDir = C:\Users\MAS\Desktop\TourismProject\Tourism_Website_Graduation_Project_DEPI\Tourism\Tourism\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\MAS\Desktop\TourismProject\Tourism\Tourism
+build_property.MSBuildProjectDirectory = C:\Users\MAS\Desktop\TourismProject\Tourism_Website_Graduation_Project_DEPI\Tourism\Tourism
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/AdminDashboard.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/AdminDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5EYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/Login.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/ServiceRequests.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/ServiceRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljZVJlcXVlc3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/ShowOrders.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/ShowOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2hvd09yZGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/VerificationRequests.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/VerificationRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmVyaWZpY2F0aW9uUmVxdWVzdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/ViewMeal.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/ViewMeal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld01lYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/ViewProduct.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/ViewProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld1Byb2R1Y3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Admin/ViewRoomServiceRequest.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Admin/ViewRoomServiceRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld1Jvb21TZXJ2aWNlUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/AbuSimbelTemples.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/AbuSimbelTemples.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEFidVNpbWJlbFRlbXBsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/AlexandriaCorniche.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/AlexandriaCorniche.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEFsZXhhbmRyaWFDb3JuaWNoZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/CairoDowntown.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/CairoDowntown.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENhaXJvRG93bnRvd24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/CitadelOfSaladin.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/CitadelOfSaladin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENpdGFkZWxPZlNhbGFkaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/ColoredCanyon.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/ColoredCanyon.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENvbG9yZWRDYW55b24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/DakhlaOasis.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/DakhlaOasis.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXERha2hsYU9hc2lzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/EgyptianMuseum.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/EgyptianMuseum.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEVneXB0aWFuTXVzZXVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/ElGouna.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/ElGouna.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEVsR291bmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/Gem.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/Gem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEdlbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/HelwanSulfurSprings.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/HelwanSulfurSprings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEhlbHdhblN1bGZ1clNwcmluZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/Hurghada.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/Hurghada.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEh1cmdoYWRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/Index.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/KarnakTemple.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/KarnakTemple.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEthcm5ha1RlbXBsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/KhanElKhalili.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/KhanElKhalili.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEtoYW5FbEtoYWxpbGkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/KhargaOasis.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/KhargaOasis.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEtoYXJnYU9hc2lzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/LuxorTemple.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/LuxorTemple.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEx1eG9yVGVtcGxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/MountSinai.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/MountSinai.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXE1vdW50U2luYWkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/NewAdministrativeCapital.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/NewAdministrativeCapital.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXE5ld0FkbWluaXN0cmF0aXZlQ2FwaXRhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/Pyramids.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/Pyramids.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFB5cmFtaWRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/Safaga.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/Safaga.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFNhZmFnYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/SharmElSheikh.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/SharmElSheikh.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFNoYXJtRWxTaGVpa2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/SiwaOasis.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/SiwaOasis.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFNpd2FPYXNpcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/TunisVillage.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/TunisVillage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFR1bmlzVmlsbGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/ValleyOfTheKings.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/ValleyOfTheKings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFZhbGxleU9mVGhlS2luZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Destinations/WhiteDesert.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Destinations/WhiteDesert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXFdoaXRlRGVzZXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Home/Index.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Home/Privacy.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/AddRoom.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/AddRoom.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcQWRkUm9vbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/EditRoom.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/EditRoom.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcRWRpdFJvb20uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/GuestBookings.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/GuestBookings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcR3Vlc3RCb29raW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/HotelDashboard.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/HotelDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSG90ZWxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/Login.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/ShowRooms.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/ShowRooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcU2hvd1Jvb21zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Hotel/SignUp.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Hotel/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/AddProduct.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/AddProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcQWRkUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/EditProduct.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/EditProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcRWRpdFByb2R1Y3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/Login.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/MerchantDashboard.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/MerchantDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcTWVyY2hhbnREYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/SendVerificationRequest.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/SendVerificationRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcU2VuZFZlcmlmaWNhdGlvblJlcXVlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/ShowOrders.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/ShowOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcU2hvd09yZGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/ShowProducts.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/ShowProducts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcU2hvd1Byb2R1Y3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Merchant/SignUp.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Merchant/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyY2hhbnRcU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/AddMeal.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/AddMeal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxBZGRNZWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/AddTable.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/AddTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxBZGRUYWJsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/BookedTables.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/BookedTables.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxCb29rZWRUYWJsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/EditMeal.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/EditMeal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxFZGl0TWVhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/EditTable.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/EditTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxFZGl0VGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/Login.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/RestaurantDashboard.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/RestaurantDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxSZXN0YXVyYW50RGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/SendVerificationRequest.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/SendVerificationRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxTZW5kVmVyaWZpY2F0aW9uUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/ShowMeals.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/ShowMeals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxTaG93TWVhbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/ShowTables.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/ShowTables.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxTaG93VGFibGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Restaurant/SignUp.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Restaurant/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGF1cmFudFxTaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/EcommerceLayout.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/EcommerceLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVjb21tZXJjZUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/Error.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/HotelLayOut.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/HotelLayOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhvdGVsTGF5T3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/TouristHotelLayout.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/RestaurantLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlc3RhdXJhbnRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/TouristHotelLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFRvdXJpc3RIb3RlbExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/TouristLayout.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/TouristLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFRvdXJpc3RMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/Balance.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/Balance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxCYWxhbmNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/BookingHistory.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/BookingHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxCb29raW5nSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/BookTable.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/BookTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxCb29rVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/EcommerceHomePage.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/EcommerceHomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxFY29tbWVyY2VIb21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/Login.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/MyRoomBookings.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/MyRoomBookings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxNeVJvb21Cb29raW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ProceedToCheckout.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ProceedToCheckout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxQcm9jZWVkVG9DaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/RestaurantHomePage.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/RestaurantHomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxSZXN0YXVyYW50SG9tZVBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ShowAllHotels.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ShowAllHotels.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxTaG93QWxsSG90ZWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ShowAvailableRooms.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ShowAvailableRooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxTaG93QXZhaWxhYmxlUm9vbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ShowOrders.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ShowOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxTaG93T3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ShowProductsByCategory.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ShowProductsByCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxTaG93UHJvZHVjdHNCeUNhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ShowProductsBySearch.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ShowProductsBySearch.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxTaG93UHJvZHVjdHNCeVNlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/SignUp.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxTaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/TouristMain.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/TouristMain.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxUb3VyaXN0TWFpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ViewCart.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ViewCart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxWaWV3Q2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ViewHotelDetail.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ViewHotelDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxWaWV3SG90ZWxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ViewMenu.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ViewMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxWaWV3TWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ViewProduct.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ViewProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxWaWV3UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/ViewTables.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/ViewTables.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxWaWV3VGFibGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Tourist/_RestaurantsListPartialView.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Tourist/_RestaurantsListPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cmlzdFxfUmVzdGF1cmFudHNMaXN0UGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/_ViewImports.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/_ViewStart.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MAS/Desktop/TourismProject/Tourism/Tourism/Views/Shared/_Layout.cshtml]
+[C:/Users/MAS/Desktop/TourismProject/Tourism_Website_Graduation_Project_DEPI/Tourism/Tourism/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-rgvrmb8879

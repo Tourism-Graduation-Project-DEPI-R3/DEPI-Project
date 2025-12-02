@@ -2,10 +2,12 @@
 @using Microsoft.AspNetCore.Mvc.Rendering
 @model List<Tourism.Models.Hotel>
 @using System.Security.Claims
-
+@{
+    Layout = "TouristHotelLayout";
+}
 @{
     ViewData["Title"] = "Explore All Hotels";
-    Layout = null;
+   
 
     ViewData["GovernorateList"] = new List<SelectListItem>
     {
@@ -71,179 +73,7 @@
             flex-direction: column;
         }
 
-        /* Navbar */
-        .navbar-custom {
-            background: #ffffff;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .burger-btn {
-            background: none;
-            border: none;
-            color: #000000;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-            .burger-btn:hover {
-                color: var(--primary-color);
-            }
-
-        .navbar-brand {
-            color: var(--primary-color) !important;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-            .navbar-brand i {
-                color: var(--primary-color) !important;
-            }
-
-        .navbar-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            color: #000000;
-        }
-
-        .balance-display {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 10px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(147, 112, 219, 0.3);
-        }
-
-            .balance-display i {
-                font-size: 1.2rem;
-            }
-
-        .balance-amount {
-            font-size: 1.1rem;
-        }
-
-        .bookings-btn {
-            background: none;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 10px;
-            text-decoration: none;
-        }
-
-            .bookings-btn:hover {
-                background: var(--primary-color);
-                color: white;
-            }
-
-            .bookings-btn i {
-                font-size: 1.1rem;
-            }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #000;
-            font-weight: 500;
-        }
-
-            .user-info i {
-                font-size: 1.3rem;
-                color: #000;
-            }
-
-        .logout-btn {
-            background: none;
-            border: none;
-            color: #ef4444 !important;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-            .logout-btn:hover {
-                background: rgba(239, 68, 68, 0.1);
-                color: #dc2626 !important;
-            }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 73px;
-            width: 250px;
-            height: calc(100vh - 73px);
-            background: #ffffff;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-            padding: 2rem 0;
-            overflow-y: auto;
-            z-index: 999;
-            transition: transform 0.3s ease;
-        }
-
-            .sidebar.closed {
-                transform: translateX(-100%);
-            }
-
-        .sidebar-item {
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: #000000;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-            font-weight: 500;
-        }
-
-            .sidebar-item:hover,
-            .sidebar-item.active {
-                background: #f3f4f6;
-                color: var(--primary-color);
-                border-left-color: var(--primary-color);
-            }
-
-            .sidebar-item i {
-                font-size: 1.3rem;
-                width: 25px;
-            }
+     
 
         /* Main Content */
         .main-content {
@@ -400,28 +230,7 @@
             font-weight: 500;
         }
 
-        /* Footer */
-        .site-footer {
-            background-color: #000 !important;
-            color: #fff !important;
-            width: 100%;
-            padding: 40px 0;
-            margin-left: 250px;
-            transition: margin-left 0.3s ease;
-        }
-
-            .site-footer.expanded {
-                margin-left: 0;
-            }
-
-            .site-footer a {
-                color: #fff !important;
-                text-decoration: none;
-            }
-
-                .site-footer a:hover {
-                    color: var(--primary-color) !important;
-                }
+       
 
         /* Responsive */
         @@media (max-width: 992px) {
@@ -472,54 +281,7 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar-custom">
-        <div class="navbar-left">
-            <button class="burger-btn" onclick="toggleSidebar()">
-                <i class="fas fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="/">
-                <i class="bi bi-compass"></i>
-                Tourism
-            </a>
-        </div>
-
-        <div class="navbar-right">
-            <!-- Balance Display -->
-            <div class="balance-display">
-                <i class="fas fa-wallet"></i>
-                <span class="balance-amount">$1,250.00</span>
-            </div>
-
-            <!-- My Bookings Button -->
-            <a href="/tourist/MyRoomBookings" class="bookings-btn">
-                <i class="fas fa-calendar-check"></i>
-                <span>My Bookings</span>
-            </a>
-
-            <!-- User Info -->
-            <div class="user-info">
-                <i class="fas fa-user-circle"></i>
-                <span>@User.FindFirst(ClaimTypes.Name)?.Value</span>
-            </div>
-
-            <!-- Logout Button -->
-            <button class="logout-btn" onclick="window.location.href='tourist/logout'">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Sidebar -->
-    <aside class="sidebar closed" id="sidebar">
-        <a href="/" class="sidebar-item active"><i class="fas fa-home"></i> <span>HOME</span></a>
-        <a href="/tourist/EcommerceHomePage" class="sidebar-item"><i class="fas fa-shopping-cart"></i> <span>ECOMMERCE</span></a>
-        <a href="/tourist/showrestaurants" class="sidebar-item"><i class="fas fa-utensils"></i> <span>RESTAURANTS</span></a>
-        <a href="/tourist/showallhotels" class="sidebar-item"><i class="fas fa-hotel"></i> <span>HOTELS</span></a>
-        <a href="/destinations/index" class="sidebar-item"><i class="fas fa-compass"></i> <span>EXPLORE</span></a>
-        <a href="/tourist/MyRoomBookings" class="sidebar-item"><i class="fas fa-calendar-check"></i> <span>MY BOOKING</span></a>
-    </aside>
+   
 
     <!-- Main Content -->
     <main class="main-content expanded" id="mainContent">
@@ -620,40 +382,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer expanded" id="footer">
-        <div class="container py-4">
-            <div class="row text-white">
-                <div class="col-md-4 mb-3">
-                    <h5><i class="bi bi-compass me-2"></i>Tourism</h5>
-                    <p>Your one-stop destination for all travel essentials and local experiences!</p>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="/"><i class="bi bi-house me-2"></i>Home</a></li>
-                        <li><a href="/ecommerce"><i class="bi bi-shop me-2"></i>Shop</a></li>
-                        <li><a href="/orders"><i class="bi bi-bag-check me-2"></i>Orders</a></li>
-                        <li><a href="/contact"><i class="bi bi-envelope me-2"></i>Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <h5>Follow Us</h5>
-                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i> Facebook</a><br>
-                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i> Twitter</a><br>
-                    <a href="#" class="text-white"><i class="bi bi-instagram"></i> Instagram</a>
-                </div>
-            </div>
-
-            <hr class="bg-light" />
-
-            <div class="text-center text-white">
-                &copy; @DateTime.Now.Year Tourism. All rights reserved.
-            </div>
-        </div>
-    </footer>
 
     <script>
         function toggleSidebar() {

@@ -471,6 +471,11 @@ namespace Tourism.Controllers
             _adminRepository.ShipProduct(orderId);
         }
 
+        public IActionResult RefreshTransactions()
+        {
+            _adminRepository.RefreshEcommerceTransactions();
+            return RedirectToAction("AdminDashboard");
+        }
 
 
         //////////////////

@@ -79,16 +79,19 @@ namespace Tourism.Repository
         }
         public void transaction(CreditCard cardfromrequest, decimal money, string operation, int id)
         {
+            var mainCC = _context.CreditCards.Find("00000000000000");
             var tourist = _context.Tourists.FirstOrDefault(t => t.id == id);
             if (operation == "withdraw")
             {
                 cardfromrequest.Balance += money;
                 tourist.balance -= (double)money;
+                mainCC.Balance -= money;
             }
             else
             {
                 cardfromrequest.Balance -= money;
                 tourist.balance += (double)money;
+                mainCC.Balance += money;
             }
             _context.SaveChanges();
         }

@@ -66,13 +66,16 @@ wwwroot\pics\addProduct.png
 wwwroot\pics\art-icon.png
 wwwroot\pics\ball-football-icon.png
 wwwroot\pics\bicycle-icon.png
+wwwroot\pics\bilderboken-rlwE8f8anOc-unsplash.jpg
 wwwroot\pics\bread-icon.png
 wwwroot\pics\cart-line-icon.png
+wwwroot\pics\david-vives-ELf8M_YWRTY-unsplash.jpg
 wwwroot\pics\health-insurance-icon.png
-wwwroot\pics\hero-background.jpg
 wwwroot\pics\Hotel.png
 wwwroot\pics\laptop-icon.png
+wwwroot\pics\lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg
 wwwroot\pics\Merchant.png
+wwwroot\pics\michael-rodock-ZsDl4gM69Ms-unsplash.jpg
 wwwroot\pics\mobile-icon.png
 wwwroot\pics\necklace-jewellery-icon.png
 wwwroot\pics\orders.png
@@ -87,3 +90,4 @@ wwwroot\pics\TourGuide.png
 wwwroot\pics\Tourist.png
 wwwroot\pics\tourist-bag-icon.png
 wwwroot\pics\woman-shirt-icon.png
+wwwroot\pics\zakaria-zayane-0uAVsDcyD0M-unsplash.jpg

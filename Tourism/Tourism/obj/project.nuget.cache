@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m5XzEiu1j8E=",
+  "dgSpecHash": "LMtPEhPqZlU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism\\Tourism\\Tourism.csproj",
+  "projectFilePath": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\Tourism.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MAS\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\MAS\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

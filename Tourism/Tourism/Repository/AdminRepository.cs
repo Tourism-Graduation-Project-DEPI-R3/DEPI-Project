@@ -189,27 +189,57 @@ namespace Tourism.Repository
 
         public void RefreshEcommerceTransactions()
         {
-            List<TouristProduct> orders = _context.TouristProducts.Where(tp=>tp.funded==false && (DateTime.Today - tp.arrivalDate.Value).Days > 14).ToList();
+            // 1. Calculate the cutoff date in C# (14 days ago).
+            // This part is calculated locally.
+            DateTime cutoffDate = DateTime.Today.AddDays(-14);
+
+            // 2. Rewrite the LINQ query to compare the database date 
+            //    against the C# cutoffDate. EF Core can translate this.
+            List<TouristProduct> orders = _context.TouristProducts
+                .Where(tp => tp.funded == false && tp.arrivalDate.HasValue && tp.arrivalDate.Value < cutoffDate)
+                .ToList();
+
+            // Check if the central credit card exists before proceeding
             var cc = _context.CreditCards.Find("00000000000000");
-            foreach(var tp in orders){
+
+            if (cc == null)
+            {
+                // Handle case where central credit card is not found
+                // Perhaps log an error or throw an exception
+                return;
+            }
+
+            // Existing logic for processing orders
+            foreach (var tp in orders)
+            {
+                // Null checks for related entities are highly recommended here
                 var tourist = _context.Tourists.Find(tp.touristId);
                 var product = _context.Products.Find(tp.productId);
+
+                // Ensure product and merchant exist before funding
+                if (product == null) continue;
+
                 var merchant = _context.Merchants.Find(product.merchantId);
+
+                if (merchant?.creditCard == null) continue; // Must have a credit card to receive funds
+
+                // The original calculation is correct
                 decimal cost = (decimal)product.price * (decimal)(1 - product.offer / 100) * tp.amount;
+
                 merchant.creditCard.Balance += cost;
                 cc.Balance -= cost;
                 tp.funded = true;
+
                 var msg = new InboxMsg
                 {
                     providerType = "Merchant",
-                    content = $"The transaction for Order (Product: {product.name}, Amount: {tp.amount}, Customer: {tourist.firstName}) has been completed successfully.",
+                    content = $"The transaction for Order (Product: {product.name}, Amount: {tp.amount}, Customer: {tourist?.firstName ?? "Unknown"}) has been completed successfully.",
                     providerId = tp.product.merchantId,
                     date = DateTime.Now
                 };
                 _context.InboxMsgs.Add(msg);
             }
             _context.SaveChanges();
-
         }
     }
 }

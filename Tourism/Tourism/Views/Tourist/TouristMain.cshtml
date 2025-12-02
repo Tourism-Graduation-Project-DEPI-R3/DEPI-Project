@@ -25,10 +25,10 @@
             flex-direction: column;
         }
 
-        /* MAIN CONTENT FIXED: no left margin */
+        /* MAIN CONTENT MODIFIED */
         .main-content {
             margin-left: 0 !important;
-            padding: 2rem;
+            padding: 0 0 2rem 0; /* REMOVED TOP PADDING */
             flex: 1;
             transition: all 0.3s ease;
         }
@@ -38,32 +38,75 @@
                 margin-left: 0 !important;
             }
 
-        /* WELCOME SECTION */
-        .welcome-section {
-            background: linear-gradient(135deg, #6b21a8 0%, #8b5cf6 100%);
-            color: #ffffff;
-            padding: 3rem 2rem;
-            border-radius: 20px;
+        /* --- HERO SECTION STYLES --- */
+        .hero-section {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
             margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(107, 33, 168, 0.2);
+            /* Ensures it spans full width of its parent */
+            width: 100%;
         }
 
-            .welcome-section h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
+        /* Adjusted for image tag use */
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+            .hero-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Ensures the image covers the area */
             }
 
-            .welcome-section p {
-                font-size: 1.2rem;
-                opacity: 0.95;
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            /* Dark gradient overlay for text contrast */
+           
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 4rem;
+            color: white;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+                font-weight: 900;
+                margin-bottom: 0.5rem;
+                /* HIGHLIGHTED FONT STYLE */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 4px 15px rgba(0, 0, 0, 0.7);
             }
 
-        /* INFO SECTIONS */
+            .hero-content p {
+                font-size: 1.5rem;
+                font-weight: 400;
+                opacity: 1;
+                /* HIGHLIGHTED FONT STYLE */
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+            }
+        /* --- END HERO SECTION STYLES --- */
+
+        /* INFO SECTIONS - Retaining interior horizontal padding */
         .info-section {
             display: flex;
             gap: 2rem;
             margin-bottom: 3rem;
             align-items: center;
+            padding: 0 2rem;
         }
 
             .info-section:nth-child(even) {
@@ -98,9 +141,10 @@
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
 
-        /* EXPLORE SECTION */
+        /* EXPLORE SECTION - Retaining interior horizontal padding */
         .explore-section {
             margin: 4rem 0 2rem;
+            padding: 0 2rem;
         }
 
         .section-title {
@@ -164,69 +208,88 @@
             color: #6b7280;
             font-size: 0.95rem;
         }
+
+        /* Media query for smaller screens to adjust padding */
+        @@media (max-width: 768px) {
+            .hero-content {
+                padding: 0 2rem;
+            }
+
+            .info-section, .explore-section {
+                padding: 0 1rem;
+                flex-direction: column;
+            }
+
+                .info-section:nth-child(even) {
+                    flex-direction: column; /* Resetting row-reverse on mobile */
+                }
+        }
     </style>
 </head>
 
 <body>
 
     <main class="main-content expanded">
-        <div class="welcome-section">
-            <h1>Welcome Back, @User.FindFirst(ClaimTypes.Name)?.Value!</h1>
-            <p>Ready to discover new adventures...</p>
+
+        <div class="hero-section">
+            <div class="hero-image">
+                <img src="~/pics/david-vives-ELf8M_YWRTY-unsplash.jpg"
+                     alt="Cover photo of a scenic travel destination with mountains and a lake">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Welcome Back, @User.FindFirst(ClaimTypes.Name)?.Value!</h1>
+                <p>Start planning your next great adventure right here.</p>
+            </div>
         </div>
 
-        <!-- Info Section 1 -->
         <div class="info-section">
             <div class="info-content">
-                <h2>Discover Local Treasures</h2>
-                <p>Immerse yourself in authentic local experiences...</p>
+                <h2>Premier Hotel Bookings</h2>
+                <p>Explore a curated selection of accommodations, from luxury resorts to budget-friendly stays. Our seamless booking system ensures you find and secure your perfect rest, tailored to your travel needs and preferences.</p>
             </div>
             <div class="info-image">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop">
+                <img src="~/pics/bilderboken-rlwE8f8anOc-unsplash.jpg" alt="A hotel room or building exterior.">
             </div>
         </div>
 
-        <!-- Info Section 2 -->
         <div class="info-section">
             <div class="info-content">
-                <h2>Savor Culinary Delights</h2>
-                <p>Experience the flavors of your destination...</p>
+                <h2>Reserve Culinary Experiences</h2>
+                <p>Discover the finest local and international restaurants. Easily browse menus, check availability, and instantly book tables, ensuring you savor the best gastronomic delights your destination has to offer.</p>
             </div>
             <div class="info-image">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop">
+                <img src="~/pics/zakaria-zayane-0uAVsDcyD0M-unsplash.jpg" alt="A professional restaurant interior or dish.">
             </div>
         </div>
 
-        <!-- Info Section 3 -->
         <div class="info-section">
             <div class="info-content">
-                <h2>Rest in Comfort</h2>
-                <p>Find your perfect home away from home...</p>
+                <h2>Curated Local Marketplace</h2>
+                <p>Explore our exclusive online store for authentic local products, unique souvenirs, and all your travel essentials. Support local businesses while finding everything you need for your trip.</p>
             </div>
             <div class="info-image">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop">
+                <img src="~/pics/lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg" alt="A shopping street or product display.">
             </div>
         </div>
 
-        <!-- Info Section 4 -->
         <div class="info-section">
             <div class="info-content">
-                <h2>Navigate with Ease</h2>
-                <p>Never get lost in a new city again...</p>
+                <h2>Effortless Destination Navigation</h2>
+                <p>Utilize integrated mapping and location services to navigate new surroundings with confidence. Get directions, identify points of interest, and plan your routes efficiently to maximize your exploration time.</p>
             </div>
             <div class="info-image">
-                <img src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=600&h=400&fit=crop">
+                <img src="~/pics/michael-rodock-ZsDl4gM69Ms-unsplash.jpg" alt="A map or navigation graphic on a phone.">
             </div>
         </div>
 
-        <!-- Explore Section -->
         <section class="explore-section">
             <h2 class="section-title">Let's Explore</h2>
 
             <div class="explore-cards">
                 <a href="/tourist/EcommerceHomePage" class="explore-card">
                     <div class="explore-icon"><i class="fas fa-shopping-bag"></i></div>
-                    <h3>Ecommerce</h3>
+                    <h3>Store</h3>
                     <p>Shop local products and souvenirs</p>
                 </a>
 

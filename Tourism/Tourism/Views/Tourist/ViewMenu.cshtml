@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Tourism.ViewModel.MealViewModel>
-
+@{
+    Layout = "RestaurantLayout";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +14,11 @@
 
     <style>
         :root {
-            --primary-color: #ff6b6b;
-            --secondary-color: #4ecdc4;
-            --dark-bg: #f7f9fc;
+            --primary-color: #6b21a8;
+            --primary-light: #8b5cf6;
+            --primary-bright: #a78bfa;
+            --secondary-color: #ec4899;
+            --dark-bg: #ffffff;
             --text-color: #2d3436;
         }
 
@@ -23,39 +27,97 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navbar */
-        .navbar {
-            background-color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        /* Page Header Section */
+        .page-header {
+            background: linear-gradient(135deg, #6b21a8 0%, #8b5cf6 100%);
+            padding: 2.5rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(107, 33, 168, 0.15);
         }
 
-        .navbar-brand {
+        .page-title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Book Table Button */
+        .book-table-btn {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
             font-weight: 600;
-            color: var(--primary-color) !important;
-            font-size: 1.5rem;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
         }
 
+            .book-table-btn:hover {
+                background: rgba(255, 255, 255, 0.95);
+                color: var(--primary-color);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+            }
+
+        /* Back Button */
+        .back-btn {
+            border: 2px solid white;
+            color: white;
+            background-color: transparent;
+            padding: 10px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all .3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+            .back-btn:hover {
+                background-color: white;
+                color: var(--primary-color);
+            }
+
+        /* Menu Cards */
         .menu-card {
-            border-radius: 15px;
+            border-radius: 20px;
             background: white;
             transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-            border: 2px solid transparent;
+            border: 2px solid #f3f4f6;
             cursor: pointer;
             margin-bottom: 20px;
+            overflow: hidden;
         }
 
             .menu-card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 12px 28px rgba(255,107,107,0.18);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15);
                 border-color: var(--primary-color);
             }
 
         .meal-img {
-            width: 150px;
-            height: 120px;
+            width: 160px;
+            height: 140px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 15px;
             transition: .3s ease;
         }
 
@@ -64,94 +126,207 @@
         }
 
         .meal-name {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-color);
+            margin-bottom: 0.5rem;
         }
 
         .meal-desc {
-            font-size: .95rem;
-            color: #555;
+            font-size: 1rem;
+            color: #6b7280;
+            line-height: 1.5;
         }
 
         .price-tag {
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(107, 33, 168, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 12px 24px;
+            border-radius: 12px;
+            display: inline-block;
         }
 
-        .back-btn {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            background-color: transparent;
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all .3s ease;
-            font-weight: 600;
-            font-size: 1rem;
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
         }
 
-            .back-btn:hover {
-                background-color: var(--primary-color);
-                color: white;
+            .empty-state i {
+                font-size: 4rem;
+                color: #d1d5db;
+                margin-bottom: 1rem;
             }
+
+            .empty-state h3 {
+                color: #6b7280;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            .empty-state p {
+                color: #9ca3af;
+            }
+
+        /* Container Styling */
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Bottom Action Bar */
+        .bottom-action {
+            position: sticky;
+            bottom: 20px;
+            text-align: center;
+            margin-top: 3rem;
+            z-index: 100;
+        }
+
+        .bottom-back-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 25px rgba(107, 33, 168, 0.3);
+            transition: all 0.3s ease;
+        }
+
+            .bottom-back-btn:hover {
+                background: linear-gradient(135deg, #581c87, var(--primary-color));
+                color: white;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 35px rgba(107, 33, 168, 0.4);
+            }
+
+        @@media (max-width: 768px) {
+            .page-header
+
+        {
+            padding: 1.5rem 0;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+        }
+
+        .header-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .book-table-btn,
+        .back-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .meal-img {
+            width: 120px;
+            height: 100px;
+        }
+
+        .menu-card {
+            flex-direction: column !important;
+            text-align: center;
+        }
+
+            .menu-card .meal-img {
+                margin: 0 auto 1rem !important;
+            }
+
+        .price-tag {
+            margin-top: 1rem;
+        }
+
+        }
     </style>
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-book-open me-2"></i>Menu
-            </a>
-
-            <div class="ms-auto">
-                <a class="back-btn" asp-action="ViewTables" asp-controller="Tourist" asp-route-restaurantId="@ViewBag.RestaurantId">Book a Table</a>
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <h1 class="page-title">
+                    <i class="fas fa-utensils"></i>
+                    Restaurant Menu
+                </h1>
+                <div class="header-actions">
+                    <a class="book-table-btn" asp-action="ViewTables" asp-controller="Tourist" asp-route-restaurantId="@ViewBag.RestaurantId">
+                        <i class="fas fa-calendar-check"></i>
+                        Book a Table
+                    </a>
+                  
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <div class="container mt-4">
-        <div class="row g-3">
-             @if (Model == null || !Model.Any())
-        {
-                <div class="alert alert-warning text-center w-100 mt-4" style="background-color: transparent; color:dimgrey; border: none;">
-                No Meals available at the moment.
+    <!-- Menu Content -->
+    <div class="menu-container">
+        <div class="row g-4">
+            @if (Model == null || !Model.Any())
+            {
+                <div class="col-12">
+                    <div class="empty-state">
+                        <i class="fas fa-bowl-food"></i>
+                        <h3>No Meals Available</h3>
+                        <p>The menu is currently empty. Please check back later!</p>
+                    </div>
                 </div>
             }
             else
             {
                 @foreach (var m in Model)
                 {
-                    <div class="menu-card d-flex align-items-center p-3 shadow-sm">
+                    <div class="col-12">
+                        <div class="menu-card d-flex align-items-center p-4 shadow-sm">
 
-                    <!-- Meal Image -->
-                    <img src="@(m.ImageBytes != null
-                                                           ? "data:image/jpeg;base64," + Convert.ToBase64String(m.ImageBytes)
-                                                           : "/images/default-meal.png")"
-                     class="meal-img me-3" />
+                            <!-- Meal Image -->
+                            <img src="@(m.ImageBytes != null ? "data:image/jpeg;base64," + Convert.ToBase64String(m.ImageBytes) : "/images/default-meal.png")"
+                                 class="meal-img me-4" alt="@m.name" />
 
-                    <!-- Meal Text Info -->
-                    <div class="flex-grow-1">
-                        <div class="meal-name">@m.name</div>
-                        <div class="meal-desc">@m.description</div>
+                            <!-- Meal Info -->
+                            <div class="flex-grow-1">
+                                <div class="meal-name">@m.name</div>
+                                <div class="meal-desc">@m.description</div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="price-tag">
+                                $@m.price
+                            </div>
+
+                        </div>
                     </div>
-
-                    <!-- Right: Price -->
-                    <div class="price-tag me-3">
-                       $ @m.price 
-                    </div>
-
-                </div>
-         }               }
-            <div class="ms-auto">
-                <a class="back-btn" asp-action="ShowRestaurants" asp-controller="Tourist">Back</a>
-            </div>
-
+                }
+            }
         </div>
+
+        <!-- Bottom Back Button -->
+        @if (Model != null && Model.Any())
+        {
+            <div class="bottom-action">
+                <a class="bottom-back-btn" asp-action="ShowRestaurants" asp-controller="Tourist">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Restaurants
+                </a>
+            </div>
+        }
     </div>
+
 </body>
 </html>

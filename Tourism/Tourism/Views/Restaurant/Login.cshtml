@@ -3,14 +3,80 @@
 
 @{
     ViewData["Title"] = "Restaurant Login";
+    Layout = null; // Ensure this is styled as a standalone page if it's not using a main layout
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
-<div class="d-flex justify-content-center align-items-center vh-100"
-     style="background: linear-gradient(135deg, #e3f2fd, #fff);">
-    <div class="card shadow-lg p-4 rounded-4" style="width: 400px; background-color: #ffffff;">
+<style>
+    :root {
+        /* Updated to Purple Theme */
+        --primary-color: #6b21a8; /* Dark Purple */
+        --primary-light: #8b5cf6; /* Light Purple for buttons/hover */
+        --dark-bg: #f7f9fc;
+    }
+
+    /* Gradient Background for the whole page */
+    .vh-100 {
+        background: linear-gradient(135deg, var(--dark-bg), #ffffff);
+    }
+
+    /* Card Styling */
+    .card {
+        border: 1px solid rgba(107, 33, 168, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+        background-color: #ffffff;
+    }
+
+    /* Primary Text/Title Color */
+    .text-primary {
+        color: var(--primary-color) !important;
+    }
+
+    /* Login Button Styling */
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #581c87, var(--primary-color));
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3) !important;
+        }
+
+    /* Form Floating Labels Focus Color */
+    .form-control:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 0.25rem rgba(107, 33, 168, 0.25);
+    }
+
+        .form-control:focus ~ label {
+            color: var(--primary-color);
+        }
+
+    /* Hyperlink Color (Create one here) */
+    .text-decoration-none.fw-semibold {
+        color: var(--primary-color);
+        transition: color 0.3s ease;
+    }
+
+        .text-decoration-none.fw-semibold:hover {
+            color: var(--primary-light);
+        }
+
+    /* Alert Styling for consistent look */
+    .alert-danger {
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+    }
+</style>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 400px;">
         <div class="text-center mb-4">
             <h3 class="fw-bold text-primary">Restaurant Login</h3>
             <p class="text-muted">Access your business dashboard</p>
