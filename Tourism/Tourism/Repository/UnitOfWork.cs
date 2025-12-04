@@ -89,11 +89,25 @@ namespace Tourism.Repository
 
         public CreditCard GetCC(CreditCard cc)
         {
-            return _context.CreditCards.FirstOrDefault(c =>
-         c.CardNumber == cc.CardNumber &&
-         c.CVV == cc.CVV &&
-         c.ExpiryDate == cc.ExpiryDate && c.CardHolder == cc.CardHolder);
+            // Ensure all fields are trimmed and handle null values
+            var cardNumber = cc.CardNumber?.Trim();
+            var cvv = cc.CVV?.Trim();
+            var expiryDate = cc.ExpiryDate?.Trim();
+            var cardHolder = cc.CardHolder?.Trim();
 
+            if (string.IsNullOrWhiteSpace(cardNumber) || 
+                string.IsNullOrWhiteSpace(cvv) || 
+                string.IsNullOrWhiteSpace(expiryDate) || 
+                string.IsNullOrWhiteSpace(cardHolder))
+            {
+                return null;
+            }
+
+            return _context.CreditCards.FirstOrDefault(c =>
+                c.CardNumber.Trim() == cardNumber &&
+                c.CVV.Trim() == cvv &&
+                c.ExpiryDate.Trim() == expiryDate &&
+                c.CardHolder.Trim().ToLower() == cardHolder.ToLower());
         }
 
         public async Task<CreditCard> GetCCByCardNumberAsync(string cardNumber)
