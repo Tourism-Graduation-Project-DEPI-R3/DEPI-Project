@@ -1,0 +1,320 @@
+﻿@model Tourism.Models.Tourist
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Tourist Register";
+}
+
+<div class="main-content">
+    <div class="register-container">
+        <h2>Join as a Tourist</h2>
+        <p>Join us for an unforgettable adventure!</p>
+
+        <form asp-action="TouristRegister" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <!-- First Name + Last Name -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="firstName"></label>
+                    <input asp-for="firstName" class="form-control" />
+                    <span asp-validation-for="firstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label asp-for="email"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <!-- Password + Confirm Password -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="passwordHash"></label>
+                    <input asp-for="passwordHash" type="password" class="form-control" id="passwordHash" />
+                    <span asp-validation-for="passwordHash" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" />
+                    <span id="confirmPasswordError" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <!-- Age + Gender -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="age"></label>
+                    <input asp-for="age" class="form-control" />
+                    <span asp-validation-for="age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="gender"></label>
+                    <select asp-for="gender" class="form-control">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Nationality + Phone -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="nationality"></label>
+                    <input asp-for="nationality" class="form-control" />
+                    <span asp-validation-for="nationality" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phoneNumber"></label>
+                    <input asp-for="phoneNumber" class="form-control" />
+                    <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+                <div class="row g-3">
+                    <!-- Country -->
+                    <div class="col-md-6">
+                        <label class="form-label">Country</label>
+                        <select id="country" class="form-control">
+                            <option value="">-- Select Country --</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Canada">Canada</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="China">China</option>
+                            <option value="Japan">Japan</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="South Africa">South Africa</option>
+                        </select>
+                    </div>
+
+
+                    <!-- State / Governorate -->
+                    <div class="col-md-6">
+                        <label class="form-label">State / Governorate</label>
+                        <select id="state" class="form-control">
+                            <option value="">-- Select State / Governorate --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Hidden Address input -->
+                <input type="hidden" asp-for="address" id="address" />
+
+                <script>
+                     const states = {
+                        "Egypt": ["Cairo","Giza","Alexandria","Luxor","Aswan","Sharkia","Dakahlia","Red Sea","Beheira","Fayoum","Gharbia","Ismailia","Menofia","Minya","Qalyubia","New Valley","Suez","Sohag","South Sinai","Monufia","North Sinai","Port Said","Qena","Matrouh","Beni Suef"],
+                        "USA": ["California","New York","Texas","Florida","Illinois","Pennsylvania","Ohio","Michigan","Georgia"],
+                        "UK": ["London","Manchester","Liverpool","Birmingham","Leeds","Glasgow"],
+                        "Canada": ["Ontario","Quebec","British Columbia","Alberta","Manitoba","Saskatchewan"],
+                        "India": ["Maharashtra","Tamil Nadu","Karnataka","Gujarat","Rajasthan","Delhi"],
+                        "Australia": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania"],
+                        "Germany": ["Bavaria","Berlin","Hamburg","Hesse","Saxony","Baden-Württemberg"],
+                        "France": ["Île-de-France","Provence-Alpes-Côte d'Azur","Auvergne-Rhône-Alpes","Occitanie","Nouvelle-Aquitaine"],
+                        "Italy": ["Lombardy","Lazio","Campania","Sicily","Veneto","Tuscany"],
+                        "Spain": ["Andalusia","Catalonia","Madrid","Valencia","Galicia","Basque Country"],
+                        "Brazil": ["São Paulo","Rio de Janeiro","Bahia","Minas Gerais","Paraná","Rio Grande do Sul"],
+                        "Mexico": ["Mexico City","Jalisco","Nuevo León","Puebla","Guanajuato","Chihuahua"],
+                        "China": ["Beijing","Shanghai","Guangdong","Sichuan","Zhejiang","Hunan"],
+                        "Japan": ["Tokyo","Osaka","Kyoto","Hokkaido","Fukuoka","Aichi"],
+                        "South Korea": ["Seoul","Busan","Incheon","Daegu","Gwangju","Daejeon"],
+                        "South Africa": ["Gauteng","Western Cape","KwaZulu-Natal","Eastern Cape","Limpopo","Mpumalanga"]
+                    };
+
+                    const countrySelect = document.getElementById('country');
+                    const stateSelect = document.getElementById('state');
+                    const addressInput = document.getElementById('address');
+
+                    // Fill states based on selected country
+                    countrySelect.addEventListener('change', function() {
+                        const country = this.value;
+                        stateSelect.innerHTML = '<option value="">-- Select State / Governorate --</option>'; // Reset
+
+                        if(states[country]) {
+                            states[country].forEach(function(state){
+                                const option = document.createElement('option');
+                                option.value = state;
+                                option.text = state;
+                                stateSelect.appendChild(option);
+                            });
+                        }
+
+                        // Reset address when country changes
+                        addressInput.value = '';
+                    });
+
+                    // Update hidden address when state is selected
+                    stateSelect.addEventListener('change', function() {
+                        const country = countrySelect.value;
+                        const state = this.value;
+
+                        if(country && state) {
+                            addressInput.value = country + ' / ' + state; // e.g., "Egypt / Cairo"
+                        } else {
+                            addressInput.value = '';
+                        }
+                    });
+                </script>
+
+            <button type="submit" class="btn-register">Register</button>
+        
+        </form>
+
+        <div class="login-link">
+            <p>
+                Already have an account?
+                <a asp-action="Login" asp-controller="Tourism">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0 0 30px 0;
+    }
+
+    .register-container {
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        width: 600px;
+        padding: 5px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+        .register-container h2 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #00c49a;
+        }
+
+        .register-container p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap; /* Allow items to move to the next row */
+        gap: 15px; /* Space between columns */
+    }
+
+    .form-group {
+        flex: 1 1 48%; /* Each input takes about half the row width with some spacing */
+        margin-bottom: 10px;
+        min-width: 200px; /* Ensure inputs do not shrink too much on small screens */
+    }
+
+
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #ddd;
+    }
+
+    input.form-control, select.form-control {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 14px;
+    }
+
+    .text-danger {
+        font-size: 12px;
+        color: #ff6b6b !important;
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 12px;
+        background-color: #00c49a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 5px;
+    }
+
+        .btn-register:hover {
+            background-color: #00b08c;
+        }
+
+    .login-link {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+        .login-link a {
+            color: #00c49a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+}
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const password = document.getElementById("passwordHash").value;
+        const confirm = document.getElementById("confirmPassword").value;
+        const errorSpan = document.getElementById("confirmPasswordError");
+
+        if (password !== confirm) {
+            e.preventDefault(); // stop form submit
+            errorSpan.textContent = "Passwords do not match";
+        } else {
+            errorSpan.textContent = "";
+        }
+    });
+</script>

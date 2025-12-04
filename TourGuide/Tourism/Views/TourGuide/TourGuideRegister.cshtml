@@ -1,0 +1,419 @@
+﻿@model Tourism.Models.TourGuide
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Tour Guide Register";
+}
+
+<div class="main-content">
+    <div class="register-container">
+        <h2>Join as a Tour Guide</h2>
+        <p>Share your expertise and guide travelers around the world!</p>
+
+        <form asp-action="TourGuideRegister" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <!-- First Name + Last Name -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="firstName"></label>
+                    <input asp-for="firstName" class="form-control" />
+                    <span asp-validation-for="firstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="lastName"></label>
+                    <input asp-for="lastName" class="form-control" />
+                    <span asp-validation-for="lastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label asp-for="email"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <!-- Password + Confirm Password -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="passwordHash"></label>
+                    <input asp-for="passwordHash" type="password" class="form-control" />
+                    <span asp-validation-for="passwordHash" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" />
+                    <span id="confirmPasswordError" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Age + Gender -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="age"></label>
+                    <input asp-for="age" class="form-control" />
+                    <span asp-validation-for="age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="gender"></label>
+                    <select asp-for="gender" class="form-control">
+                        <option value="">-- Select Gender --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Nationality + Phone -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="nationality"></label>
+                    <input asp-for="nationality" class="form-control" />
+                    <span asp-validation-for="nationality" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phoneNumber"></label>
+                    <input asp-for="phoneNumber" class="form-control" />
+                    <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Experience + Languages -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="experienceYears"></label>
+                    <input asp-for="experienceYears" class="form-control" />
+                    <span asp-validation-for="experienceYears" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Languages (Select at least 2)</label>
+
+                    <!-- New tag-style languages list -->
+                    <div id="languagesOptions" class="languages-options">
+                        <button type="button" class="lang-pill" data-value="Arabic">Arabic</button>
+                        <button type="button" class="lang-pill" data-value="English">English</button>
+                        <button type="button" class="lang-pill" data-value="French">French</button>
+                        <button type="button" class="lang-pill" data-value="German">German</button>
+                        <button type="button" class="lang-pill" data-value="Italian">Italian</button>
+                        <button type="button" class="lang-pill" data-value="Spanish">Spanish</button>
+                        <button type="button" class="lang-pill" data-value="Chinese">Chinese</button>
+                        <button type="button" class="lang-pill" data-value="Japanese">Japanese</button>
+                        <button type="button" class="lang-pill" data-value="Russian">Russian</button>
+                        <button type="button" class="lang-pill" data-value="Turkish">Turkish</button>
+                    </div>
+
+                    <!-- Bound to model -->
+                    <input type="hidden" asp-for="languages" id="languages" />
+                    <span asp-validation-for="languages" class="text-danger"></span>
+                    <span id="languagesError" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Profile Picture -->
+            <div class="form-group">
+                <label asp-for="pic"></label>
+                <input asp-for="pic" type="file" class="form-control" />
+                <span asp-validation-for="pic" class="text-danger"></span>
+            </div>
+
+            
+
+            <!-- Credit Card -->
+            <div class="form-group credit-card-section">
+                <label>Credit Card Information</label>
+
+                <input asp-for="creditCard.CardHolder" class="form-control" placeholder="Card Holder Name" />
+                <span asp-validation-for="creditCard.CardHolder" class="text-danger"></span>
+
+                <input asp-for="creditCard.CardNumber" class="form-control" placeholder="Card Number" />
+                <span asp-validation-for="creditCard.CardNumber" class="text-danger"></span>
+
+                <div class="credit-card-row">
+                    <div class="credit-card-field">
+                        <input asp-for="creditCard.ExpiryDate" class="form-control" placeholder="MM/YY" />
+                        <span asp-validation-for="creditCard.ExpiryDate" class="text-danger"></span>
+                    </div>
+                    <div class="credit-card-field">
+                        <input asp-for="creditCard.CVV" class="form-control" placeholder="CVV" />
+                        <span asp-validation-for="creditCard.CVV" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn-register">Register</button>
+        </form>
+
+        <div class="login-link">
+            <p>
+                Already have an account?
+                <a asp-action="Login" asp-controller="Tourism">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0 0 30px 0;
+    }
+
+    .register-container {
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        width: 600px;
+        padding: 5px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+        .register-container h2 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #00c49a;
+        }
+
+        .register-container p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .form-group {
+        flex: 1 1 48%;
+        margin-bottom: 10px;
+        min-width: 200px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #ddd;
+    }
+
+    input.form-control, select.form-control {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 14px;
+    }
+
+    .text-danger {
+        font-size: 12px;
+        color: #ff6b6b !important;
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 12px;
+        background-color: #00c49a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 5px;
+    }
+
+        .btn-register:hover {
+            background-color: #00b08c;
+        }
+
+    .login-link {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+        .login-link a {
+            color: #00c49a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+
+    /* Languages as pills with scroll */
+    .languages-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-height: 110px;
+        overflow-y: auto;
+        padding: 6px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 6px;
+    }
+
+    .lang-pill {
+        border: none;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 13px;
+        cursor: pointer;
+        background-color: #f1f1f1;
+        color: #333;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+
+        .lang-pill:hover {
+            background-color: #e0e0e0;
+        }
+
+        .lang-pill.active {
+            background-color: #00c49a;
+            color: #fff;
+            font-weight: 600;
+        }
+
+    .credit-card-section {
+        margin-top: 15px;
+        padding: 15px 18px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.35); /* يناسب الخلفية الداكنة اللي عندك */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+        .credit-card-section label {
+            font-weight: 600;
+            color: #f5f5f5;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .credit-card-section .form-control {
+            margin-bottom: 8px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+        }
+
+            .credit-card-section .form-control:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px #00c49a80;
+            }
+
+    /* Arrange ExpiryDate + CVV in one row */
+    .credit-card-row {
+        display: flex;
+        gap: 10px;
+    }
+
+    .credit-card-field {
+        flex: 1 1 50%;
+    }
+
+    .credit-card-section .text-danger {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+
+</style>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        // Password confirmation
+        const passwordInput = document.getElementById('passwordHash');
+        const confirmInput = document.getElementById('confirmPassword');
+        const confirmError = document.getElementById('confirmPasswordError');
+
+        if (confirmInput && passwordInput) {
+            confirmInput.addEventListener('input', function () {
+                if (confirmInput.value !== passwordInput.value) {
+                    confirmError.textContent = "Passwords do not match.";
+                } else {
+                    confirmError.textContent = "";
+                }
+            });
+        }
+
+        // Languages as pills: min 2 required
+        const languagesContainer = document.getElementById('languagesOptions');
+        const languagesHidden = document.getElementById('languages');
+        const languagesError = document.getElementById('languagesError');
+
+        function updateLanguages() {
+            const activeButtons = languagesContainer.querySelectorAll('.lang-pill.active');
+            const selectedValues = Array.from(activeButtons).map(btn => btn.getAttribute('data-value'));
+
+            languagesHidden.value = selectedValues.join(',');
+
+            if (selectedValues.length < 2) {
+                languagesError.textContent = "Please select at least 2 languages.";
+            } else {
+                languagesError.textContent = "";
+            }
+        }
+
+        if (languagesContainer && languagesHidden) {
+            // Toggle active class on click
+            languagesContainer.addEventListener('click', function (e) {
+                if (e.target.classList.contains('lang-pill')) {
+                    e.target.classList.toggle('active');
+                    updateLanguages();
+                }
+            });
+
+            // Initialize from model value (edit mode)
+            const initialValue = languagesHidden.value;
+            if (initialValue) {
+                const initialLanguages = initialValue.split(',').map(v => v.trim());
+                initialLanguages.forEach(lang => {
+                    const btn = languagesContainer.querySelector(`.lang-pill[data-value="${lang}"]`);
+                    if (btn) btn.classList.add('active');
+                });
+                updateLanguages();
+            }
+        }
+
+        // Prevent form submit if less than 2 languages
+        const form = document.querySelector('form');
+        if (form && languagesContainer) {
+            form.addEventListener('submit', function (e) {
+                const activeButtons = languagesContainer.querySelectorAll('.lang-pill.active');
+                if (activeButtons.length < 2) {
+                    e.preventDefault();
+                    languagesError.textContent = "You must select at least 2 languages.";
+                    languagesContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+    </script>
+}

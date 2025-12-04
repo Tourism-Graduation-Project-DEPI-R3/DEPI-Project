@@ -9,6 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 // ===== Add Controllers with Views =====
 builder.Services.AddControllersWithViews();
 
+// ===== Configure Session =====
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 // ===== Configure DbContext =====
 builder.Services.AddDbContext<TourismDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ??
@@ -46,6 +54,10 @@ builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// Trip booking repositories
+builder.Services.AddScoped<ITripRepository, TripRepository>();
+builder.Services.AddScoped<ITourGuideRepository, TourGuideRepository>();
+
 var app = builder.Build();
 
 // ===== Middleware =====
@@ -59,6 +71,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession(); // enable session
 
 app.UseAuthentication();
 app.UseAuthorization();

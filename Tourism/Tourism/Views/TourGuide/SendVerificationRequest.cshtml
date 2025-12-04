@@ -1,0 +1,124 @@
+@{
+    ViewData["Title"] = "Tour Guide Verification";
+}
+@model TourGuide
+
+<div class="container mt-5 mb-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-success text-white text-center rounded-top-4">
+            <h2>Tour Guide Verification</h2>
+        </div>
+
+        <div class="card-body p-4">
+
+            <p class="lead">
+                Please upload **one PDF** that includes all required documents for verifying your tour guide credentials.
+                The file must be valid and must not exceed **8 MB**.
+            </p>
+
+            <form asp-action="SendVerificationRequest" asp-controller="TourGuide" method="post" enctype="multipart/form-data">
+
+                <!-- PDF Upload -->
+                <div class="mb-3">
+                    <label asp-for="verificationDocuments" class="form-label fw-semibold">
+                        Tour Guide Verification PDF
+                    </label>
+                    <input asp-for="verificationDocuments" type="file" accept="application/pdf" class="form-control" required />
+                    <span class="form-text text-muted">Only PDF allowed — Max size: 8 MB.</span>
+                </div>
+
+                <hr />
+
+                <!-- Checklist -->
+                <div class="mb-3">
+                    <label class="fw-semibold">Tour Guide Verification Checklist (You must confirm each item):</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc1" required />
+                        <label class="form-check-label" for="doc1">
+                            Government-issued ID (passport or national ID)
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc2" required />
+                        <label class="form-check-label" for="doc2">
+                            Tour guide license or certification from tourism authority
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc3" required />
+                        <label class="form-check-label" for="doc3">
+                            Proof of professional liability insurance
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc4" required />
+                        <label class="form-check-label" for="doc4">
+                            First aid and safety training certificates
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc5" required />
+                        <label class="form-check-label" for="doc5">
+                            Language proficiency certificates (if applicable)
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc6" />
+                        <label class="form-check-label" for="doc6">
+                            References from previous clients or employers (optional)
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="doc7" />
+                        <label class="form-check-label" for="doc7">
+                            Criminal background check (if required)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success px-4">Submit Tour Guide Verification</button>
+                </div>
+
+                <p class="text-muted mt-3 small">
+                    Note: The checklist is for client-side confirmation only. Your server must validate file size, MIME type, and content.
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const fileInput = document.querySelector('input[type="file"]');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                e.preventDefault();
+                alert('Please attach the tour guide verification PDF.');
+                return;
+            }
+
+            if (file.size > 8 * 1024 * 1024) {
+                e.preventDefault();
+                alert('PDF is too large (max 8 MB).');
+                return;
+            }
+
+            if (file.type !== 'application/pdf') {
+                e.preventDefault();
+                alert('Only valid PDF files are allowed.');
+                return;
+            }
+        });
+    </script>
+}

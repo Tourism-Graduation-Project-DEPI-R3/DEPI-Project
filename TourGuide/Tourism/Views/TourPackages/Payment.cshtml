@@ -1,0 +1,71 @@
+﻿@model Tourism.Models.ViewModels.CheckoutViewModel
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Trip Details Column -->
+        <div class="col-md-5 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your Cart</span>
+                <span class="badge bg-primary rounded-pill">@Model.CartItems.Count</span>
+            </h4>
+            <ul class="list-group mb-3">
+                @foreach (var item in Model.CartItems)
+                {
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">@item.TripName</h6>
+                            <small class="text-muted">Quantity: @item.Quantity Person(s)</small>
+                        </div>
+                        <span class="text-muted">$@item.TotalPrice</span>
+                    </li>
+                }
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Total (USD)</h6>
+                    </div>
+                    <span class="text-success fw-bold">$@Model.TotalAmount</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Payment Form Column -->
+        <div class="col-md-7 order-md-1">
+            <h4 class="mb-3">Payment Details</h4>
+            <form asp-action="Payment" method="post" class="needs-validation" novalidate>
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label asp-for="CardHolder" class="form-label">Name on Card</label>
+                        <input asp-for="CardHolder" class="form-control" placeholder="John Doe" required>
+                        <span asp-validation-for="CardHolder" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="CardNumber" class="form-label">Credit Card Number</label>
+                        <input asp-for="CardNumber" class="form-control" placeholder="1234567812345678" required>
+                        <span asp-validation-for="CardNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="ExpiryDate" class="form-label">Expiration (MM/YY)</label>
+                        <input asp-for="ExpiryDate" class="form-control" placeholder="12/25" required>
+                        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="CVV" class="form-label">CVV</label>
+                        <input asp-for="CVV" class="form-control" placeholder="123" required>
+                        <span asp-validation-for="CVV" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Pay $@Model.TotalAmount & Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,295 @@
+﻿@model List<Tourism.ViewModels.TripOrdersVM>
+
+@{
+    ViewData["Title"] = "Booked Trips";
+}
+
+<style>
+    .total-trips-badge {
+        font-size: 1.5rem;
+        padding: 12px 20px;
+    }
+
+    /* Page Specific Styles */
+    .page-header {
+        color: #2c3e50;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    /* Card Styling */
+    .trip-card {
+        border: none;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .trip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+    .card-header-custom {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        position: relative;
+    }
+
+    .trip-price-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .trip-title {
+        font-size: 1.25rem;
+        margin: 0;
+        font-weight: 700;
+        padding-right: 60px; /* Space for badge */
+    }
+
+    .trip-destination {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .card-body-custom {
+        padding: 1.5rem;
+    }
+
+    /* Stats Row */
+    .stats-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .stat-item {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    .stat-value {
+        color: #2c3e50;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    /* Table Styling */
+    .table-custom {
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+        .table-custom th {
+            color: #95a5a6;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding: 8px;
+        }
+
+        .table-custom td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f8f9fa;
+            color: #34495e;
+            vertical-align: middle;
+        }
+
+        .table-custom tr:last-child td {
+            border-bottom: none;
+        }
+
+    .avatar-circle {
+        width: 30px;
+        height: 30px;
+        background-color: #e9ecef;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        color: #6c757d;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .empty-icon {
+        font-size: 3rem;
+        color: #dee2e6;
+        margin-bottom: 1rem;
+    }
+
+    /* Button */
+    .btn-details {
+        width: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .big-stat {
+        font-size: 2rem !important;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+
+</style>
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h2 class="page-header">Booked Trips Dashboard</h2>
+        <span class="badge bg-light text-dark shadow-sm total-trips-badge">
+            Total Trips: @(Model?.Count() ?? 0)
+        </span>
+
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon">📂</div>
+            <h4 class="text-muted">No bookings found</h4>
+            <p class="text-secondary">It seems there are no booked trips in the system yet.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var trip in Model)
+            {
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="trip-card w-100">
+                        <!-- Card Header with Gradient -->
+                        <div class="card-header-custom">
+                            <div class="trip-price-badge">@trip.Cost.ToString("0.00")</div>
+                            <h4 class="trip-title">@trip.TripName</h4>
+                            <span class="trip-destination">
+                                <i class="bi bi-geo-alt-fill"></i> @trip.Destination
+                            </span>
+                        </div>
+
+                        <div class="card-body-custom">
+                            <!-- Stats Overview -->
+                            <div class="stats-row">
+                                <div class="stat-item big-stat">
+                                    Total Bookings
+                                </div>
+                                <div class="stat-value big-stat">
+                                    @trip.TotalBookingsCount
+                                </div>
+
+                            </div>
+
+                            <!-- Tourist List -->
+                            <h6 class="text-uppercase text-muted mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                Passenger Manifest
+                            </h6>
+
+                            @if (trip.Bookings != null && trip.Bookings.Any())
+                            {
+                                <div class="table-responsive">
+                                    <table class="table-custom">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:60%;">Tourist</th>
+                                                <th class="text-center" style="width:20%;">Qty</th>
+                                                <th class="text-end" style="width:20%;">Total</th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var booking in trip.Bookings.Take(5))
+                                            {
+                                                /* Included .Take(5) to prevent card overflow if list is huge,
+                                                you can remove it if you want to show all */
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar-circle">
+                                                                @booking.TouristName.Substring(0, 1).ToUpper()
+                                                            </div>
+                                                            <span class="text-truncate" style="max-width: 200px;">
+                                                                @booking.TouristName
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span class="badge bg-light text-secondary border">
+                                                            @booking.Quantity
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-end fw-bold text-success">
+                                                        @booking.TotalPrice
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @if (trip.Bookings.Count > 5)
+                                {
+                                    <div class="text-center mb-3">
+                                        <small class="text-muted">
+                                            + @(trip.Bookings.Count - 5) more tourists...
+                                        </small>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="text-center py-3 text-muted fst-italic">
+                                    <small>No booking details available.</small>
+                                </div>
+                            }
+
+                            <!-- Action Button -->
+                            <div class="allowed-for-tourguide mt-4">
+                                <a asp-controller="TourGuide"
+                                   asp-action="ViewFullDetailsOrder"
+                                   asp-route-id="@trip.TripId"
+                                   class="btn btn-outline-primary btn-details">
+                                    View Full Details
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

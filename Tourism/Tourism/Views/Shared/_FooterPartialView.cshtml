@@ -1,0 +1,297 @@
+﻿<!-- ==============================================================================================
+     HIGH-END FOOTER SECTION (Updated Colors)
+     ============================================================================================== -->
+<footer class="modern-footer">
+    <!-- Optional: Subtle background pattern overlay for texture -->
+    <div class="footer-pattern"></div>
+
+    <div class="container position-relative">
+        <!-- Top Section: Widgets -->
+        <div class="footer-content">
+
+            <!-- Column 1: Brand & Social -->
+            <div class="footer-col brand-col">
+                <a href="#" class="footer-logo">EGYPT<span>.</span></a>
+                <p class="footer-desc">
+                    Discover the cradle of civilization. From the Great Pyramids to the crystal clear Red Sea,
+                    experience the journey of a lifetime with us.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Navigation -->
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a asp-controller="Tourism" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Tourism" asp-action="AboutEgyptHome">About Egypt</a></li>
+                    <li><a asp-controller="Tourism" asp-action="DestinationsHome">Destinations</a></li>
+                    <li><a asp-controller="Tourism" asp-action="ExploreRegisterations">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Legal & Support -->
+            <div class="footer-col">
+                <h4>Legal & Help</h4>
+                <ul class="footer-links">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Support Center</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Newsletter -->
+            <div class="footer-col newsletter-col">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to get the latest travel guides and hidden gems.</p>
+                <form class="subscribe-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email Address">
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; @DateTime.Now.Year - <strong>RecreationalTourismWebsite</strong>. All Rights Reserved.
+            </div>
+            <div class="bottom-links">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <span class="separator">•</span>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ==============================================================================================
+     FOOTER STYLES
+     ============================================================================================== -->
+<style>
+    /* Variables */
+    :root {
+        --primary-color: #00c49a; /* Your existing Teal color */
+        /* UPDATED: Deep Nile Blue Gradient */
+        --footer-bg-start: #0b1e33;
+        --footer-bg-end: #132b45;
+        --text-muted: #b0c4de; /* Light steel blue text for better readability on dark blue */
+        --text-light: #ffffff;
+        --font-main: 'Poppins', sans-serif;
+    }
+
+    .modern-footer {
+        /* New Gradient Background */
+        background: linear-gradient(135deg, var(--footer-bg-start) 0%, var(--footer-bg-end) 100%);
+        color: var(--text-muted);
+        font-family: var(--font-main);
+        padding: 80px 0 25px 20px;
+        margin-top: auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .position-relative {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Optional: A very subtle pattern to make it look premium (like papyrus texture or waves) */
+    .footer-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 30px 30px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .container {
+        max-width: 1280px;
+        margin: 10px auto;
+        padding: 0 24px;
+    }
+
+    /* --- Grid Layout --- */
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    /* --- Brand Column --- */
+    .footer-logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--text-light);
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+        .footer-logo span {
+            color: var(--primary-color);
+        }
+
+    .footer-desc {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        max-width: 300px;
+        color: #d1e3f0; /* Slightly brighter than muted for description */
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+            .social-icons a:hover {
+                background: var(--primary-color);
+                border-color: var(--primary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 196, 154, 0.3);
+            }
+
+    /* --- Links Columns --- */
+    .footer-col h4 {
+        color: var(--text-light);
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+        /* Decorative line under headings */
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+            .footer-links a:hover {
+                color: var(--primary-color);
+                transform: translateX(5px);
+                text-shadow: 0 0 10px rgba(0, 196, 154, 0.3);
+            }
+
+    /* --- Newsletter --- */
+    .subscribe-form {
+        display: flex;
+        margin-top: 20px;
+    }
+
+        .subscribe-form input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            border-radius: 50px 0 0 50px;
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+            .subscribe-form input:focus {
+                border-color: var(--primary-color);
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+        .subscribe-form button {
+            background: var(--primary-color);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 50px 50px 0;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 196, 154, 0.2);
+        }
+
+            .subscribe-form button:hover {
+                background: #00a885;
+                transform: translateX(2px);
+            }
+
+    /* --- Bottom Bar --- */
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 13px;
+    }
+
+    .copyright-text strong {
+        color: var(--text-light);
+        font-weight: 500;
+    }
+
+    .bottom-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+        .bottom-links a:hover {
+            color: var(--primary-color);
+        }
+
+    .separator {
+        margin: 0 10px;
+        opacity: 0.3;
+        color: var(--primary-color);
+    }
+
+    
+</style>

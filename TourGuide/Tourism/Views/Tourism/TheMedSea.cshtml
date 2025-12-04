@@ -1,0 +1,171 @@
+﻿@{
+    ViewBag.Title = "The Med Sea";
+}
+
+<div class="image-container">
+    <div class="image-card">
+        <img src="@Url.Content("~/images/Destination/3.jpeg")" alt="The Nile landscape">
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="cards-container">
+
+    <!-- Card 1 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheMedSea/1.jpeg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Alexandria</h2>
+            <p class="card-description">
+                Egypt’s metropolitan city on the Mediterranean.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="travel-card" id="card-nile-2">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheMedSea/2.jpeg")" alt="Dahab">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">North Coast & Al-Alamein</h2>
+            <p class="card-description">
+                White sandy beaches and stunning turquoise waters make this
+                Egypt’s go-to summer vacation destination.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="travel-card" id="card-nile-3">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheRedSea/3.jpg")" alt="Nuweiba">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Marsa Matrouh</h2>
+            <p class="card-description">
+                Egypt’s classic summer getaway.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Image Section */
+    .image-container {
+        width: 100vw;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .image-card {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center; /* start from far left */
+            display: block;
+        }
+
+    /* Cards Section */
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .travel-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        background: #fff;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-content {
+        padding: 10px 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+        padding: 15px 10px;
+        color: #000;
+    }
+
+    .card-description {
+        font-size: 16px;
+        color: #555;
+        min-height: 130px;
+        padding: 15px 10px;
+        margin-bottom: 20px;
+    }
+
+    .learn-more-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px 20px;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .travel-card:hover .card-content {
+        background-color: #f8cc66;
+    }
+
+    .travel-card:hover .learn-more-btn {
+        background-color: #fae168;
+        color: red;
+    }
+</style>

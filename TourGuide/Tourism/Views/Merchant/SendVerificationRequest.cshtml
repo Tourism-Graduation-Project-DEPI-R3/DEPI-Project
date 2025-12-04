@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Merchant Verification";
+}
+@model Merchant
+<div class="container mt-5 mb-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+            <h2>Merchant Verification</h2>
+        </div>
+        <div class="card-body p-4">
+            <p class="lead">Upload a single PDF that contains the required documents (see checklist). The PDF must be valid and not larger than 8 MB.</p>
+
+            <form asp-action="SendVerificationRequest" asp-controller="Merchant" method="post" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label asp-for="verificationDocuments" class="form-label fw-semibold">Verification PDF (single file)</label>
+                    <input asp-for="verificationDocuments" type="file" accept="application/pdf" class="form-control" required />
+                    <span class="form-text text-muted">Allowed: PDF only. Max size: 8 MB.</span>
+                </div>
+
+                <hr />
+
+                <div class="mb-3">
+                    <label class="fw-semibold">Checklist — include these documents in your PDF (you must confirm):</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id1" required />
+                        <label class="form-check-label" for="id1">Government-issued ID of the owner (passport or national ID)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id2" required />
+                        <label class="form-check-label" for="id2">Business registration / commercial license</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id3" required />
+                        <label class="form-check-label" for="id3">Tax registration (or VAT) certificate</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id4" required />
+                        <label class="form-check-label" for="id4">Recent bank statement or voided cheque showing business name</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id5" required />
+                        <label class="form-check-label" for="id5">Proof of business address (utility bill or lease agreement)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id6" />
+                        <label class="form-check-label" for="id6">Sample invoice or receipt (if available)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="id7" />
+                        <label class="form-check-label" for="id7">Signed merchant agreement / authorization form (if required)</label>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success px-4">Submit Verification</button>
+                </div>
+
+                <p class="text-muted mt-3 small">Important: the checklist is a client-side confirmation only. Your server must validate the uploaded file's MIME type, size, and content.</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const fileInput = document.querySelector('input[type="file"]');
+            const file = fileInput.files[0];
+            if (!file) {
+                e.preventDefault();
+                alert('Please attach the verification PDF.');
+                return;
+            }
+            if (file.size > 8 * 1024 * 1024) {
+                e.preventDefault();
+                alert('PDF is too large (max 8 MB).');
+                return;
+            }
+            if (file.type !== 'application/pdf') {
+                e.preventDefault();
+                alert('Please upload a valid PDF file.');
+                return;
+            }
+        });
+    </script>
+}

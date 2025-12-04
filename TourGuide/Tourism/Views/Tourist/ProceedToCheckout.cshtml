@@ -1,0 +1,295 @@
+﻿@using Tourism.ViewModel
+@model List<ProductViewModel>
+
+@{
+    Layout = "EcommerceLayout";
+}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <style>
+        body { /* Ensures centering works if the body or parent container is full width */
+            background-color: #f0f2f5;
+        }
+        /* Container to center the main content */
+
+        .transaction-container {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .order-summary, .shipping-address {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef; /* Separator for clarity */
+        }
+
+        .order-summary .summary-item:last-child {
+            border-bottom: none;
+            margin-top: 10px;
+        }
+
+        .summary-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003D5B;
+        }
+
+        .payment-method-section {
+            margin-top: 20px;
+        }
+
+        .payment-option {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+            .payment-option input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+        .payment-label {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: white;
+        }
+
+        .payment-option input[type="radio"]:checked + .payment-label {
+            border-color: #003D5B;
+            background-color: #f0f8ff;
+        }
+
+        .payment-label:hover {
+            border-color: #003D5B;
+            box-shadow: 0 0 10px rgba(0, 61, 91, 0.1);
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .payment-details {
+            flex: 1;
+        }
+
+        .payment-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #003D5B;
+            margin-bottom: 5px;
+        }
+
+        .payment-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .credit-card-form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff; /* White background for card form */
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            animation: slideDown 0.3s ease;
+        }
+
+        @@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-purchase {
+            width: 100%;
+            background-color: #003D5B;
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 10px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .btn-purchase:hover {
+                background-color: #005078;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 61, 91, 0.3);
+            }
+
+        .transaction-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #003D5B;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<div class="container transaction-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <h2 class="transaction-title">Complete Your Purchase</h2>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger text-center" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="shipping-address">
+                <h5 style="color: #003D5B; font-weight: 600; margin-bottom: 15px;">Shipping Address</h5>
+
+                <form asp-action="PurchaseProduct" asp-controller="Tourist" method="post" id="purchaseForm">
+
+                    <!-- Hidden field for purchaseData -->
+                    @if (Model != null)
+                    {
+                        for (int i = 0; i < Model.Count; i++)
+                        {
+                            <input type="hidden" name="purchaseData[@i].productId" value="@Model[i].productId" />
+                            <input type="hidden" name="purchaseData[@i].count" value="@Model[i].count" />
+                            <input type="hidden" name="purchaseData[@i].price"
+                                   value="@(Model[i].price - (Model[i].price * Model[i].offer / 100.0))" />
+
+                            <input type="hidden" name="purchaseData[@i].DeliversWithin" value="@Model[i].DeliversWithin"/>
+                            <input type="hidden" name="purchaseData[@i].id" value="@Model[i].id"/>
+                            <input type="hidden" name="purchaseData[@i].name" value="@Model[i].name"/>
+                           
+                        }
+                    }
+
+                    <!-- Address Info -->
+                    <div class="mb-3">
+                        <label class="form-label">Country</label>
+                        <select name="country" class="form-select" required>
+                            <option value="">Select Country</option>
+                            <option>United States</option>
+                            <option>Egypt</option>
+                            <option>United Kingdom</option>
+                            <option>Germany</option>
+                            <option>France</option>
+                            <option>Italy</option>
+                            <option>Spain</option>
+                            <option>India</option>
+                            <option>China</option>
+                            <option>Japan</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">City</label>
+                        <input type="text" name="city" class="form-control" placeholder="e.g. Cairo" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control" placeholder="e.g. 123 Main Street" required />
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="payment-method-section">
+                        <h5 style="color: #003D5B; font-weight: 600; margin-bottom: 20px;">Select Payment Method</h5>
+
+                        <div class="payment-option">
+                            <input type="radio" id="balancePayment" name="paymentType" value="false" checked onchange="togglePaymentForm()">
+                            <label for="balancePayment" class="payment-label">
+                                <div class="payment-details">
+                                    <div class="payment-title">Pay with Balance</div>
+                                    <div class="payment-description">Use your account balance</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="payment-option">
+                            <input type="radio" id="creditCardPayment" name="paymentType" value="true" onchange="togglePaymentForm()">
+                            <label for="creditCardPayment" class="payment-label">
+                                <div class="payment-details">
+                                    <div class="payment-title">Pay with Credit Card</div>
+                                    <div class="payment-description">Visa, Mastercard, American Express</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Credit Card Info -->
+                        <div id="creditCardForm" class="credit-card-form" style="display: none;">
+                            <h5 style="color: #003D5B; font-weight: 600; margin-bottom: 20px;">Card Details</h5>
+
+                            <div class="mb-3">
+                                <label class="form-label">Cardholder Name</label>
+                                <input type="text" name="cc.Cardholder" class="form-control" placeholder="John Doe" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Card Number</label>
+                                <input type="text" name="cc.CardNumber" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" />
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="text" name="cc.ExpiryDate" class="form-control" placeholder="MM/YY" maxlength="5" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" name="cc.CVV" class="form-control" placeholder="123" maxlength="3" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-purchase">Complete Purchase</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function togglePaymentForm() {
+            const creditCardRadio = document.getElementById('creditCardPayment');
+            const creditCardForm = document.getElementById('creditCardForm');
+            const cardInputs = creditCardForm.querySelectorAll('input');
+
+            if (creditCardRadio.checked) {
+                creditCardForm.style.display = 'block';
+                cardInputs.forEach(i => i.setAttribute('required', 'required'));
+            } else {
+                creditCardForm.style.display = 'none';
+                cardInputs.forEach(i => i.removeAttribute('required'));
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', togglePaymentForm);
+    </script>
+}

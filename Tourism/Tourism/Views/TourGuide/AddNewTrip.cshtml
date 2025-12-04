@@ -1,0 +1,467 @@
+@model Tourism.Models.Trip
+
+@{
+    ViewData["Title"] = "Add New Trip";
+}
+
+<div class="page-scale">
+    <div class="container py-5 add-trip-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="card shadow-lg border-0 rounded-3 add-trip-card">
+                    <div class="card-header bg-primary text-white p-4 rounded-top-3 d-flex flex-column gap-1">
+                        <h3 class="mb-0">
+                            <i class="bi bi-airplane-fill me-2"></i>
+                            Create New Trip
+                        </h3>
+                        <small class="text-white-50">
+                            Fill in the details below to add a new destination.
+                        </small>
+                    </div>
+
+                    <div class="card-body p-5">
+                        <form asp-action="AddNewTrip"
+                              method="post"
+                              enctype="multipart/form-data"
+                              class="needs-validation"
+                              novalidate>
+
+                            @Html.AntiForgeryToken()
+
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                            <!-- Section: Basic Information -->
+                            <h5 class="section-title text-primary mb-3 border-bottom pb-2">
+                                Basic Information
+                            </h5>
+
+                            <div class="row g-3 mb-4">
+                                <!-- Name -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input asp-for="name" class="form-control" placeholder="Trip Name" />
+                                        <label asp-for="name"></label>
+                                        <span asp-validation-for="name" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Destination -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input asp-for="destination" class="form-control" placeholder="Destination" />
+                                        <label asp-for="destination"></label>
+                                        <span asp-validation-for="destination" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Trip Type -->
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input asp-for="triptype" class="form-control" placeholder="Type (e.g. Safari, Beach)" />
+                                        <label asp-for="triptype">Trip Type</label>
+                                        <span asp-validation-for="triptype" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Cost -->
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input asp-for="cost" type="number" step="0.01" class="form-control" placeholder="Cost" />
+                                        <label asp-for="cost"></label>
+                                        <span asp-validation-for="cost" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Duration (in days) -->
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input asp-for="Duration" class="form-control" type="number" min="1" placeholder="Duration in days" />
+                                        <label asp-for="Duration">Duration (Days)</label>
+                                        <span asp-validation-for="Duration" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 🔹 NEW: Schedule & Capacity -->
+                            <h5 class="section-title text-primary mb-3 border-bottom pb-2">
+                                Schedule & Capacity
+                            </h5>
+
+                            <div class="row g-3 mb-4">
+                                <!-- Start Date -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input asp-for="StartDate" type="date" class="form-control" />
+                                        <label asp-for="StartDate">Start Date</label>
+                                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Capacity -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input asp-for="Capacity" type="number" min="1" class="form-control" placeholder="Total seats" />
+                                        <label asp-for="Capacity">Capacity (Total Seats)</label>
+                                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Description -->
+                            <h5 class="section-title text-primary mb-3 border-bottom pb-2 mt-4">
+                                Details
+                            </h5>
+
+                            <div class="mb-4">
+                                <div class="form-floating">
+                                    <textarea asp-for="description"
+                                              class="form-control"
+                                              placeholder="Description"
+                                              style="height: 150px"></textarea>
+                                    <label asp-for="description"></label>
+                                    <span asp-validation-for="description" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <!-- Section: Tour Plan / Itinerary -->
+                            <h5 class="section-title text-primary mb-3 border-bottom pb-2 mt-4">
+                                Tour Plan (Itinerary)
+                            </h5>
+
+                            <div id="tourPlansContainer">
+                                @if (Model.TourPlans != null && Model.TourPlans.Count > 0)
+                                {
+                                    for (int i = 0; i < Model.TourPlans.Count; i++)
+                                    {
+                                        <div class="tour-plan-item mb-3" data-index="@i">
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control"
+                                                       name="TourPlans[@i].Heading"
+                                                       value="@Model.TourPlans[i].Heading"
+                                                       placeholder="Heading" />
+                                                <label>Heading</label>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <textarea class="form-control"
+                                                          name="TourPlans[@i].Description"
+                                                          style="height: 100px"
+                                                          placeholder="Description">@Model.TourPlans[i].Description</textarea>
+                                                <label>Description</label>
+                                            </div>
+                                            <button type="button"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    onclick="removePlan(this)">
+                                                Remove step
+                                            </button>
+                                        </div>
+                                    }
+                                }
+                            </div>
+
+                            <button type="button"
+                                    class="btn btn-outline-primary mt-2"
+                                    onclick="addPlan()">
+                                + Add Plan Step
+                            </button>
+
+                            <input type="hidden" id="tourPlansCount" value="@(Model.TourPlans?.Count ?? 0)" />
+                            <span class="text-danger" asp-validation-for="TourPlans"></span>
+
+                            <!-- Section: Media & Documents -->
+                            <h5 class="section-title text-primary mb-3 border-bottom pb-2 mt-4">
+                                Media & Documents
+                            </h5>
+
+                            <div class="row mb-4">
+                                <!-- Main Image Upload -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        Main Trip Image <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file"
+                                           name="MainImage"
+                                           id="MainImage"
+                                           class="form-control"
+                                           accept="image/*"
+                                           required
+                                           onchange="previewMainImage(this)" />
+
+                                    <div class="mt-2 text-center bg-light border rounded main-image-preview-wrapper">
+                                        <img id="mainImagePreview"
+                                             src="#"
+                                             alt="Main Preview"
+                                             class="img-fluid"
+                                             style="max-width: 100%; max-height: 200px; display: none;" />
+                                        <span id="mainImagePlaceholder" class="text-muted">
+                                            <i class="bi bi-image"></i> Image Preview
+                                        </span>
+                                    </div>
+
+                                    <span asp-validation-for="MainImage" class="text-danger"></span>
+                                </div>
+
+                                <!-- Secondary Images Upload -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        Secondary Images (Min 3) <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file"
+                                           name="Images"
+                                           id="Images"
+                                           class="form-control"
+                                           accept="image/*"
+                                           multiple
+                                           required
+                                           onchange="previewSecondaryImages(this)" />
+
+                                    <div id="secondaryPreviews"
+                                         class="mt-2 d-flex flex-wrap gap-2 p-2 bg-light border rounded secondary-images-wrapper">
+                                        <span class="text-muted w-100 text-center m-auto">
+                                            <i class="bi bi-images"></i> Selected images will appear here
+                                        </span>
+                                    </div>
+
+                                    <span asp-validation-for="TripSecondaryImagesJson" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Fields (Defaults) -->
+                            <input type="hidden" asp-for="status" value="true" />
+                            <input type="hidden" asp-for="accepted" value="false" />
+
+                            <!-- Actions -->
+                            <div class="d-flex justify-content-between align-items-center mt-5">
+                                <a asp-controller="TourGuide"
+                                   asp-action="TourGuideDashboard"
+                                   class="btn btn-outline-secondary btn-lg">
+                                    <i class="bi bi-arrow-left"></i> Back to My Trips
+                                </a>
+
+                                <!-- REAL submit button -->
+                                <button type="submit"
+                                        class="btn btn-outline-primary btn-lg px-5">
+                                    <i class="bi bi-check-circle"></i> Create Trip
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+    <script>
+        // Main Image Preview
+        function previewMainImage(input) {
+            const preview = document.getElementById('mainImagePreview');
+            const placeholder = document.getElementById('mainImagePlaceholder');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none';
+                placeholder.style.display = 'inline-block';
+            }
+        }
+
+        // Secondary Images Preview
+        function previewSecondaryImages(input) {
+            const container = document.getElementById('secondaryPreviews');
+            container.innerHTML = ''; // Clear previous content
+
+            if (!input.files || input.files.length === 0) {
+                const placeholder = document.createElement('span');
+                placeholder.className = "text-muted w-100 text-center m-auto";
+                placeholder.innerHTML = '<i class="bi bi-images"></i> Selected images will appear here';
+                container.appendChild(placeholder);
+                return;
+            }
+
+            if (input.files.length < 3) {
+                const warning = document.createElement('div');
+                warning.className = "text-danger w-100 text-center mb-2";
+                warning.innerText = "Please select at least 3 images.";
+                container.appendChild(warning);
+            }
+
+            Array.from(input.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = "img-thumbnail";
+                    img.style.width = "90px";
+                    img.style.height = "90px";
+                    img.style.objectFit = "cover";
+                    container.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+         // Add new TourPlan block
+    function addPlan() {
+        const countInput = document.getElementById('tourPlansCount');
+        let index = parseInt(countInput.value) || 0;
+
+        const container = document.getElementById('tourPlansContainer');
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'tour-plan-item mb-3';
+        wrapper.setAttribute('data-index', index);
+
+        wrapper.innerHTML = `
+            <div class="form-floating mb-2">
+                <input class="form-control"
+                       name="TourPlans[${index}].Heading"
+                       placeholder="Heading" />
+                <label>Heading</label>
+            </div>
+            <div class="form-floating mb-2">
+                <textarea class="form-control"
+                          name="TourPlans[${index}].Description"
+                          style="height: 100px"
+                          placeholder="Description"></textarea>
+                <label>Description</label>
+            </div>
+            <button type="button"
+                    class="btn btn-sm btn-outline-danger"
+                    onclick="removePlan(this)">
+                Remove step
+            </button>
+        `;
+
+        container.appendChild(wrapper);
+        countInput.value = index + 1;
+    }
+
+    // Remove specific TourPlan block
+    function removePlan(button) {
+        const item = button.closest('.tour-plan-item');
+        if (item) {
+            item.remove();
+        }
+    }
+    </script>
+
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 10 !important;
+        padding: 10 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .page-scale {
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
+
+    /* Add New Trip Page Styling */
+    .tour-plan-item {
+        padding: 15px;
+        border-radius: 12px;
+        background-color: #f8f9ff;
+        border: 1px dashed #cdd4ff;
+    }
+
+
+    .add-trip-container {
+        max-width: 1200px;
+    }
+
+    .add-trip-card {
+        border-radius: 1.25rem;
+        overflow: hidden;
+    }
+
+        .add-trip-card .card-header {
+            border-bottom: none;
+            background: linear-gradient(135deg, #0d6efd, #00bcd4);
+        }
+
+    .section-title {
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    /* Main image preview box */
+    .main-image-preview-wrapper {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Secondary images preview box */
+    .secondary-images-wrapper {
+        min-height: 200px;
+        align-items: flex-start;
+    }
+
+        .secondary-images-wrapper img {
+            border-radius: 0.5rem;
+        }
+
+    /* Fine-tuning floating labels with file inputs */
+    input[type="file"].form-control {
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Buttons */
+    .add-trip-card .btn-primary {
+        font-weight: 600;
+        box-shadow: 0 8px 18px rgba(13, 110, 253, 0.25);
+        border-radius: 999px;
+    }
+
+    .add-trip-card .btn-outline-secondary {
+        border-radius: 999px;
+    }
+
+    /* Validation summary */
+    .validation-summary-errors,
+    .alert-danger {
+        font-size: 0.9rem;
+    }
+
+    /* On smaller screens */
+    @@media (max-width: 768px) {
+        .add-trip-card
+
+    {
+        border-radius: 0.75rem;
+    }
+
+    .card-body {
+        padding: 1.5rem !important;
+    }
+
+    }
+</style>

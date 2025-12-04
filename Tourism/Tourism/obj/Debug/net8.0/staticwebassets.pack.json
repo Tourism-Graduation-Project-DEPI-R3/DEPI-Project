@@ -1,379 +1,379 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Tourism.bundle.scp.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Tourism.bundle.scp.css",
       "PackagePath": "staticwebassets\\Tourism.2sx2ejs3u0.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\css\\Ecommerce.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\css\\Ecommerce.css",
       "PackagePath": "staticwebassets\\css\\Ecommerce.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\css\\site.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\css\\styles.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\css\\styles.css",
       "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\favicon.ico",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\js\\script.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\js\\site.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\Hotel.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\Hotel.png",
       "PackagePath": "staticwebassets\\pics\\Hotel.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\Merchant.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\Merchant.png",
       "PackagePath": "staticwebassets\\pics\\Merchant.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\Restaurant.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\Restaurant.png",
       "PackagePath": "staticwebassets\\pics\\Restaurant.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\TourGuide.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\TourGuide.png",
       "PackagePath": "staticwebassets\\pics\\TourGuide.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\Tourist.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\Tourist.png",
       "PackagePath": "staticwebassets\\pics\\Tourist.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\a.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\a.png",
       "PackagePath": "staticwebassets\\pics\\a.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\addProduct.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\addProduct.png",
       "PackagePath": "staticwebassets\\pics\\addProduct.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\art-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\art-icon.png",
       "PackagePath": "staticwebassets\\pics\\art-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\ball-football-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\ball-football-icon.png",
       "PackagePath": "staticwebassets\\pics\\ball-football-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\bicycle-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\bicycle-icon.png",
       "PackagePath": "staticwebassets\\pics\\bicycle-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\bilderboken-rlwE8f8anOc-unsplash.jpg",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\bilderboken-rlwE8f8anOc-unsplash.jpg",
       "PackagePath": "staticwebassets\\pics\\bilderboken-rlwE8f8anOc-unsplash.jpg"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\bread-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\bread-icon.png",
       "PackagePath": "staticwebassets\\pics\\bread-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\cart-line-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\cart-line-icon.png",
       "PackagePath": "staticwebassets\\pics\\cart-line-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\david-vives-ELf8M_YWRTY-unsplash.jpg",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\david-vives-ELf8M_YWRTY-unsplash.jpg",
       "PackagePath": "staticwebassets\\pics\\david-vives-ELf8M_YWRTY-unsplash.jpg"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\health-insurance-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\health-insurance-icon.png",
       "PackagePath": "staticwebassets\\pics\\health-insurance-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\laptop-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\laptop-icon.png",
       "PackagePath": "staticwebassets\\pics\\laptop-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg",
       "PackagePath": "staticwebassets\\pics\\lucrezia-carnelos-wQ9VuP_Njr4-unsplash.jpg"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\michael-rodock-ZsDl4gM69Ms-unsplash.jpg",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\michael-rodock-ZsDl4gM69Ms-unsplash.jpg",
       "PackagePath": "staticwebassets\\pics\\michael-rodock-ZsDl4gM69Ms-unsplash.jpg"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\mobile-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\mobile-icon.png",
       "PackagePath": "staticwebassets\\pics\\mobile-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\necklace-jewellery-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\necklace-jewellery-icon.png",
       "PackagePath": "staticwebassets\\pics\\necklace-jewellery-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\orders.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\orders.png",
       "PackagePath": "staticwebassets\\pics\\orders.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\personal-care-products-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\personal-care-products-icon.png",
       "PackagePath": "staticwebassets\\pics\\personal-care-products-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\products .png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\products .png",
       "PackagePath": "staticwebassets\\pics\\products .png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\pyramids.jpg",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\pyramids.jpg",
       "PackagePath": "staticwebassets\\pics\\pyramids.jpg"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\read-book-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\read-book-icon.png",
       "PackagePath": "staticwebassets\\pics\\read-book-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\sphinx-giza-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\sphinx-giza-icon.png",
       "PackagePath": "staticwebassets\\pics\\sphinx-giza-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\summer-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\summer-icon.png",
       "PackagePath": "staticwebassets\\pics\\summer-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\tourist-bag-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\tourist-bag-icon.png",
       "PackagePath": "staticwebassets\\pics\\tourist-bag-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\woman-shirt-icon.png",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\woman-shirt-icon.png",
       "PackagePath": "staticwebassets\\pics\\woman-shirt-icon.png"
     },
     {
-      "Id": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\wwwroot\\pics\\zakaria-zayane-0uAVsDcyD0M-unsplash.jpg",
+      "Id": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\wwwroot\\pics\\zakaria-zayane-0uAVsDcyD0M-unsplash.jpg",
       "PackagePath": "staticwebassets\\pics\\zakaria-zayane-0uAVsDcyD0M-unsplash.jpg"
     },
     {

@@ -1,0 +1,333 @@
+﻿@using Tourism.Models
+@model IEnumerable<Trip>
+
+@{
+    ViewData["Title"] = "TourGuide Dashboard";
+    
+}
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<style>
+    #toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    .custom-toast {
+        min-width: 300px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        margin-bottom: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        animation: slideIn 0.5s ease;
+    }
+
+    .toast-success {
+        background: linear-gradient(135deg, #28a745, #218838);
+    }
+
+    .toast-error {
+        background: linear-gradient(135deg, #dc3545, #b02a37);
+    }
+
+    @@keyframes slideIn {
+        from
+
+    {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    }
+</style>
+
+
+<div id="div2" class="mb-4"></div>
+
+@if (ViewBag.VerificationPending == true)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading"><i class="fas fa-clock"></i> Verification Pending</h4>
+        <p>Your verification documents have been submitted and are currently under review by our admin team. You will be notified once your account is verified.</p>
+        <hr>
+        <p class="mb-0">Once verified, you'll be able to add trips and manage bookings. This process usually takes 24-48 hours.</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<style>
+    .hover-move-btn {
+        background-color: #1ec1ff; 
+        color: white;
+        transition: all 0.3s ease; 
+    }
+
+        .hover-move-btn:hover {
+            background-color: #1f4ed8; 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+    .btn-delete,
+    .btn-update,
+    .btn-show {
+        transition: all 0.3s ease;
+    }
+
+        .btn-delete:hover {
+            background-color: #8b0000; 
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .btn-update:hover {
+            background-color: #b8860b; 
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .btn-show:hover {
+            background-color: #0f2c6e; 
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            color: white;
+        }
+</style>
+<div class="allowed-for-tourguide">
+
+    <div class="d-flex gap-2 mb-4">
+        <a asp-controller="TourGuide" asp-action="AddNewTrip">
+            <button class="btn hover-move-btn">
+                Add New Trip
+            </button>
+        </a>
+
+        <a asp-controller="TourGuide" asp-action="Orders">
+            <button class="btn btn-outline-primary hover-move-btn">
+                Booked Trips
+            </button>
+        </a>
+    </div>
+
+
+    <table class="table table-striped table-hover" style="table-layout:fixed;width:100%;">
+        <thead class="table-dark">
+            <tr>
+                <th style="width:3%" scope="col">Id</th>
+                <th style="width:12%" scope="col">Name</th>
+                <th style="width:10%" scope="col">Destination</th>
+                <th style="width:8%" scope="col">Cost</th>
+                <th style="width:8%" scope="col">Duration</th>
+
+                <!-- 🔹 NEW: Start Date -->
+                <th style="width:10%" scope="col">Start Date</th>
+
+                <!-- 🔹 NEW: Capacity -->
+                <th style="width:8%" scope="col">Capacity</th>
+
+                <!-- 🔹 NEW: Remaining seats -->
+                <th style="width:10%" scope="col">Remaining</th>
+
+                <th style="width:12%" scope="col">Main Image</th>
+                <th style="width:6%" scope="col">Status</th>
+                <th style="width:20%" scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr style="font-size:18px">
+                        <td>@item.id</td>
+                        <td>@item.name</td>
+                        <td>@item.destination</td>
+                        <td>@item.cost.ToString("0.00") $</td>
+                        <td>@item.Duration</td>
+
+                        <!-- 🔹 NEW: Start Date (formatted) -->
+                        <td>@item.StartDate.ToString("dd MMM yyyy")</td>
+
+                        <!-- 🔹 NEW: Capacity -->
+                        <td>@item.Capacity</td>
+
+                        <!-- 🔹 NEW: Remaining Seats -->
+                        <td>
+                            @if (item.RemainingSeats <= 0)
+                            {
+                                <span class="text-danger fw-bold">Full</span>
+                            }
+                            else
+                            {
+                                @item.RemainingSeats
+                            }
+                        </td>
+
+                        <td>
+                            @if (item.MainImage != null && item.MainImage.Length > 0)
+                            {
+                                <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.MainImage)"
+                                     style="width:100%;height:80px;object-fit:cover;border-radius:6px;"
+                                     alt="Trip Image" />
+                            }
+                            else
+                            {
+                                <span class="text-muted">No Image</span>
+                            }
+                        </td>
+
+                        <td>
+                            @if (item.status)
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Inactive</span>
+                            }
+                        </td>
+
+                        <td>
+                            <a asp-controller="TourGuide"
+                               asp-action="TripDelete"
+                               asp-route-id="@item.id"
+                               class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+
+                            <a asp-controller="TourGuide"
+                               asp-action="TripEdit"
+                               asp-route-id="@item.id"
+                               class="btn btn-sm btn-warning mb-1 btn-update">
+                                Update
+                            </a>
+
+                            <a asp-controller="TourGuide"
+                               asp-action="TripDetails"
+                               asp-route-id="@item.id"
+                               class="btn btn-sm btn-light mb-1 btn-show">
+                                Show
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <!-- 👇 عدلنا colspan من 9 إلى 12 عشان يناسب الأعمدة الجديدة -->
+                    <td colspan="12" class="text-center text-muted">
+                        No trips available.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Logout Button -->
+    <div class="text-center my-5">
+        <a asp-controller="TourGuide" asp-action="Logout" class="btn btn-danger btn-lg px-5">
+            <i class="fas fa-sign-out-alt me-2"></i>Logout
+        </a>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+        // Prevent caching of this page
+        window.onload = function() {
+            if (performance.navigation.type === 2) {
+                // Page loaded from cache (back/forward button), force logout
+                window.location.replace('@Url.Action("Logout", "TourGuide")');
+            }
+        };
+
+        // Prevent back navigation and logout
+        (function() {
+            // Add a dummy state to prevent going back
+            if (window.history && window.history.pushState) {
+                window.history.pushState('forward', null, './#forward');
+                window.addEventListener('popstate', function () {
+                    window.history.pushState('forward', null, './#forward');
+                    // Perform logout by making a server call
+                    fetch('@Url.Action("Logout", "TourGuide")', {
+                        method: 'GET',
+                        credentials: 'same-origin'
+                    }).then(() => {
+                        window.location.replace('@Url.Action("Index", "Home")');
+                    });
+                });
+            }
+        })();
+
+        function getData(id) {
+            $.ajax({
+                url: "/TourGuide/TripDetailsPartial/" + id,
+                success: function (result) {
+                    document.getElementById("div2").innerHTML = result;
+                    document.getElementById("div2").scrollIntoView({ behavior: "smooth" });
+                },
+                error: function () {
+                    alert("Error loading trip details.");
+                }
+            });
+        }
+    </script>
+}
+<style>
+    .light-blue-btn {
+        background-color: #2ec1ff;
+        color: white;
+    }
+
+        .light-blue-btn:hover {
+            background-color: #0f2c6e; 
+            color: white;
+        }
+</style>
+
+@if (TempData["ToastMessage"] != null)
+{
+    <script>
+        window.onload = function () {
+            const toastContainer = document.getElementById('toast-container');
+
+            const toast = document.createElement('div');
+            toast.classList.add('custom-toast');
+
+            const type = '@TempData["ToastType"]';
+            if (type === 'success') {
+                toast.classList.add('toast-success');
+            } else {
+                toast.classList.add('toast-error');
+            }
+
+            toast.innerText = '@TempData["ToastMessage"]';
+
+            toastContainer.appendChild(toast);
+
+            // Auto hide after 4 seconds
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        };
+    </script>
+}

@@ -1,0 +1,250 @@
+﻿@model Tourism.Models.Trip
+
+@{
+    ViewData["Title"] = "Trip Details: " + Model.name;
+}
+
+<div class="container mt-5 mb-5">
+
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="display-5">@Model.name</h1>
+            <p class="text-muted fs-5"><i class="bi bi-geo-alt-fill"></i> @Model.destination</p>
+        </div>
+        <div class="text-end">
+            <!-- Status Badges -->
+            @if (Model.status)
+            {
+                <span class="badge bg-success">Active</span>
+            }
+            else
+            {
+                <span class="badge bg-secondary">Inactive</span>
+            }
+
+            @if (Model.accepted)
+            {
+                <span class="badge bg-primary">Accepted</span>
+            }
+            else
+            {
+                <span class="badge bg-warning text-dark">Pending Approval</span>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column: Images -->
+        <div class="col-lg-8">
+            <!-- Main Image -->
+            <div class="card shadow-sm mb-4">
+                @if (Model.MainImage != null && Model.MainImage.Length > 0)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.MainImage)"
+                         class="card-img-top"
+                         alt="@Model.name Main Image"
+                         style="max-height: 500px; object-fit: cover;">
+                }
+                else
+                {
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="height: 400px;">
+                        <span class="text-muted">No Main Image Available</span>
+                    </div>
+                }
+            </div>
+
+            <!-- Description -->
+            <div class="mb-5">
+                <h3><i class="bi bi-card-text"></i> Description</h3>
+                <p class="lead" style="white-space: pre-line;">@Model.description</p>
+            </div>
+
+            <!-- Secondary Images Gallery -->
+            @if (Model.Images != null && Model.Images.Count > 0)
+            {
+                <div class="mb-5">
+                    <h3><i class="bi bi-images"></i> Gallery</h3>
+                    <div class="row g-3">
+                        @foreach (var imgEntry in Model.Images)
+                        {
+                            <div class="col-md-4 col-6">
+                                <div class="card border-0 shadow-sm">
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(imgEntry)"
+                                         class="img-fluid rounded"
+                                         style="width: 100%; height: 200px; object-fit: cover;" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            @if (Model.TourPlans != null && Model.TourPlans.Count > 0)
+            {
+                <div class="mb-4">
+                    <h3 class="mb-3">
+                        <i class="bi bi-calendar-week"></i> Itinerary
+                    </h3>
+
+                    <div class="list-group">
+                        @foreach (var plan in Model.TourPlans)
+                        {
+                            <div class="list-group-item mb-2 shadow-sm rounded">
+                                <h6 class="fw-bold text-primary">
+                                    Day @plan.Heading - @plan.Description
+                                </h6>
+                                <p class="mb-0 text-muted">
+                                    @plan.Description
+                                </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-secondary">
+                    No itinerary available for this trip.
+                </div>
+            }
+
+        </div>
+
+        <!-- Right Column: Trip Info Card -->
+        <div class="col-lg-4">
+            <div class="card shadow border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Trip Summary</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Trip ID:</strong>
+                            <span>#@Model.id</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Cost:</strong>
+                            <span class="fs-5 text-success fw-bold">@Model.cost.ToString("C")</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Duration:</strong>
+                            <span>@Model.Duration Days</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Type:</strong>
+                            <span class="badge bg-info text-dark">@Model.triptype</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Capacity:</strong>
+                            <span>@Model.Capacity</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>RemainingSeats:</strong>
+                            <span>@Model.RemainingSeats</span>
+                        </li>
+                    </ul>
+
+                    <!-- Tour Guide Section -->
+                    <div class="tour-guide-section">
+                        <h5 class="text-muted border-bottom pb-2">Tour Guide</h5>
+
+                        @if (Model.TourGuide != null)
+                        {
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="rounded-circle d-flex justify-content-center align-items-center text-white tour-guide-avatar">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+
+                                <div>
+                                    <h6 class="mb-1 tour-guide-name">
+                                        @Model.TourGuide.firstName @Model.TourGuide.lastName
+                                    </h6>
+                                    <small class="tour-guide-id">
+                                        Guide ID: @Model.tourGuideId
+                                    </small>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning mt-2">
+                                No Guide Assigned
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Actions -->
+        <div class="d-flex justify-content-between align-items-center mt-5 allowed-for-tourguide">
+
+            <a asp-controller="TourGuide"
+               asp-action="TourGuideDashboard"
+               class="btn btn-outline-secondary btn-lg">
+                Back
+            </a>
+
+            <a asp-controller="TourGuide"
+               asp-action="TripEdit"
+               asp-route-id="@Model.id"
+               class="btn btn-warning btn-lg">
+                Edit Trip
+            </a>
+
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Tour Guide Section Styling */
+    .tour-guide-section {
+        background: linear-gradient(135deg, #f8fbff, #dcefff);
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .tour-guide-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        margin-right: 15px;
+        background: linear-gradient(135deg, #1ec1ff, #0f2c6e) !important;
+    }
+
+    .tour-guide-name {
+        font-size: 22px;
+        font-weight: 600;
+        color: #0f2c6e;
+    }
+
+    .tour-guide-id {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .list-group-item {
+        border-left: 4px solid #0d6efd;
+        transition: all 0.3s ease;
+    }
+
+        .list-group-item:hover {
+            background: #f4f8ff;
+            transform: translateX(5px);
+        }
+
+
+</style>

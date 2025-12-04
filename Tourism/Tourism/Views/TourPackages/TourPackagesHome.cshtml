@@ -1,0 +1,788 @@
+﻿@using System.Text.Json
+@* TourPackagesHome.cshtml *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egypt Tour Packages</title>
+    <!-- Font Awesome for Icons (Hearts, Cameras, Arrows) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <span class="close-gallery" onclick="closeGallery()">&times;</span>
+        <span class="nav-arrow left" onclick="prevImage()">&#10094;</span>
+        <span class="nav-arrow right" onclick="nextImage()">&#10095;</span>
+
+        <div class="gallery-viewer">
+            <img id="activeImage" src="" alt="Gallery Image">
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header Area -->
+        <div class="tours-header">
+            <div class="tour-count"><span>@ViewBag.TripCount Tours</span></div>
+
+            <div class="sort-dropdown">
+                <span>Sort by</span>
+                <i id="sortArrow" class="fa-solid fa-arrow-down-short-wide"></i>
+                <select class="sort-select" id="sortType">
+                    <option value="price">Price</option>
+                    <option value="rating">Rating</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ==============================================================================================
+        TOUR CARDS GRID
+        ============================================================================================== -->
+
+        <div class="tour-grid">
+
+            @model IEnumerable<Tourism.Models.Trip>
+
+            <!-- CSS for the new availability section -->
+            <style>
+                .tour-meta-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 10px 0;
+                    padding: 8px 0;
+                    border-top: 1px dashed #eee;
+                    border-bottom: 1px dashed #eee;
+                    font-size: 0.9rem;
+                }
+
+                .meta-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: #555;
+                }
+
+                .meta-icon {
+                    color: #f7941d; /* Your theme orange */
+                }
+
+                /* Text Colors for Availability */
+                .text-success {
+                    color: #198754 !important;
+                }
+
+                .text-danger {
+                    color: #dc3545 !important;
+                    font-weight: 600;
+                }
+
+                .text-muted {
+                    color: #6c757d !important;
+                }
+                /* overlay */
+                .gallery-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0,0,0,0.85);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 99999;
+                }
+
+                /* حاوية الصورة المفردة */
+                .gallery-single {
+                    position: relative;
+                    max-width: 90%;
+                    max-height: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                    /* الصورة نفسها */
+                    .gallery-single img {
+                        max-width: 100%;
+                        max-height: 100%;
+                        border-radius: 8px;
+                        box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+                    }
+
+                /* الأسهم */
+                .gallery-arrow {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 42px;
+                    color: white;
+                    background: rgba(0,0,0,0.35);
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+                }
+
+                    .gallery-arrow:hover {
+                        background: rgba(0,0,0,0.5);
+                    }
+
+                    .gallery-arrow.left {
+                        left: -70px;
+                    }
+                    /* اضبط المسافة عند الحاجة */
+                    .gallery-arrow.right {
+                        right: -70px;
+                    }
+
+                /* زر الإغلاق */
+                .gallery-close {
+                    position: fixed;
+                    top: 18px;
+                    right: 22px;
+                    font-size: 36px;
+                    color: white;
+                    cursor: pointer;
+                }
+
+
+            </style>
+
+            @foreach (var trip in Model ?? Enumerable.Empty<Tourism.Models.Trip>())
+            {
+                // 1. Prepare Image
+                var mainImgSrc = trip.MainImage != null && trip.MainImage.Length > 0
+                ? $"data:image/jpeg;base64,{Convert.ToBase64String(trip.MainImage)}"
+                : Url.Content("~/images/placeholder-trip.webp");
+
+                // 2. Logic for Availability
+                bool isTripEnded = trip.StartDate.Date < DateTime.Now.Date;
+                bool isFull = trip.RemainingSeats <= 0;
+                bool isLowAvailability = trip.RemainingSeats < 5 && !isFull && !isTripEnded;
+
+                <div class="tour-card">
+                    <div class="card-img-wrap">
+                        <img src="@mainImgSrc" alt="@trip.name">
+
+                        <!-- Optional: Overlay Badge if Full or Ended -->
+                        @if (isTripEnded)
+                        {
+                            <span class="badge-featured" style="background:#666;">Ended</span>
+                        }
+                        else if (isFull)
+                        {
+
+                            <span class="badge-featured" style="background:#dc3545;">Sold Out</span>
+                        }
+                        else
+                        {
+
+                            <span class="badge-featured">Featured</span>
+                        }
+
+                        <div class="btn-heart"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="media-icons">
+                            <span class="camera-badge"
+                                  onclick='openGallery(@Html.Raw(JsonSerializer.Serialize(
+                                            trip.Images.Select(img => Convert.ToBase64String(img))
+                                        )))'>
+                            <i class="fa-solid fa-camera"></i>
+                            <em>@(trip.Images?.Count ?? 0)</em>
+                        </span>
+
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="tour-title">
+                            <a href="javascript:void(0);" class="tour-link"
+                               onclick="openTourOrAuth('@Url.Action("DynamicTrip", "TourPackages", new { id = trip.id })')">
+                                @trip.name (@trip.Duration Days)
+                            </a>
+                        </h3>
+
+                        <!-- NEW: Date & Remaining Seats Section -->
+                        <div class="tour-meta-info">
+                            <!-- Start Date -->
+                            <div class="meta-item">
+                                <i class="fa-regular fa-calendar meta-icon"></i>
+                                <span>@trip.StartDate.ToString("dd MMM")</span>
+                            </div>
+
+                            <!-- Availability Logic -->
+                            <div class="meta-item">
+                                <i class="fa-solid fa-users meta-icon"></i>
+
+                                @if (isTripEnded)
+                                {
+                                    <span class="text-muted">Closed</span>
+                                }
+                                else if (isFull)
+                                {
+                                    <span class="text-danger">Sold Out</span>
+                                }
+                                else
+                                {
+                                    <!-- If low seats, show Red text, otherwise Green -->
+                                    <span class="@(isLowAvailability ? "text-danger" : "text-success")">
+                                        @trip.RemainingSeats Left
+                                    </span>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="tour-price">
+                            From <strong>$@trip.cost</strong>
+                        </div>
+
+                        <!-- Explore Button -->
+                        <!-- We disable the button link if the trip is ended/sold out, optional UX choice -->
+                        @if (isTripEnded || isFull)
+                        {
+                            <button class="btn-explore" style="background-color:#ccc; cursor:not-allowed;" disabled>
+                                @(isTripEnded ? "Ended" : "Fully Booked")
+                            </button>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0);"
+                               class="btn-explore"
+                               onclick="openTourOrAuth('@Url.Action("DynamicTrip", "TourPackages", new { id = trip.id })')">
+                                Explore <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+
+    <script>
+        /* Price sorting on arrow click */
+        let ascending = true;
+
+        document.getElementById('sortArrow').addEventListener('click', function () {
+            const grid = document.querySelector('.tour-grid');
+            const cards = Array.from(grid.querySelectorAll('.tour-card'));
+
+            cards.sort((a, b) => {
+                const priceA = parseFloat(a.querySelector('.tour-price strong').textContent.replace('$', ''));
+                const priceB = parseFloat(b.querySelector('.tour-price strong').textContent.replace('$', ''));
+
+                return ascending ? priceA - priceB : priceB - priceA;
+            });
+
+            cards.forEach(card => grid.appendChild(card));
+
+            this.classList.toggle('rotate');
+            ascending = !ascending;
+        });
+
+        /************** Gallery Logic **************/
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function openGallery(element) {
+            const card = element.closest('.tour-card');
+            const images = card.querySelectorAll('.tour-images img');
+
+            currentImages = Array.from(images).map(img => img.src);
+            currentIndex = 0;
+
+            showImage();
+            document.getElementById('galleryModal').style.display = 'flex';
+        }
+
+        function showImage() {
+            document.getElementById('activeImage').src = currentImages[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            showImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            showImage();
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    :root {
+        --primary-blue: #00a0b0;
+        --text-dark: #2d3436;
+        --text-light: #636e72;
+        --bg-light: #f9f9f9;
+        --card-hover-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    /* --- Header Section (Sort & Count) --- */
+    .tours-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
+
+    .tour-count {
+        font-weight: 700;
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+
+        .tour-count span {
+            color: var(--text-dark);
+            font-weight: 900;
+        }
+
+    .sort-dropdown {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        color: #7b7b86;
+    }
+
+        .sort-dropdown i {
+            font-size: 0.9rem;
+            color: #7b7b86;
+        }
+
+    .sort-select {
+        padding: 6px 32px 6px 12px;
+        border: 1px solid #e7dfd5;
+        border-radius: 6px;
+        background-color: #fff;
+        font-size: 0.9rem;
+        color: #7b7b86;
+        outline: none;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237b7b86' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 10px 6px;
+    }
+
+    #sortArrow {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+        #sortArrow.rotate {
+            transform: rotate(180deg);
+        }
+
+    /* --- Grid Layout --- */
+    .tour-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 30px;
+    }
+
+    .tour-card {
+        background: #fff;
+        border: 1px solid #eaeaea;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+    .card-img-wrap {
+        position: relative;
+        height: 280px;
+        width: 100%;
+    }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .badge-featured {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: var(--primary-blue);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 2;
+    }
+
+    .btn-heart {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+        background: rgba(0,0,0,0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: background 0.2s;
+        z-index: 2;
+    }
+
+        .btn-heart:hover {
+            background: rgba(0,0,0,0.6);
+            color: #ff4757;
+        }
+
+    .card-content {
+        background: white;
+        border-radius: 24px 24px 0 0;
+        margin-top: -30px;
+        position: relative;
+        z-index: 5;
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .media-icons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+
+    .camera-badge {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+        .camera-badge i {
+            color: #7f8c8d;
+            transition: color 0.3s ease;
+        }
+
+        .camera-badge:hover i {
+            color: #e67e22;
+        }
+
+        .camera-badge em {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #ff8c00;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-style: normal;
+            line-height: 1;
+        }
+
+    .tour-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #2d3436;
+        margin: 10px 0;
+        line-height: 1.3;
+    }
+
+        .tour-title .tour-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+            .tour-title .tour-link:hover {
+                color: #e67e22;
+                cursor: pointer;
+            }
+
+    .tour-price {
+        font-size: 1rem;
+        color: #7b7b86;
+        margin-bottom: 20px;
+    }
+
+        .tour-price strong {
+            color: #e67e22;
+            font-size: 1.1rem;
+        }
+
+    .btn-explore {
+        margin-top: auto;
+        background-color: #f8f9fa;
+        color: #d35400;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+        .btn-explore:hover {
+            background-color: #ffeaa7;
+        }
+
+        .btn-explore i {
+            margin-left: 8px;
+            font-size: 0.8rem;
+        }
+
+    .gallery-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery-viewer {
+        padding: 50px;
+    }
+
+        .gallery-viewer img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+    .close-gallery {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 60px;
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px 20px;
+        transition: 0.3s;
+    }
+
+        .nav-arrow:hover {
+            color: #e67e22;
+        }
+
+        .nav-arrow.left {
+            left: 30px;
+        }
+
+        .nav-arrow.right {
+            right: 30px;
+        }
+
+    @@media (max-width: 768px) {
+        .tour-grid
+
+    {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    }
+</style>
+
+<script>
+    // سنخزن مرجع overlay وindex حالياً
+    let __galleryState = {
+        images: [],
+        currentIndex: 0,
+        overlay: null
+    };
+
+    function openGallery(images) {
+        if (!images || images.length === 0) {
+            alert("No images available.");
+            return;
+        }
+
+        // تأكد أن الصور هي مصفوفة (إذا جاء JSON مسبقاً)
+        const imgs = Array.isArray(images) ? images : JSON.parse(images);
+
+        // حفظ الحالة
+        __galleryState.images = imgs;
+        __galleryState.currentIndex = 0;
+
+        // بناء الoverlay
+        const overlay = document.createElement("div");
+        overlay.className = "gallery-overlay";
+        overlay.tabIndex = -1; // focusable for keyboard events
+
+        // close button
+        const closeBtn = document.createElement("div");
+        closeBtn.className = "gallery-close";
+        closeBtn.innerHTML = "&times;";
+        closeBtn.onclick = closeGallery;
+
+        // single image container
+        const single = document.createElement("div");
+        single.className = "gallery-single";
+
+        // left arrow
+        const left = document.createElement("div");
+        left.className = "gallery-arrow left";
+        left.innerHTML = "&#8249;"; // ‹
+        left.onclick = (e) => { e.stopPropagation(); showPrev(); };
+
+        // right arrow
+        const right = document.createElement("div");
+        right.className = "gallery-arrow right";
+        right.innerHTML = "&#8250;"; // ›
+        right.onclick = (e) => { e.stopPropagation(); showNext(); };
+
+        // image element
+        const imgEl = document.createElement("img");
+        imgEl.className = "gallery-image-single";
+        imgEl.alt = "Image";
+
+        // append
+        single.appendChild(left);
+        single.appendChild(imgEl);
+        single.appendChild(right);
+
+        overlay.appendChild(closeBtn);
+        overlay.appendChild(single);
+
+        // click outside image closes gallery
+        overlay.onclick = function(e) {
+            if (e.target === overlay) closeGallery();
+        };
+
+        document.body.appendChild(overlay);
+        __galleryState.overlay = overlay;
+
+        // show first image
+        updateImage();
+        // focus overlay to get keyboard events
+        overlay.focus();
+
+        // bind keyboard handlers
+        document.addEventListener('keydown', __galleryKeydown);
+    }
+
+    function updateImage() {
+        const { images, currentIndex, overlay } = __galleryState;
+        if (!overlay) return;
+
+        const imgEl = overlay.querySelector('.gallery-image-single');
+        if (!imgEl) return;
+
+        // guard index
+        let idx = currentIndex;
+        if (idx < 0) idx = images.length - 1;
+        if (idx >= images.length) idx = 0;
+        __galleryState.currentIndex = idx;
+
+        // set src (base64 expected)
+        imgEl.src = `data:image/jpeg;base64,${images[idx]}`;
+    }
+
+    function showNext() {
+        __galleryState.currentIndex = (__galleryState.currentIndex + 1) % __galleryState.images.length;
+        updateImage();
+    }
+
+    function showPrev() {
+        __galleryState.currentIndex = (__galleryState.currentIndex - 1 + __galleryState.images.length) % __galleryState.images.length;
+        updateImage();
+    }
+
+    function closeGallery() {
+        const overlay = __galleryState.overlay;
+        if (!overlay) return;
+
+        // remove keyboard listener
+        document.removeEventListener('keydown', __galleryKeydown);
+
+        overlay.remove();
+        __galleryState.overlay = null;
+        __galleryState.images = [];
+        __galleryState.currentIndex = 0;
+    }
+
+    function __galleryKeydown(e) {
+        if (!__galleryState.overlay) return;
+        if (e.key === 'ArrowRight') {
+            showNext();
+            e.preventDefault();
+        } else if (e.key === 'ArrowLeft') {
+            showPrev();
+            e.preventDefault();
+        } else if (e.key === 'Escape') {
+            closeGallery();
+            e.preventDefault();
+        }
+    }
+</script>

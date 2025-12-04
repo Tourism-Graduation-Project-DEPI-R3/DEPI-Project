@@ -1,0 +1,166 @@
+﻿@{
+    ViewData["Title"] = "History";
+}
+
+<div class="position-relative image-card" style="width: 100vw; height: 70vh; overflow: hidden;">
+    <img src="@Url.Content("~/images/About Egypt/3.jpeg")"
+         class="w-100 h-100"
+         style="object-fit: cover; border-radius: 0;">
+</div>
+
+<div class="History-container">
+    <h1 class="h1">A Time Traveler’s Paradise</h1><br />
+
+    <p>
+        With seven UNESCO World Heritage sites and jaw-dropping historical destinations,
+        no matter where you go in Egypt, you are bound to find history bursting at the seams!
+        There’s so much more to see than just pyramids, so get ready to travel through time.
+    </p>
+
+    <h2>Explore Ancient Egyptian Wonders</h2><br />
+    <p>
+        Ancient Egypt is famous for being the cradle of civilization, and for a good reason.
+        It’s among the oldest and greatest civilizations. Ancient Egyptians cultivated an innovative and
+        integrated culture on the banks of the Nile Valley. They developed grain farming, a sophisticated
+        system of political organization, religion, writing, record-keeping, and a foundation for art to flourish.
+        Ancient Egyptian civilization has shined worldwide through millennia with iconic historical figures, from Akhenaten
+        to Queen Hatshepsut and from Tutankhamun to Ramesses II. The rest, as they say, is history!
+    </p>
+
+    <h2>Discover Graeco-Roman Treasures</h2><br />
+    <p>
+        As extraordinary as it was, ancient Egyptian civilization was only the beginning of history-making in the Nile Valley.
+        Egypt also played an important cultural and political role in the Graeco-Roman world. Alexander the Great’s arrival to
+        Egypt in 332 BC marked the beginning of the Graeco-Roman period, during which Egypt was home to such legendary figures as Queen Cleopatra.
+    </p>
+
+    <h2>Experience Christian Heritage</h2><br />
+    <p>
+        Christianity was brought to Egypt by the Apostle Saint Mark,
+        early in the first century, making the Egyptian Coptic Church one of the oldest churches in existence.
+    </p>
+    <p>
+        Today, visitors can still visit many monasteries, such as the Monasteries of St. Anthony and St. Paul in the Red Sea
+        and the Red and White Monasteries in Suhag. They can also walk in the footsteps of the Holy Family in Egypt by visiting the sites
+        that were blessed by the Virgin Mary, the infant Jesus, and Joseph during their three-and-a-half-year journey through Egypt seeking sanctuary and protection.
+    </p>
+
+    <h2>Relive the Grandeur of Islamic Civilization</h2><br />
+    <p>
+        The arrival of Islam to Egypt heralded Egypt’s role as an important player in the medieval world. Between 641 and 1517,
+        a number of Arab-Islamic dynasties made Egypt a vital political and cultural center. During the Islamic Period, dynasties
+        like the Umayyads, Abbasids, Fatimids, Ayyubids, and Mamluks left behind a wealth of Medieval Islamic architecture, transforming
+        Cairo into the “City of a Thousand Minarets.” The Mamluks were followed by nearly 400 years of Ottoman rule, as Egypt became one of
+        the most important provinces of the Ottoman Empire.
+    </p>
+    <p>
+        The Muhammad Ali dynasty marked the birth of the modern state of Egypt. Beginning in 1805, Muhammad Ali presided over the building
+        of an impressive modern administrative system that included the world’s earliest modern postal services, railroad infrastructure,
+        irrigation networks, conscription armies, manufacturing, education, and cultural affairs.
+    </p>
+
+    <h2>Modern Egypt</h2><br />
+    <p>
+        Khedive Ismail reshaped the urban landscape of key Egyptian cities between 1863 and 1879 by introducing modern sewage systems,
+        schools, state-of-the-art hospitals, and European-inspired architecture.
+    </p>
+    <p>
+        In 1952, Egypt became a republic, strengthening its position as the unparalleled political and cultural heart of the Arabic world,
+        setting trends in Middle Eastern music, literature, and cinema.
+    </p>
+    <p>
+        His Excellency Abdel Fattah al-Sisi has been the President of Egypt since 2014. During his time in office, he has overseen a boom in
+        the expansion and modernization of Egypt’s infrastructure across multiple sectors nationwide. The government has spearheaded significant
+        investment to modernize the country’s transportation infrastructure, including roads and bridges, railways, metro and electric railways,
+        sea ports, river transport, land and dry ports, and logistics centers. Cairo International Airport and two other Egyptian airports topped
+        the list issued by the Airports Council International (ACI) of the ten leading African airports in terms of passenger traffic. Eleven Egyptian
+        airports obtained and renewed their certificates for safe health travel from the ACI. In addition to revamping existing airports, Egypt is also
+        building new airports, such as Sphinx International Airport west of Cairo and the New Capital Airport in Egypt’s New Administrative Capital City.
+    </p>
+    <p>
+        With an eye on the future, Egypt is developing new urban communities and holiday destinations, like Al-Galala, the New Administrative Capital City,
+        New Alamein City, New Aswan, and New Mansura that will attract both domestic and international tourists.
+    </p>
+    <p>
+        The tourism and antiquities sectors have received unprecedented support from the President, which has allowed the Ministry of Tourism and Antiquities
+        to inaugurate new museums and restore over 100 archaeological sites, including mosques, churches, and synagogues. The Ministry has also been able to
+        continue with its ongoing conservation and preservation of Egypt’s archaeological treasures. New archaeological discoveries continue to make international
+        headlines and garner recognition as some of the most important archaeological discoveries in the world.
+    </p>
+</div>
+
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .image-card img {
+        transition: transform 0.5s ease;
+    }
+
+    .caption {
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+    }
+
+    .History-container {
+        width: 100vw;
+        margin: 0;
+        padding: 120px;
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        color: #333;
+        box-sizing: border-box;
+    }
+
+        .History-container .h1 {
+            font-size: 45px;
+            font-weight: 700;
+            color: black;
+            line-height: 1.2;
+            margin: 10px 0 40px 0;
+            text-transform: uppercase;
+            text-align: left;
+            display: block;
+        }
+
+        .History-container h2 {
+            font-size: 30px;
+            color: #003366;
+            margin-top: 25px;
+        }
+
+        .History-container p {
+            margin-bottom: 18px;
+            font-size: 20px;
+            text-align: justify;
+        }
+
+        .History-container a {
+            color: #004d66;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .History-container a:hover {
+                text-decoration: underline;
+            }
+</style>

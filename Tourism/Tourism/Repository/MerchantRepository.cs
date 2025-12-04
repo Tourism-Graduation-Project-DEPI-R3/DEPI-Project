@@ -184,12 +184,14 @@ namespace Tourism.Repository
                 dashboardModel.reviews[i] = GetReviews(id, i);
             }
 
-            dashboardModel.rate=(int)(from tf in _context.TouristFeedbacks
-                                  join p in _context.Products
-                                     on tf.targetId equals p.id
-                                  where tf.targetType == "Product"
-                                        && p.merchantId == id
-                                  select tf.rating).Average();
+            var ratings = (from tf in _context.TouristFeedbacks
+                          join p in _context.Products
+                             on tf.targetId equals p.id
+                          where tf.targetType == "Product"
+                                && p.merchantId == id
+                          select tf.rating);
+            
+            dashboardModel.rate = ratings.Any() ? (int)ratings.Average() : 0;
 
         }
 

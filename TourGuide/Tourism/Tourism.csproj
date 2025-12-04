@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\MerchantDashBoard.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Merchant\MerchantDashboard.cshtml" />
+    <None Include="wwwroot\pics\addProduct.png" />
+    <None Include="wwwroot\pics\orders.png" />
+    <None Include="wwwroot\pics\products.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\HomePage\Half-Day Citadel Trip\" />
+    <Folder Include="wwwroot\Images\HomePage\Coptic Day Tour\" />
+    <Folder Include="wwwroot\Images\HomePage\Islamic Cairo Day Tour\" />
+    <Folder Include="wwwroot\Images\HomePage\Grand Egyptian Museum Experience\" />
+    <Folder Include="wwwroot\Images\HomePage\Day Trip to Fayoum Oasis\" />
+    <Folder Include="wwwroot\Images\HomePage\Red Sea Diving Adventure\" />
+    <Folder Include="wwwroot\Images\HomePage\Pyramids Day Trip\" />
+    <Folder Include="wwwroot\Images\HomePage\One-Day Itinerary\" />
+  </ItemGroup>
+
+</Project>

@@ -21,5 +21,8 @@ namespace Tourism.Models
 
         [Required]
         public string CVV { get; set; }
+
+        // Foreign key to link card to user (Tourist or TourGuide)
+        public int? UserId { get; set; }
     }
 }

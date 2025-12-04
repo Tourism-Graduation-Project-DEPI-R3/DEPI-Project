@@ -44,12 +44,6 @@
                     <dd class="col-sm-8">$@Model.price</dd>
 
                     <input type="hidden" name="mealId" value="@Model.id" />
-
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" placeholder="Enter your feedback here..." name="msg" style="height:120px;"></textarea>
-                        <label for="feedback">Feedback / Comments</label>
-                    </div>
-
                     <input type="hidden" name="providerId" value="@Model.id" />
                     <input type="hidden" name="serviceId" value="@Model.mealId" />
                     <input type="hidden" name="role" value="Restaurant" />

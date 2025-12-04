@@ -1,0 +1,603 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\repository\\touristrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\repository\\touristrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\repository\\tourguiderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\repository\\tourguiderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\controllers\\tourpackagescontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\controllers\\tourpackagescontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\controllers\\tourguidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\controllers\\tourguidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourpackages\\dynamictrip.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourpackages\\dynamictrip.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourpackages\\tourpackageshome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourpackages\\tourpackageshome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\irepository\\itourguiderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\irepository\\itourguiderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\models\\creditcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\models\\creditcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\controllers\\touristcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\controllers\\touristcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\irepository\\itouristrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\irepository\\itouristrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\controllers\\tourismcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\controllers\\tourismcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\models\\tourguide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\models\\tourguide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\models\\tourismdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\models\\tourismdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\viewmodel\\paymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\viewmodel\\paymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\models\\paymenttripbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\models\\paymenttripbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\repository\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\repository\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\irepository\\itriprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\irepository\\itriprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\viewmodel\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\viewmodel\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\irepository\\itourismrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\irepository\\itourismrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\models\\touristcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\models\\touristcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourpackages\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourpackages\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\viewmodel\\tripordersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\viewmodel\\tripordersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourguide\\tourguidedashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourguide\\tourguidedashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourguide\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourguide\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourguide\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourguide\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\shared\\_headerpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\shared\\_headerpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\viewmodel\\tripdetailsvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\viewmodel\\tripdetailsvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\views\\tourguide\\tripedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\views\\tourguide\\tripedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\migrations\\20251201150214_v12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\migrations\\20251201150214_v12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|d:\\study\\depi\\graduationproject\\tourguide\\tourism\\migrations\\20251201173523_v14.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA7248E-60FA-445E-B795-36D9E5588F83}|Tourism\\Tourism.csproj|solutionrelative:tourism\\migrations\\20251201173523_v14.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAG4BAAAAAAAAAAAYwP8BAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-28T19:04:36.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITourGuideRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITourGuideRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\IRepository\\ITourGuideRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITourGuideRepository.cs",
+              "RelativeToolTip": "Tourism\\IRepository\\ITourGuideRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T17:17:27.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TourGuideController.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TourGuideController.cs",
+              "RelativeDocumentMoniker": "Tourism\\Controllers\\TourGuideController.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TourGuideController.cs",
+              "RelativeToolTip": "Tourism\\Controllers\\TourGuideController.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAAANEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T19:53:48.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TourGuideRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Repository\\TourGuideRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\Repository\\TourGuideRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Repository\\TourGuideRepository.cs",
+              "RelativeToolTip": "Tourism\\Repository\\TourGuideRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T17:20:24.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TourPackagesController .cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TourPackagesController .cs",
+              "RelativeDocumentMoniker": "Tourism\\Controllers\\TourPackagesController .cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TourPackagesController .cs",
+              "RelativeToolTip": "Tourism\\Controllers\\TourPackagesController .cs",
+              "ViewState": "AgIAAOcBAAAAAAAAAAAIwPsBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T00:46:26.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TouristRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Repository\\TouristRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\Repository\\TouristRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Repository\\TouristRepository.cs",
+              "RelativeToolTip": "Tourism\\Repository\\TouristRepository.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAAANUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:31:42.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Program.cs",
+              "RelativeDocumentMoniker": "Tourism\\Program.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Program.cs",
+              "RelativeToolTip": "Tourism\\Program.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAkwEMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T21:25:28.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TourPackagesHome.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourPackages\\TourPackagesHome.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourPackages\\TourPackagesHome.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourPackages\\TourPackagesHome.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourPackages\\TourPackagesHome.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T01:02:25.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DynamicTrip.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourPackages\\DynamicTrip.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourPackages\\DynamicTrip.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourPackages\\DynamicTrip.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourPackages\\DynamicTrip.cshtml",
+              "ViewState": "AgIAAEkCAAAAAAAAAAAYwGECAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T01:01:51.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CreditCard.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\CreditCard.cs",
+              "RelativeDocumentMoniker": "Tourism\\Models\\CreditCard.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\CreditCard.cs",
+              "RelativeToolTip": "Tourism\\Models\\CreditCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:11:32.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ITouristRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITouristRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\IRepository\\ITouristRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITouristRepository.cs",
+              "RelativeToolTip": "Tourism\\IRepository\\ITouristRepository.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAA5wDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:30:43.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TouristController.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TouristController.cs",
+              "RelativeDocumentMoniker": "Tourism\\Controllers\\TouristController.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TouristController.cs",
+              "RelativeToolTip": "Tourism\\Controllers\\TouristController.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAgwNQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T15:24:02.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TourismController.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TourismController.cs",
+              "RelativeDocumentMoniker": "Tourism\\Controllers\\TourismController.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\TourismController.cs",
+              "RelativeToolTip": "Tourism\\Controllers\\TourismController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T17:05:26.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "20251201173523_v14.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Migrations\\20251201173523_v14.cs",
+              "RelativeDocumentMoniker": "Tourism\\Migrations\\20251201173523_v14.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Migrations\\20251201173523_v14.cs",
+              "RelativeToolTip": "Tourism\\Migrations\\20251201173523_v14.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T17:35:23.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TourGuide.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\TourGuide.cs",
+              "RelativeDocumentMoniker": "Tourism\\Models\\TourGuide.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\TourGuide.cs",
+              "RelativeToolTip": "Tourism\\Models\\TourGuide.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAUwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T17:30:00.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TourismDbContext.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\TourismDbContext.cs",
+              "RelativeDocumentMoniker": "Tourism\\Models\\TourismDbContext.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\TourismDbContext.cs",
+              "RelativeToolTip": "Tourism\\Models\\TourismDbContext.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAqwIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T15:00:29.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PaymentViewModel.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\PaymentViewModel.cs",
+              "RelativeDocumentMoniker": "Tourism\\ViewModel\\PaymentViewModel.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\PaymentViewModel.cs",
+              "RelativeToolTip": "Tourism\\ViewModel\\PaymentViewModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAowCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:24:50.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PaymentTripBooking.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\PaymentTripBooking.cs",
+              "RelativeDocumentMoniker": "Tourism\\Models\\PaymentTripBooking.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\PaymentTripBooking.cs",
+              "RelativeToolTip": "Tourism\\Models\\PaymentTripBooking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:36:40.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TripRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Repository\\TripRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\Repository\\TripRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Repository\\TripRepository.cs",
+              "RelativeToolTip": "Tourism\\Repository\\TripRepository.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAA+wDgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T20:16:00.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ITripRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITripRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\IRepository\\ITripRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITripRepository.cs",
+              "RelativeToolTip": "Tourism\\IRepository\\ITripRepository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA8wC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T20:17:38.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "Tourism\\ViewModel\\ProductViewModel.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\ProductViewModel.cs",
+              "RelativeToolTip": "Tourism\\ViewModel\\ProductViewModel.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T15:32:09.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ITourismRepository.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITourismRepository.cs",
+              "RelativeDocumentMoniker": "Tourism\\IRepository\\ITourismRepository.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\IRepository\\ITourismRepository.cs",
+              "RelativeToolTip": "Tourism\\IRepository\\ITourismRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T15:29:58.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "20251201150214_v12.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Migrations\\20251201150214_v12.cs",
+              "RelativeDocumentMoniker": "Tourism\\Migrations\\20251201150214_v12.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Migrations\\20251201150214_v12.cs",
+              "RelativeToolTip": "Tourism\\Migrations\\20251201150214_v12.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T15:02:14.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TouristCart.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\TouristCart.cs",
+              "RelativeDocumentMoniker": "Tourism\\Models\\TouristCart.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Models\\TouristCart.cs",
+              "RelativeToolTip": "Tourism\\Models\\TouristCart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:59:55.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Payment.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourPackages\\Payment.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourPackages\\Payment.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourPackages\\Payment.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourPackages\\Payment.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAADwv0YAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T14:53:18.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TripOrdersViewModel.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\TripOrdersViewModel.cs",
+              "RelativeDocumentMoniker": "Tourism\\ViewModel\\TripOrdersViewModel.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\TripOrdersViewModel.cs",
+              "RelativeToolTip": "Tourism\\ViewModel\\TripOrdersViewModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:23:58.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AdminDashboard.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\Admin\\AdminDashboard.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\Admin\\AdminDashboard.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\Admin\\AdminDashboard.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\Admin\\AdminDashboard.cshtml",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAuwDsBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T01:15:30.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Tourism\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Tourism\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAkwGQAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:14:15.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TourGuideDashboard.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\TourGuideDashboard.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourGuide\\TourGuideDashboard.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\TourGuideDashboard.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourGuide\\TourGuideDashboard.cshtml",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAIwHgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-28T17:49:31.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Orders.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\Orders.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourGuide\\Orders.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\Orders.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourGuide\\Orders.cshtml",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T19:45:53.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "TripDetails.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\TripDetails.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourGuide\\TripDetails.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\TripDetails.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourGuide\\TripDetails.cshtml",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAwJMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-28T17:50:55.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "_HeaderPartialView.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\Shared\\_HeaderPartialView.cshtml",
+              "ViewState": "AgIAAAkCAAAAAAAAAAAgwBcCAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T01:03:56.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "TripDetailsVM.cs",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\TripDetailsVM.cs",
+              "RelativeDocumentMoniker": "Tourism\\ViewModel\\TripDetailsVM.cs",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\ViewModel\\TripDetailsVM.cs",
+              "RelativeToolTip": "Tourism\\ViewModel\\TripDetailsVM.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T17:32:58.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "TripEdit.cshtml",
+              "DocumentMoniker": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\TripEdit.cshtml",
+              "RelativeDocumentMoniker": "Tourism\\Views\\TourGuide\\TripEdit.cshtml",
+              "ToolTip": "D:\\Study\\DEPI\\GraduationProject\\TourGuide\\Tourism\\Views\\TourGuide\\TripEdit.cshtml",
+              "RelativeToolTip": "Tourism\\Views\\TourGuide\\TripEdit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-28T17:17:25.527Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

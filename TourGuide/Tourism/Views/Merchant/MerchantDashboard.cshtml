@@ -1,0 +1,308 @@
+@using Tourism.ViewModel
+@model MerchantDashboardViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Merchant Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .small-card {
+            width: 14rem;
+            height: 17rem;
+            margin: auto;
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            .small-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            }
+
+        .fixed-img {
+            height: 120px;
+            object-fit: contain;
+            padding: 14px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #0d6efd;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .card-summary {
+            border-radius: 12px;
+            height: 100%;
+        }
+
+        .card-header {
+            border-top-left-radius: 12px !important;
+            border-top-right-radius: 12px !important;
+            background-color: #0d6efd !important;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+        }
+
+        .chart-container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+            .chart-container h5 {
+                color: #0d6efd;
+                margin-bottom: 10px;
+            }
+
+        /* inbox styles (unchanged for brevity) */
+        .inbox-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .inbox-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .badge-custom {
+            background: #dc3545;
+            color: #fff;
+            border-radius: 999px;
+            padding: .2rem .45rem;
+            font-size: .72rem;
+        }
+
+        .inbox-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + .5rem);
+            width: 320px;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            border-radius: .5rem;
+            display: none;
+            z-index: 1050;
+        }
+
+            .inbox-menu.open {
+                display: block;
+            }
+
+        .inbox-item {
+            padding: .55rem .9rem;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .inbox-empty {
+            padding: 1rem;
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary" href="#">Tourism</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <div class="navbar-nav align-items-center" style="gap: .5rem;">
+                    <!-- Inbox -->
+                    <div class="inbox-wrapper" id="inboxWrapper">
+                        <button type="button" class="inbox-toggle" id="inboxToggle">
+                            <span>Inbox</span>
+                            @if (Model.msg != null && Model.msg.Any())
+                            {
+                                <span id="msgBadge" class="badge-custom">@Model.msg.Count()</span>
+                            }
+                        </button>
+                        <div class="inbox-menu" id="inboxMenu">
+                            @if (Model.msg != null && Model.msg.Any())
+                            {
+                                foreach (var message in Model.msg)
+                                {
+                                    <div class="inbox-item">@message</div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="inbox-empty">No messages found</div>
+                            }
+                        </div>
+                    </div>
+
+                    <a class="nav-link" href="#">@Model.name</a>
+                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link text-danger" asp-action="Logout" asp-controller="Merchant">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <h1>Welcome, @Model.name</h1>
+
+    <!-- Action Cards -->
+    <div class="container mt-4">
+        <div class="row justify-content-center g-4">
+            <a asp-action="ShowProducts" asp-controller="Merchant" class="col-md-3 text-decoration-none text-dark">
+                <div class="card small-card text-center shadow-sm">
+                    <img src="~/pics/products .png" class="card-img-top fixed-img" alt="Products">
+                    <div class="card-body">
+                        <h6 class="card-title">Products</h6>
+                        <p class="card-text">Manage and view all available products easily.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="col-md-3 text-decoration-none text-dark">
+                <div class="card small-card text-center shadow-sm">
+                    <img src="~/pics/orders.png" class="card-img-top fixed-img" alt="Orders">
+                    <div class="card-body">
+                        <h6 class="card-title">Orders</h6>
+                        <p class="card-text">Track customer orders and update their status.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a asp-action="AddProduct" asp-controller="Merchant" class="col-md-3 text-decoration-none text-dark">
+                <div class="card small-card text-center shadow-sm">
+                    <img src="~/pics/addProduct.png" class="card-img-top fixed-img" alt="Add Product">
+                    <div class="card-body">
+                        <h6 class="card-title">Add Product</h6>
+                        <p class="card-text">Quickly add new products to your store inventory.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sales Summary + Graph -->
+    <div class="container mt-5">
+        <div class="row g-4 align-items-stretch">
+            <!-- Sales Summary -->
+            <div class="col-lg-6">
+                <div class="card card-summary shadow-sm">
+                    <div class="card-header text-white">
+                        <h5 class="mb-0">Sales Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered text-center align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Period</th>
+                                    <th>Ordered Product Sales ($)</th>
+                                    <th>Units</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Today</td><td>@Model.total[0]</td><td>@Model.units[0]</td></tr>
+                                <tr><td>Last 7 Days</td><td>@Model.total[1]</td><td>@Model.units[1]</td></tr>
+                                <tr><td>Last 14 Days</td><td>@Model.total[2]</td><td>@Model.units[2]</td></tr>
+                                <tr><td>Last 30 Days</td><td>@Model.total[3]</td><td>@Model.units[3]</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annual Earnings Chart -->
+            <div class="col-lg-6">
+                <div class="chart-container shadow-sm">
+                    <h5>Annual Earnings ($)</h5>
+                    <canvas id="earningsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Chart setup
+        const ctx = document.getElementById('earningsChart').getContext('2d');
+        const earningsData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.annualEarnings));
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Monthly Earnings',
+                    data: earningsData,
+                    borderColor: '#0d6efd',
+                    backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                    tension: 0.4, // smooth connected lines
+                    fill: true,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#0d6efd',
+                    pointBorderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Earnings ($)' } },
+                    x: { title: { display: true, text: 'Month' } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
+
+    <!-- Inbox Script -->
+    <script>
+        const toggle = document.getElementById('inboxToggle');
+        const menu = document.getElementById('inboxMenu');
+        const wrapper = document.getElementById('inboxWrapper');
+        const badge = document.getElementById('msgBadge');
+        toggle?.addEventListener('click', e => {
+            e.stopPropagation();
+            menu.classList.toggle('open');
+            if (badge) badge.style.display = 'none';
+        });
+        document.addEventListener('click', e => { if (!wrapper.contains(e.target)) menu.classList.remove('open'); });
+    </script>
+</body>
+</html>

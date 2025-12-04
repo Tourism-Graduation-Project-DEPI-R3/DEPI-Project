@@ -1,0 +1,279 @@
+﻿@using Tourism.ViewModel
+@model TransactionViewModel
+@{
+    Layout = "EcommerceLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .transaction-section {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .card-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 50px 40px;
+            max-width: 550px;
+            width: 100%;
+        }
+
+        .balance-display {
+            background: linear-gradient(135deg, #003D5B 0%, #005078 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 61, 91, 0.2);
+        }
+
+        .balance-label {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .transaction-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #003D5B;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+            .form-control:focus {
+                border-color: #003D5B;
+                box-shadow: 0 0 0 0.2rem rgba(0, 61, 91, 0.15);
+            }
+
+            .form-control::placeholder {
+                color: #aaa;
+            }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-transaction {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-withdraw {
+            background-color: #dc3545;
+            color: white;
+        }
+
+            .btn-withdraw:hover {
+                background-color: #c82333;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+            }
+
+        .btn-deposit {
+            background-color: #003D5B;
+            color: white;
+        }
+
+            .btn-deposit:hover {
+                background-color: #005078;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 61, 91, 0.3);
+            }
+
+        .card-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .input-group-wrapper {
+            position: relative;
+        }
+
+        .security-note {
+            background-color: #e7f1ff;
+            border-left: 4px solid #003D5B;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        @@media (max-width: 576px) {
+            .card-container {
+                padding: 30px 20px;
+            }
+
+            .balance-amount {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-transaction {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="transaction-section">
+        <div class="card-container">
+
+            <!-- ✅ Alert Messages (TempData) -->
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-@TempData["AlertType"] alert-dismissible fade show" role="alert">
+                    @TempData["Message"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <!-- Balance Display -->
+            <div class="balance-display">
+                <div class="balance-label">Current Balance</div>
+                <h2 class="balance-amount">$@Model.balance.ToString("N2")</h2>
+            </div>
+
+            <h3 class="transaction-title">Card Transaction</h3>
+
+            <!-- Security Note -->
+            <div class="security-note">
+                <strong>Secure Transaction:</strong> Your card information is encrypted and secure.
+            </div>
+
+            <!-- Transaction Form -->
+            <form asp-controller="Tourist" asp-action="Balance" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Cardholder Name</label>
+                    <input asp-for="cc.CardHolder" class="form-control" placeholder="John Doe" required />
+                    <span asp-validation-for="cc.CardHolder" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Card Number</label>
+                    <div class="input-group-wrapper">
+                        <input asp-for="cc.CardNumber" class="form-control" maxlength="16" placeholder="1234 5678 9012 3456" />
+                        <span asp-validation-for="cc.CardNumber" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Expiry Date</label>
+                        <input asp-for="cc.ExpiryDate"
+                               class="form-control"
+                               placeholder="MM/YY"
+                               maxlength="5"
+                               required />
+                        <span asp-validation-for="cc.ExpiryDate" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">CVV</label>
+                        <input asp-for="cc.CVV"
+                               type="password"
+                               class="form-control"
+                               placeholder="123"
+                               maxlength="3"
+                               required />
+                        <span asp-validation-for="cc.CVV" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Transaction Amount</label>
+                    <input name="money"
+                           type="number"
+                           class="form-control"
+                           placeholder="Enter amount"
+                           min="1"
+                           step="0.01"
+                           required />
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" name="operation" value="withdraw" class="btn btn-transaction btn-withdraw">
+                        Withdraw
+                    </button>
+                    <button type="submit" name="operation" value="deposit" class="btn btn-transaction btn-deposit">
+                        Deposit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+   
+    <script>
+        // Format expiry date with slash
+        document.querySelector('[name="cc.ExpiryDate"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Only allow numbers in CVV
+        document.querySelector('[name="cc.CVV"]').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+    </script>
+</body>
+</html>

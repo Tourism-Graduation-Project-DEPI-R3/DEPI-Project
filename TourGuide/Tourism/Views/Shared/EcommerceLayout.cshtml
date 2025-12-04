@@ -1,0 +1,130 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tourism</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Ecommerce.css" />
+
+    <!-- Bootstrap & Site Styles -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Tourism.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+        <div class="container-fluid">
+            <button class="btn btn-sidebar me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">☰</button>
+
+            <a class="navbar-brand" href="#">Tourism</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <form class="d-flex mx-auto w-50" asp-controller="Tourist" asp-action="ShowProductsBySearch" method="get">
+                    <input class="form-control rounded-pill px-3 me-2"
+                           type="search"
+                           name="search"
+                           placeholder="Search for products..."
+                           aria-label="Search"
+                           required />
+                    <button type="submit" class="btn btn-outline-primary rounded-pill px-4">Search</button>
+                </form>
+                <div class="navbar-nav align-items-center">
+                    @if (User.FindFirst(ClaimTypes.Role)?.Value == "Tourist")
+                    {
+                        <a class="nav-link" href="#">@User.FindFirst(ClaimTypes.Name)?.Value</a>
+                        <a class="nav-link" asp-action="Balance" asp-controller="Tourist">Balance $</a>
+                        <a class="nav-link" asp-action="LogOut" asp-controller="Tourist">Log Out</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" asp-action="Login" asp-controller="Tourist">Login</a>
+                        <a class="nav-link" asp-action="SignUp" asp-controller="Tourist">Sign Up</a>
+
+                    }
+                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link cart-logo" asp-action="ViewCart" asp-controller="Tourist">
+                        <img src="@Url.Content("~/pics/cart-line-icon.png")" alt="Cart">Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Explore</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="#"> Best Sellers</a>
+            <a href="#"> New Releases</a>
+            <a href="#categories"> Shop by Category</a>
+            <hr>
+            <h6 class="text-primary mb-3 mt-2">Categories</h6>
+            <a href="#">Local Souvenirs</a>
+            <a href="#">Travel Gear</a>
+            <a href="#">Beachwear</a>
+            <a href="#">Outdoor Equip.</a>
+            <a href="#">Travel Essentials</a>
+            <a href="#">Clothing</a>
+            <a href="#">Jewelry</a>
+            <a href="#">Electronics</a>
+            <a href="#">Health</a>
+            <a href="#">Food</a>
+            <a href="#">Culture & Art</a>
+            <a href="#">Event Tickets</a>
+        </div>
+    </div>
+    <main>@RenderBody()</main>
+    
+
+
+
+    <!-- Footer -->
+    <footer class="site-footer mt-auto">
+        <div class="container py-4">
+            <div class="row text-white">
+                <div class="col-md-4 mb-3">
+                    <h5>Tourism</h5>
+                    <p>Your one-stop shop for all travel essentials and local goodies!</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Orders</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i> Facebook</a><br />
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i> Twitter</a><br />
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i> Instagram</a>
+                </div>
+            </div>
+            <hr class="bg-light" />
+            <div class="text-center text-white">
+                &copy; @DateTime.Now.Year Tourism. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Core Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

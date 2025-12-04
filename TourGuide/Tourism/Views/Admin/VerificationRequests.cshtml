@@ -1,0 +1,45 @@
+﻿@using Tourism.ViewModel
+@model List<VerificationViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>PDF</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.name</td>
+                <td>@request.email</td>
+                <td>
+                    <a asp-controller="Admin" asp-action="DownloadPdf" asp-route-id="@request.id" asp-route-type="@request.type"
+                       class="btn btn-primary btn-sm">
+                        Download PDF
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="Admin" asp-action="AcceptRequest"
+                       asp-route-providerId="@request.providerId"
+                       asp-route-type="@request.type"
+                       asp-route-requestId="@request.id"
+                       class="btn btn-success btn-sm">
+                        Accept
+                    </a>
+
+                    <a asp-controller="Admin" asp-action="DenyRequest"
+                       asp-route-providerId="@request.providerId"
+                       asp-route-type="@request.type"
+                       asp-route-requestId="@request.id"
+                       class="btn btn-danger btn-sm">
+                        Deny
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

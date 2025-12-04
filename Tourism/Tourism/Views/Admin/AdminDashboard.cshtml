@@ -696,6 +696,48 @@
             </div>
         </div>
 
+        <div class="provider-section tourguide">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <div class="section-info">
+                    <h2>Tour Guide Providers</h2>
+                    <p>Manage tour guides and trip packages</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a class="action-card" asp-action="VerificationRequests" asp-controller="Admin" asp-route-type="TourGuide">
+                        <div class="card-icon-small">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h5>Verification Requests</h5>
+                        <p>Review and approve tour guide verification requests</p>
+                        <div class="card-footer-info">
+                            <div class="count-badge">@Model.tourGuidesCount</div>
+                            <div class="pending-badge"></div>
+                        </div>
+                        <span class="action-link">Review Now <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a class="action-card" asp-action="ServiceRequests" asp-controller="Admin" asp-route-type="TourGuide">
+                        <div class="card-icon-small">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h5>Trip Requests</h5>
+                        <p>Review and approve tour guide trip packages</p>
+                        <div class="card-footer-info">
+                            <div class="count-badge"></div>
+                            <div class="pending-badge"> Pending</div>
+                        </div>
+                        <span class="action-link">Manage <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

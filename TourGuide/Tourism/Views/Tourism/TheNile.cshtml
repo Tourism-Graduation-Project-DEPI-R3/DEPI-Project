@@ -1,0 +1,194 @@
+﻿@{
+    ViewBag.Title = "The Nile";
+}
+
+<div class="image-container">
+    <div class="image-card">
+        <img src="@Url.Content("~/images/Destination/1.jpeg")" alt="The Nile landscape">
+    </div>
+</div>
+<br />
+<br />
+
+<div class="cards-container">
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheNile/5.jpeg")" alt="Cairo & Giza">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Cairo & Giza</h2>
+            <p class="card-description">
+                From ancient wonders to modern neighborhoods, discover Egypt’s beating heart.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <div class="travel-card" id="card-nile-2">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheNile/6.jpeg")" alt="Middle & Upper Egypt">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Middle & Upper Egypt</h2>
+            <p class="card-description">
+                The land of breathtaking temples, the path of the Holy Family, and warm, hospitable people.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <div class="travel-card" id="card-nile-3">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheNile/7.jpeg")" alt="Luxor">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Luxor</h2>
+            <p class="card-description">
+                Luxor, Egypt’s Open-Air Museum, features ancient temples, majestic monuments, pharaohs’ tombs, vibrant history, and Nile views.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <div class="travel-card" id="card-nile-4">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheNile/8.jpeg")" alt="Aswan & Abu Simbel">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Aswan & Abu Simbel</h2>
+            <p class="card-description">
+                Relax on tranquil islands, explore the magnificent Philae Temple, and stand in awe of Abu Simbel’s massive statues.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <div class="travel-card" id="card-nile-5">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/TheNile/9.jpeg")" alt="The Delta">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">The Delta</h2>
+            <p class="card-description">
+                Lush farmlands, rich history, charming villages, vibrant markets, explore waterways, local cuisine, Nile, traditions, agriculture.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* الكونتينر الخاص بالصورة */
+    .image-container {
+        width: 100vw;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .image-card {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center; /* تبدأ من أقصى الشمال */
+            display: block;
+        }
+
+
+
+
+
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .travel-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        background: #fff;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-content {
+        padding: 10px 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+        padding: 15px 10px;
+        color: #000;
+    }
+
+    .card-description {
+        font-size: 16px;
+        color: #555;
+        min-height: 130px;
+        padding: 15px 10px;
+        margin-bottom: 20px;
+    }
+
+    .learn-more-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px 20px;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .travel-card:hover .card-content {
+        background-color: #f8cc66;
+    }
+
+    .travel-card:hover .learn-more-btn {
+        background-color: #fae168;
+        color: red;
+    }
+</style>

@@ -1,0 +1,226 @@
+﻿@{
+    ViewBag.Title = "The Med Sea";
+}
+
+<div class="image-container">
+    <div class="image-card">
+        <img src="@Url.Content("~/images/Destination/4.jpeg")" alt="The Nile landscape">
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="cards-container">
+    <!-- Card 1 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/1.jpeg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Fayyoum</h2>
+            <p class="card-description">
+                Egypt’s best-kept secret.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/2.jpg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Wadi al-Natrun</h2>
+            <p class="card-description">
+                Discover some of Christianity’s holiest sites.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/3.jpeg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Siwa Oasis</h2>
+            <p class="card-description">
+                Egypt’s desert sanctuary.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/4.jpg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Al-Bahariyya</h2>
+            <p class="card-description">
+                Home to the White Desert and the Black Desert.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/5.jpg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Al-Farafra Oasis</h2>
+            <p class="card-description">
+                Experience the magical terrain of the White and Black Deserts.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/6.jpg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">Al-Dakhla & Al-Kharga Oases</h2>
+            <p class="card-description">
+                Experience Egypt’s Western Desert for an adventure off the beaten path.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="travel-card" id="card-nile-1">
+        <div class="card-image">
+            <img src="@Url.Content("~/images/Destination/DesertsOases/7.jpg")" alt="Sharm al-Sheikh">
+        </div>
+        <div class="card-content">
+            <h2 class="card-title">St Catherine</h2>
+            <p class="card-description">
+                Hike the ancient trail Moses walked and experience raw mountain beauty.
+            </p>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Image Section */
+    .image-container {
+        width: 100vw;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .image-card {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center; /* start from far left */
+            display: block;
+        }
+
+    /* Cards Section */
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .travel-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        background: #fff;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-content {
+        padding: 10px 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+        padding: 15px 10px;
+        color: #000;
+    }
+
+    .card-description {
+        font-size: 16px;
+        color: #555;
+        min-height: 130px;
+        padding: 15px 10px;
+        margin-bottom: 20px;
+    }
+
+    .learn-more-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px 20px;
+        color: #000;
+        text-decoration: none;
+        border: 1px solid #000;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .travel-card:hover .card-content {
+        background-color: #f8cc66;
+    }
+
+    .travel-card:hover .learn-more-btn {
+        background-color: #fae168;
+        color: red;
+    }
+</style>

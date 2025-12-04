@@ -7595,23 +7595,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MAS\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\hp845\\.nuget\\packages\\": {},
+    "D:\\Apps\\VisualStudio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\Tourism.csproj",
+      "projectUniqueName": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\Tourism.csproj",
       "projectName": "Tourism",
-      "projectPath": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\Tourism.csproj",
-      "packagesPath": "C:\\Users\\MAS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MAS\\Desktop\\TourismProject\\Tourism_Website_Graduation_Project_DEPI\\Tourism\\Tourism\\obj\\",
+      "projectPath": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\Tourism.csproj",
+      "packagesPath": "C:\\Users\\hp845\\.nuget\\packages\\",
+      "outputPath": "D:\\Study\\DEPI\\GraduationProject\\Tourism\\Tourism\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Apps\\VisualStudio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\MAS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp845\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7620,7 +7620,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7671,24 +7670,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.17, 8.0.17]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.17, 8.0.17]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.17, 8.0.17]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.17, 8.0.17]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7697,7 +7678,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

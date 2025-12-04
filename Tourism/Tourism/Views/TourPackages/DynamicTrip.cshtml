@@ -1,0 +1,786 @@
+﻿@model Tourism.Models.Trip
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.name;
+
+    // 1. Calculate End Date
+    var endDate = Model.StartDate.AddDays(Model.Duration);
+
+    // 2. Logic: Trip Ended (Past Date)
+    bool isTripEnded = Model.StartDate.Date < DateTime.Now.Date;
+
+    // 3. Logic: Full Capacity
+    var isFull = Model.RemainingSeats <= 0;
+
+    // 4. Image Logic (Main + Secondary)
+    var galleryImages = new List<string>();
+
+    // A. Add Main Image
+    if (Model.MainImage != null && Model.MainImage.Length > 0)
+    {
+        galleryImages.Add($"data:image/jpeg;base64,{Convert.ToBase64String(Model.MainImage)}");
+    }
+    else
+    {
+        galleryImages.Add(Url.Content("~/images/placeholder-trip.webp"));
+    }
+
+    // B. Add Secondary Images
+    if (Model.Images != null && Model.Images.Count > 0)
+    {
+        foreach (var imgBytes in Model.Images)
+        {
+            if (imgBytes != null && imgBytes.Length > 0)
+            {
+                galleryImages.Add($"data:image/jpeg;base64,{Convert.ToBase64String(imgBytes)}");
+            }
+        }
+    }
+
+    // C. Duplicate images if less than 6 to ensure the infinite scroll works smoothly
+    while (galleryImages.Count < 8)
+    {
+        galleryImages.AddRange(new List<string>(galleryImages));
+    }
+}
+
+<!-- STYLES -->
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Hero & Gallery */
+    /* ===== HERO GALLERY (4-IMAGE SLIDER) ===== */
+    .tour-hero {
+        margin-bottom: 30px;
+        background: #fff;
+    }
+
+    .tour-hero-gallery {
+        position: relative;
+        width: 100%;
+        height: 350px; /* Adjust for strip look */
+        overflow: hidden;
+        background: #000;
+    }
+
+    .gallery-track {
+        display: flex;
+        height: 100%;
+        will-change: transform;
+    }
+
+    .tour-hero-img {
+        /* show 4 images in view: each item occupies 25% of track width */
+        flex: 0 0 25%;
+        max-width: 25%;
+        height: 100%;
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+
+        .tour-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+
+    /* Arrows (Hidden or Removed in HTML, kept in CSS just in case) */
+    .gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 24px;
+        z-index: 10;
+        transition: 0.3s;
+        display: none; /* Hiding arrows as requested for auto-scroll */
+    }
+
+    /* Header Content */
+    .tour-hero-content {
+        padding: 30px 5%;
+        background: #fbf5ec;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .tour-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #252b3b;
+        margin: 0;
+    }
+
+    .tour-details {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .detail-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .detail-icon {
+        font-size: 1.5rem;
+        color: #f47d20;
+    }
+
+    .detail-label {
+        font-size: 0.85rem;
+        color: #888;
+        display: block;
+    }
+
+    .detail-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* Layout */
+    .tour-container {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .overview-left {
+        flex: 2;
+    }
+
+    .overview-right {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    /* Info Card */
+    .info-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .info-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info-accent {
+        width: 4px;
+        height: 24px;
+        background: #f7941d;
+        margin-right: 10px;
+        border-radius: 2px;
+    }
+
+    .info-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .info-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+    .info-icon {
+        font-size: 1.2rem;
+        color: #f7941d;
+        width: 25px;
+    }
+
+    .info-label {
+        font-size: 0.85rem;
+        color: #999;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    .info-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* Badges */
+    .badge {
+        padding: 6px 12px;
+        border-radius: 4px;
+        color: white;
+        font-size: 0.9rem;
+    }
+
+    .bg-danger {
+        background-color: #dc3545;
+    }
+
+    .bg-success {
+        background-color: #198754;
+    }
+
+    .bg-secondary {
+        background-color: #6c757d;
+    }
+    /* For Trip Ended */
+    .bg-warning {
+        background-color: #ffc107;
+        color: #000;
+    }
+    /* For Low/Zero dynamic seats */
+
+    /* Button */
+    .btn-book-now {
+        font-weight: 700;
+        letter-spacing: 1px;
+        background-color: #f7941d;
+        border-color: #f7941d;
+        transition: 0.3s;
+        text-transform: uppercase;
+    }
+
+        .btn-book-now:hover:not(:disabled) {
+            background-color: #d67a0e;
+            border-color: #d67a0e;
+        }
+
+        .btn-book-now:disabled {
+            background-color: #ccc;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+
+    /* Alert for Past Trip */
+    .alert-trip-ended {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 0.9em;
+    }
+
+    /* ===== TOUR PLAN (ACCORDION-STYLED DETAILS) ===== */
+    .tour-plan-section {
+        padding: 40px 200px;
+        background-color: #f9f9f9;
+    }
+
+    .tour-plan-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #252b3b;
+    }
+
+    /* Card / details container */
+    .tour-item {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+        /* Summary (clickable heading) */
+        .tour-item summary {
+            list-style: none;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            background: #fff8f3;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #252b3b;
+            user-select: none;
+        }
+
+            .tour-item summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .tour-item summary:hover {
+                background-color: #fbf5ec;
+            }
+
+    /* Arrow icon */
+    .tour-arrow {
+        color: #f7941d;
+        transition: transform 0.3s ease;
+        font-size: 1.2rem;
+    }
+
+    /* Rotate arrow when open */
+    .tour-item[open] .tour-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Content body */
+    .tour-item-body {
+        padding: 20px;
+        border-top: 1px solid #f0f0f0;
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        animation: fadeIn 0.4s ease;
+    }
+
+    /* Animations */
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    /* Responsive */
+    @@media (max-width: 900px) {
+        .tour-container {
+            flex-direction: column;
+        }
+
+        .tour-hero-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .tour-details {
+            justify-content: center;
+        }
+    }
+</style>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- HERO HEADER -->
+<div class="tour-hero">
+
+    <!-- IMAGE SLIDER / GALLERY (CORRECTED) -->
+    <!-- Removed manual buttons, Added ID 'autoScrollTrack' for JS -->
+    <div class="tour-hero-gallery">
+        <div class="gallery-track" id="autoScrollTrack">
+            @if (galleryImages.Count > 0)
+            {
+                foreach (var imgSrc in galleryImages)
+                {
+                    <div class="tour-hero-img">
+                        <img src="@imgSrc" alt="@Model.name" />
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <!-- HEADER CONTENT -->
+    <div class="tour-hero-content">
+        <h1 class="tour-title">@Model.name</h1>
+
+        <div class="tour-right">
+            <div class="tour-details">
+                <!-- Price -->
+                <div class="detail-box">
+                    <i class="fa-solid fa-tag detail-icon"></i>
+                    <div class="detail-text">
+                        <span class="detail-label">From</span>
+                        <span class="detail-value">$@Model.cost.ToString("0.00")</span>
+                    </div>
+                </div>
+
+                <!-- Duration -->
+                <div class="detail-box">
+                    <i class="fa-regular fa-clock detail-icon"></i>
+                    <div class="detail-text">
+                        <span class="detail-label">Duration</span>
+                        <span class="detail-value">@Model.Duration Day@(Model.Duration > 1 ? "s" : "")</span>
+                    </div>
+                </div>
+
+                <!-- Type -->
+                <div class="detail-box">
+                    <i class="fa-solid fa-plane detail-icon"></i>
+                    <div class="detail-text">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value">@Model.triptype</span>
+                    </div>
+                </div>
+
+                <!-- AVAILABILITY (Top Badge) -->
+                <div class="detail-box">
+                    <i class="fa-solid fa-users detail-icon"></i>
+                    <div class="detail-text">
+                        <span class="detail-label">Availability</span>
+                        <span class="detail-value">
+                            @if (isTripEnded)
+                            {
+                                <span class="badge bg-secondary">Trip Ended</span>
+                            }
+                            else if (isFull)
+                            {
+                                <span class="badge bg-danger">Fully Booked</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success" id="dynamicSeatDisplay">
+                                    <span id="dynamicSeatCount">@Model.RemainingSeats</span> seats
+                                </span>
+                            }
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="tour-section">
+    <div class="tour-container">
+
+        <!-- LEFT SIDE: Overview -->
+        <div class="overview-left">
+            <h2 class="section-title">Overview</h2>
+            <p class="overview-text">@Model.description</p>
+
+            <h3 class="sub-title">Included / Excluded</h3>
+            <div class="included-wrapper">
+                <div class="include-exclude-wrapper">
+                    <!-- INCLUDED COLUMN (currently static, you can move to DB later) -->
+                    <ul class="included-list">
+                        <li><i class="fa-solid fa-check check-icon"></i> Meet and assist upon arrival and departure Pick-up/drop-off</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> Transfer from/to Cairo International airport in an air-conditioned vehicle</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> Currently applied entrance fees for the above-mentioned sights</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> Daily breakfast</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> Relevant transfers as per the above-mentioned.</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> Round trip transfer from / to hotel, Tour Guide</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> 24/7 emergency number</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> English speaking agent during transfers</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> English speaking tour guide during sightseeing</li>
+                        <li><i class="fa-solid fa-check check-icon"></i> Entrance fees for sightseeing</li>
+                    </ul>
+                    <!-- EXCLUDED COLUMN -->
+                    <ul class="excluded-list">
+                        <li><i class="fa-solid fa-xmark exclude-icon"></i> Entry visa</li>
+                        <li><i class="fa-solid fa-xmark exclude-icon"></i> International flights (subject to change based on Dollar & flight ticket prices)</li>
+                        <li><i class="fa-solid fa-xmark exclude-icon"></i> Tipping & any item not mentioned above</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Booking Card -->
+        <aside class="overview-right">
+            <div class="info-wrapper">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <span class="info-accent"></span>
+                        <h3 class="info-title">Tour Info</h3>
+                    </div>
+
+                    <div class="info-item first">
+                        <i class="fa-solid fa-location-dot info-icon"></i>
+                        <div class="info-text">
+                            <span class="info-label">Destination</span>
+                            <span class="info-value">@Model.destination</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-regular fa-calendar info-icon"></i>
+                        <div class="info-text">
+                            <span class="info-label">Start Date</span>
+                            <span class="info-value">@Model.StartDate.ToString("dd MMM yyyy")</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-regular fa-calendar-check info-icon"></i>
+                        <div class="info-text">
+                            <span class="info-label">End Date</span>
+                            <span class="info-value">@endDate.ToString("dd MMM yyyy")</span>
+                        </div>
+                    </div>
+
+                    <!-- CAPACITY & REMAINING SEATS (Sidebar) -->
+                    <div class="info-item">
+                        <i class="fa-solid fa-chair info-icon"></i>
+                        <div class="info-text">
+                            <span class="info-label">Seats</span>
+                            <span class="info-value">
+                                @Model.Capacity Capacity
+                                <br />
+                                <small class="text-muted" style="font-size: 0.9em;">
+                                    Remaining:
+                                    <strong id="remainingSeatsValue" data-trip-id="@Model.id" style="color: @(isFull ? "red" : "green")">
+                                        @Model.RemainingSeats
+                                    </strong>
+                                </small>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- BOOK NOW BUTTON -->
+                <div class="book-now-wrapper mt-3 w-100">
+                    <button type="button"
+                            class="btn-book-now btn btn-primary w-100 py-3"
+                            data-trip-id="@Model.id"
+                            data-trip-name="@Model.name"
+                            data-trip-price="@Model.cost"
+                            data-trip-image="@galleryImages.FirstOrDefault()"
+                            data-capacity="@Model.Capacity"
+                            data-remaining="@Model.RemainingSeats"
+                            data-default-text="BOOK NOW"
+                            @(isFull || isTripEnded ? "disabled" : "")>
+
+                        @if (isTripEnded)
+                        {
+                            <text>TRIP ENDED</text>
+                        }
+                        else if (isFull)
+                        {
+                            <text>FULLY BOOKED</text>
+                        }
+                        else
+                        {
+                            <text>Add to Cart</text>
+                        }
+                    </button>
+
+                    @if (isTripEnded)
+                    {
+                        <div class="alert-trip-ended">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            This trip has already ended.
+                        </div>
+                    }
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- TOUR PLAN SECTION -->
+<div class="tour-plan-section mt-5">
+    <h2 class="tour-plan-title">Tour Plan</h2>
+    @if (Model.TourPlans != null && Model.TourPlans.Any())
+    {
+        int planIndex = 0;
+        foreach (var plan in Model.TourPlans)
+        {
+            <details class="tour-item" @(planIndex == 0 ? "open" : "")>
+                <summary>
+                    <span>Day @(planIndex + 1): @plan.Heading</span>
+                    <i class="fa-solid fa-chevron-down tour-arrow"></i>
+                </summary>
+                <div class="tour-item-body">
+                    <p>@plan.Description</p>
+                </div>
+            </details>
+            planIndex++;
+        }
+    }
+    else
+    {
+        <p class="text-muted">Itinerary details coming soon.</p>
+    }
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // --- 1. INFINITE IMAGE SLIDER (Corrected) ---
+            const track = document.getElementById('autoScrollTrack');
+
+            if(track) {
+                function slideImages() {
+                    // 1. Move the whole track to the left by 25% (the width of one image)
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    track.style.transform = 'translateX(-25%)';
+
+                    // 2. Wait for animation to finish
+                    setTimeout(() => {
+                        // Move the first image to the back of the queue
+                        const firstImg = track.firstElementChild;
+                        track.appendChild(firstImg);
+
+                        // Reset position instantly (no animation) to 0
+                        // This creates the illusion of infinite flow
+                        track.style.transition = 'none';
+                        track.style.transform = 'translateX(0)';
+                    }, 500);
+                }
+
+                // Run every 1.5 seconds
+                setInterval(slideImages, 1500);
+            }
+
+            // --- 2. DYNAMIC SEAT UPDATER (For Book Button) ---
+            const initialSeatsEl = document.getElementById("dynamicSeatCount");
+            const originalAvailableSeats = initialSeatsEl ? parseInt(initialSeatsEl.innerText) : 0;
+
+            window.updateAvailabilityUI = function(selectedTicketQuantity) {
+                const seatCounterEl = document.getElementById("dynamicSeatCount");
+                const seatBadgeEl = document.getElementById("dynamicSeatDisplay");
+
+                if (!seatCounterEl || !seatBadgeEl) return;
+
+                let newRemaining = originalAvailableSeats - selectedTicketQuantity;
+                if (newRemaining < 0) newRemaining = 0;
+
+                seatCounterEl.innerText = newRemaining;
+
+                if (newRemaining === 0) {
+                    seatBadgeEl.classList.remove('bg-success');
+                    seatBadgeEl.classList.add('bg-warning');
+                    seatBadgeEl.innerHTML = "Selling Fast / Full";
+                } else {
+                    seatBadgeEl.classList.add('bg-success');
+                    seatBadgeEl.classList.remove('bg-warning');
+                    seatBadgeEl.innerHTML = `<span id="dynamicSeatCount">${newRemaining}</span> seats`;
+                }
+            };
+
+            // ---------- NEW: safe fetch helpers & server cart call ----------
+            function getCsrfHeaders() {
+                const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+                const tokenMeta = document.querySelector('meta[name="csrf-token"]');
+                const token = tokenMeta ? tokenMeta.getAttribute('content') : null;
+                if (token) headers['RequestVerificationToken'] = token;
+                return headers;
+            }
+
+            async function safeParseJsonResponse(response) {
+                try {
+                    return await response.json();
+                } catch (err) {
+                    try {
+                        const txt = await response.text();
+                        if (!txt) return {};
+                        return JSON.parse(txt);
+                    } catch (e) {
+                        return {};
+                    }
+                }
+            }
+
+            async function changeCartQuantity(tripId, delta) {
+                try {
+                    const res = await fetch('/TourPackages/ChangeCartQuantity', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                        headers: getCsrfHeaders(),
+                        body: JSON.stringify({ TripId: tripId, Delta: delta })
+                    });
+
+                    const data = await safeParseJsonResponse(res);
+
+                    if (!res.ok) {
+                        // If server provided a 'detail' (exception message) show it — helpful to debug.
+                        const msg = (data && (data.message || data.detail)) ? (data.message || data.detail) : `Request failed (${res.status})`;
+                        // Show friendly modal with the server message
+                        if (window.Swal) {
+                            Swal.fire('Error', msg, 'error');
+                        } else {
+                            alert(msg);
+                        }
+                        throw new Error(msg);
+                    }
+
+                    // If availableSeats provided, update remaining seats UI
+                    if (data && typeof data.availableSeats === 'number') {
+                        const remEl = document.getElementById("remainingSeatsValue");
+                        const dynamicEl = document.getElementById("dynamicSeatCount");
+                        if (remEl) remEl.textContent = data.availableSeats;
+                        if (dynamicEl) dynamicEl.textContent = data.availableSeats;
+                    }
+
+                    return data;
+                } catch (err) {
+                    console.error('changeCartQuantity error', err);
+                    throw err;
+                }
+            }
+
+            // Attach server call to BOOK NOW button so clicks actually update server cart
+            document.querySelectorAll(".btn-book-now").forEach(btn => {
+                btn.addEventListener("click", async function () {
+                    // If disabled (full or past) do nothing
+                    if (this.disabled) return;
+
+                    // If user not authenticated, your global layout handles it — keep same behavior
+                    // We'll optimistically call server to add +1 seat
+                    const tripId = parseInt(this.dataset.tripId);
+                    try {
+                        const data = await changeCartQuantity(tripId, 1);
+                        if (data) {
+                            // optional success toast
+                            if (window.Swal) {
+                                Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: 'Added to cart', showConfirmButton: false, timer: 1000 });
+                            }
+                            // update UI
+                            const remEl = document.getElementById("remainingSeatsValue");
+                            if (remEl && data.availableSeats !== undefined) remEl.textContent = data.availableSeats;
+                        }
+                    } catch (err) {
+                        // error already shown by changeCartQuantity
+                    }
+                });
+            });
+
+        });
+    </script>
+}

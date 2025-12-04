@@ -1,0 +1,542 @@
+﻿@model Tourism.ViewModels.TripDetailsVM
+
+@{
+    ViewData["Title"] = (Model?.TripName ?? "Trip") + " - Details";
+}
+
+
+<!-- FontAwesome for Icons (Optional, usually included in Layout) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    /* --- Page Variables & General --- */
+    :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3f37c9;
+        --accent-color: #4895ef;
+        --text-dark: #2b2d42;
+        --text-light: #8d99ae;
+        --bg-light: #f8f9fa;
+        --card-radius: 12px;
+    }
+
+    body {
+        background-color: var(--bg-light);
+    }
+
+    /* --- Hero Section --- */
+    .trip-hero {
+        position: relative;
+        height: 350px;
+        border-radius: 0 0 20px 20px;
+        overflow: hidden;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('@Url.Action("GetTripImage", "TourGuide", new { id = Model.TripId })');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        margin-bottom: -60px;
+        z-index: 1;
+        background-color: #4361ee;
+    }
+
+    .hero-content {
+        position: absolute;
+        bottom: 80px;
+        left: 0;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .trip-badge {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.4);
+    }
+
+        .trip-badge.booked {
+            background: #ef233c;
+            border-color: #ef233c;
+        }
+
+        .trip-badge.available {
+            background: #2ec4b6;
+            border-color: #2ec4b6;
+        }
+
+    /* --- Action Bar --- */
+    .action-bar {
+        background: white;
+        padding: 1rem 2rem;
+        border-radius: var(--card-radius);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        margin-bottom: 2rem;
+    }
+
+    /* --- Content Cards --- */
+    .detail-card {
+        background: white;
+        border-radius: var(--card-radius);
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+    }
+
+    .card-header-custom {
+        background: white;
+        padding: 1.25rem;
+        border-bottom: 1px solid #f0f0f0;
+        font-weight: 700;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card-body-custom {
+        padding: 1.5rem;
+    }
+
+    /* --- Timeline (Itinerary) --- */
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+        border-left: 2px solid #e9ecef;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -36px;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 2px solid white;
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+
+    .timeline-day {
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+        text-transform: uppercase;
+    }
+
+    /* --- Guide Profile --- */
+    .guide-profile {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .guide-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 1rem;
+    }
+
+    .rating-stars {
+        color: #ffb703;
+        font-size: 0.9rem;
+    }
+
+    /* --- Gallery Grid --- */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-img {
+        width: 100%;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+        .gallery-img:hover {
+            opacity: 0.8;
+        }
+
+    /* --- Bookings Table --- */
+    .table-modern {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+        .table-modern th {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            font-weight: 600;
+            padding: 15px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .table-modern td {
+            padding: 15px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .table-modern tr:last-child td {
+            border-bottom: none;
+        }
+
+    /* --- Print Styles --- */
+    @@media print {
+        header, footer, .btn, .action-bar, .no-print {
+            display: none !important;
+        }
+
+        .trip-hero {
+            height: 150px;
+            margin-bottom: 20px;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background: white;
+        }
+
+        .detail-card {
+            box-shadow: none;
+            border: 1px solid #ddd;
+        }
+    }
+</style>
+<!-- HERO HEADER -->
+<div class="trip-hero">
+    <div class="container h-100 position-relative">
+        <div class="hero-content">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                @if (Model.IsFullyBooked)
+                {
+                    <span class="trip-badge booked">
+                        <i class="fas fa-ban me-1"></i> Fully Booked
+                    </span>
+                }
+                else
+                {
+                    <span class="trip-badge available">
+                        <i class="fas fa-check-circle me-1"></i> Available
+                    </span>
+                }
+
+                <span class="trip-badge">
+                    <i class="fas fa-clock me-1"></i> @Model.Duration Days
+                </span>
+
+                <!-- 🔹 NEW: Capacity / Remaining badge -->
+                <span class="trip-badge">
+                    <i class="fas fa-users me-1"></i>
+                    @Model.Bookings.Sum(b => b.Quantity) / @Model.Capacity booked
+                </span>
+
+                @if (Model.RemainingSeats <= 0)
+                {
+                    <span class="trip-badge booked">
+                        <i class="fas fa-chair me-1"></i> 0 seats left
+                    </span>
+                }
+                else
+                {
+                    <span class="trip-badge">
+                        <i class="fas fa-chair me-1"></i> @Model.RemainingSeats seats left
+                    </span>
+                }
+            </div>
+            <h1 class="display-4 fw-bold mb-0 text-white text-shadow">@Model.TripName</h1>
+            <p class="lead mb-0 text-white-50">
+                <i class="fas fa-map-marker-alt me-2"></i>@Model.Destination
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <!-- ACTION BAR -->
+    <div class="action-bar">
+        <div>
+            <a asp-action="Orders" class="btn btn-outline-secondary btn-sm me-2 allowed-for-tourguide">
+                <i class="fas fa-arrow-left me-1"></i> Back to List
+            </a>
+            <span class="text-muted small border-start ps-3 ms-1">Trip ID: #@Model.TripId</span>
+        </div>
+        <div class="d-flex gap-2">
+            <button onclick="window.print()" class="btn btn-outline-dark btn-sm">
+                <i class="fas fa-print me-1"></i> Print
+            </button>
+            <button class="btn btn-outline-success btn-sm">
+                <i class="fas fa-file-excel me-1"></i> Export Excel
+            </button>
+            <a asp-action="TripEdit" asp-route-id="@Model.TripId" class="btn btn-primary btn-sm allowed-for-tourguide">
+                <i class="fas fa-edit me-1"></i> Edit Trip
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- LEFT COLUMN: Main Info & Itinerary -->
+        <div class="col-lg-8">
+            <!-- Description -->
+            <div class="detail-card">
+                <div class="card-header-custom">
+                    <i class="fas fa-info-circle text-primary"></i> About This Trip
+                </div>
+                <div class="card-body-custom">
+                    <p class="text-secondary lh-lg mb-0">@Model.Description</p>
+
+                    <!-- Gallery Preview -->
+                    @if (Model.Images != null && Model.Images.Any())
+                    {
+                        <div class="mt-4">
+                            <h6 class="text-muted text-uppercase small fw-bold mb-3">Highlights Gallery</h6>
+                            <div class="gallery-grid">
+                                @foreach (var img in Model.Images)
+                                {
+                                    <img src="@img" class="gallery-img" alt="Trip Photo">
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Itinerary -->
+            <div class="detail-card">
+                <div class="card-header-custom">
+                    <i class="fas fa-route text-primary"></i> Trip Itinerary
+                </div>
+                <div class="card-body-custom">
+                    <div class="timeline">
+                        @foreach (var day in Model.Itinerary)
+                        {
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-day">Day @day.DayNumber</div>
+                                <h5 class="fw-bold mb-2">@day.Title</h5>
+                                <p class="text-muted mb-0 small">@day.ActivityDescription</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Stats & Guide -->
+        <div class="col-lg-4">
+            <!-- Key Details -->
+            <div class="detail-card">
+                <div class="card-header-custom">
+                    <i class="fas fa-calendar-alt text-primary"></i> Key Details
+                </div>
+                <div class="card-body-custom p-0">
+                    <table class="table table-borderless mb-0">
+                        <tbody>
+                            <tr>
+                                <td class="ps-4 text-muted"><small>Start Date</small></td>
+                                <td class="fw-bold text-end pe-4">
+                                    @Model.StartDate.ToString("MMM dd, yyyy")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 text-muted"><small>End Date</small></td>
+                                <td class="fw-bold text-end pe-4">
+                                    @Model.EndDate.ToString("MMM dd, yyyy")
+                                </td>
+                            </tr>
+
+                            <!-- 🔹 NEW: Capacity -->
+                            <tr>
+                                <td class="ps-4 text-muted"><small>Capacity</small></td>
+                                <td class="fw-bold text-end pe-4">
+                                    @Model.Capacity @(" Pax")
+                                </td>
+                            </tr>
+
+                            <!-- 🔹 NEW: Remaining Seats -->
+                            <tr>
+                                <td class="ps-4 text-muted"><small>Seats Remaining</small></td>
+                                <td class="fw-bold text-end pe-4">
+                                    @if (Model.RemainingSeats <= 0)
+                                    {
+                                        <span class="text-danger">Fully booked</span>
+                                    }
+                                    else
+                                    {
+                                        @Model.RemainingSeats @(" Pax")
+                                    }
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="ps-4 text-muted"><small>Price per Person</small></td>
+                                <td class="fw-bold text-end pe-4 text-success h5 mb-0">
+                                    @Model.Cost.ToString("C")
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tour Guide -->
+            <div class="detail-card">
+                <div class="card-header-custom">
+                    <i class="fas fa-user-tie text-primary"></i> Tour Guide
+                </div>
+                <div class="card-body-custom">
+                    <div class="guide-profile">
+                        <img src="@(string.IsNullOrEmpty(Model.TourGuide.AvatarUrl) ? "/images/default-avatar.png" : Model.TourGuide.AvatarUrl)"
+                             alt="Guide" class="guide-avatar">
+                        <h5 class="fw-bold mb-1">@Model.TourGuide.Name</h5>
+                        <div class="rating-stars mb-3">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (i < Model.TourGuide.Rating)
+                                {
+                                    <i class="fas fa-star"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star text-muted"></i>
+                                }
+                            }
+                        </div>
+                        <div class="text-start bg-light p-3 rounded">
+                            <div class="mb-2">
+                                <i class="fas fa-phone-alt text-muted w-25"></i>
+                                <a href="tel:@Model.TourGuide.Phone" class="text-decoration-none text-dark">
+                                    @Model.TourGuide.Phone
+                                </a>
+                            </div>
+                            <div class="mb-0">
+                                <i class="fas fa-language text-muted w-25"></i> @Model.TourGuide.Languages
+                            </div>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button class="btn btn-outline-primary btn-sm">Contact Guide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKINGS TABLE SECTION -->
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="detail-card">
+                <div class="card-header-custom d-flex justify-content-between align-items-center">
+                    <span><i class="fas fa-users text-primary"></i> Booked Tourists</span>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-primary rounded-pill">
+                            Total: @Model.Bookings.Sum(b => b.Quantity) Pax
+                        </span>
+
+                        <!-- 🔹 NEW: capacity badge -->
+                        <span class="badge bg-secondary rounded-pill">
+                            Capacity: @Model.Capacity Pax
+                        </span>
+
+                        <span class="badge @(Model.RemainingSeats <= 0 ? "bg-danger" : "bg-success") rounded-pill">
+                            @if (Model.RemainingSeats <= 0)
+                            {
+                                @:No seats left
+                            }
+                            else
+                            {
+                                @:Remaining: @Model.RemainingSeats Pax
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body-custom p-0">
+                    <div class="table-responsive">
+                        <table class="table-modern">
+                            <thead>
+                                <tr>
+                                    <th>Tourist Name</th>
+                                    <th>Booking Date</th>
+                                    <th>Contact Info</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-end">Total Paid</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Bookings != null && Model.Bookings.Any())
+                                {
+                                    @foreach (var booking in Model.Bookings)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center text-primary fw-bold me-2" style="width:35px; height:35px;">
+                                                        @booking.TouristName.Substring(0, 1)
+                                                    </div>
+                                                    <span class="fw-bold">@booking.TouristName</span>
+                                                </div>
+                                            </td>
+                                            <td>@booking.BookingDate.ToString("MMM dd, yyyy")</td>
+                                            <td>
+                                                <small class="d-block text-muted">@booking.Email</small>
+                                                <small class="d-block text-muted">@booking.Phone</small>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge bg-light text-dark border">@booking.Quantity</span>
+                                            </td>
+                                            <td class="text-end fw-bold text-success">
+                                                @booking.TotalPrice.ToString("C")
+                                            </td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-light text-primary" title="Send Email"><i class="fas fa-envelope"></i></button>
+                                                <button class="btn btn-sm btn-light text-danger" title="Cancel Booking"><i class="fas fa-times"></i></button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center py-5">
+                                            <i class="fas fa-clipboard-list fa-2x text-muted mb-3"></i>
+                                            <p class="text-muted mb-0">No bookings found for this trip yet.</p>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

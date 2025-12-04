@@ -1,0 +1,210 @@
+﻿@{
+    ViewData["Title"] = "ThisIsEgypt";
+}
+
+<!-- Header Image Section -->
+<div class="position-relative image-card" style="width:100vw; height:70vh; overflow:hidden;">
+    <img src="@Url.Content("~/images/About Egypt/1.jpg")" class="w-100 h-100" style="object-fit:cover; border-radius:0;">
+</div>
+
+<!-- Main Content Section -->
+<div class="ThisIsEgypt-container">
+    <h1 class="h1">ABOUT EGYPT</h1>
+
+    <h2>Discover the Warmth of Egypt & Make Lifelong Memories</h2><br />
+
+    <p>
+        A life well-travelled cannot be considered complete without at least one visit to Egypt!
+        Egypt isn’t just home to the oldest and best-preserved historical sites on earth; the country offers
+        diverse holiday experiences catered to your travel preferences. You can enjoy an immersive urban
+        experience in Cairo and Alexandria, discover some of the best snorkeling and scuba diving sites
+        in the world in the Red Sea, get a taste of life on the Nile on personalized Nile cruises,
+        or curate your own desert adventure.
+    </p>
+
+    <p>
+        The energy, hospitality, and good humor of the Egyptian people are at the heart of any visit to Egypt,
+        with sunny smiles etched onto the faces of nearly every person you will encounter. Expect multiple
+        offers for homecooked meals, invites to weddings and parties, and a chance to make new friends as
+        warm as the golden Egyptian sun.
+    </p>
+</div>
+
+<!-- Fun Facts Section -->
+<div class="fun-facts-section">
+    <h2>Fun Facts</h2>
+
+    <div class="facts-grid">
+
+        <div class="fact-card" style="background-color:#FFF3D4;">
+            <i class="fa-solid fa-users"></i>
+            <h3>118.4 million</h3>
+            <p>estimated population of Egypt as of mid-2025. :contentReference[oaicite:1]{index=1}</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#DCE8FF;">
+            <i class="fa-solid fa-sun"></i>
+            <h3>3,800 +</h3>
+            <p>hours of sun per year in many parts of Egypt.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#FFE5E5;">
+            <i class="fa-solid fa-city"></i>
+            <h3>≈ 22 million</h3>
+            <p>estimated population of Greater Cairo, one of the world’s most populous metro areas.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#D9F2F9;">
+            <i class="fa-solid fa-mountain"></i>
+            <h3>2,629 m</h3>
+            <p>height of Mount Catherine in Sinai, the highest point in Egypt.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#D9F2F9;">
+            <i class="fa-solid fa-water"></i>
+            <h3>Approx. 3,800 sq km</h3>
+            <p>of coral reefs in Egypt’s Red Sea region.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#FFE5E5;">
+            <i class="fa-solid fa-tree"></i>
+            <h3>525 ha</h3>
+            <p>approximate mangrove forest area in Egypt’s protected coastal zones.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#FFE5E5;">
+            <i class="fa-solid fa-fish"></i>
+            <h3>750 +</h3>
+            <p>species of fish found in Egypt’s Red Sea and Mediterranean waters.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#DCE8FF;">
+            <i class="fa-solid fa-dove"></i>
+            <h3>490 +</h3>
+            <p>species of birds recorded in Egypt’s varied habitats.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#D9F2F9;">
+            <i class="fa-solid fa-feather"></i>
+            <h3>300 - 350</h3>
+            <p>species of migratory birds visiting Egypt each year.</p>
+        </div>
+
+        <div class="fact-card" style="background-color:#FFF3D4;">
+            <i class="fa-solid fa-sun"></i>
+            <h3>93%</h3>
+            <p>of Egypt’s total land area is desert (approximate).</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Combined Styles -->
+<style>
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    main, .container, .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .ThisIsEgypt-container {
+        width: 100vw;
+        margin: 0;
+        padding: 120px;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+        .ThisIsEgypt-container .h1 {
+            font-size: 45px;
+            font-weight: 700;
+            color: black;
+            margin: 10px 0 40px 0;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .ThisIsEgypt-container h2 {
+            font-size: 30px;
+            color: #003366;
+            margin-top: 25px;
+            font-weight: 400;
+        }
+
+        .ThisIsEgypt-container p {
+            font-size: 20px;
+            text-align: justify;
+            margin-bottom: 18px;
+        }
+
+    .fun-facts-section {
+        width: 100%;
+        padding: 0px 80px 100px;
+        font-family: 'Poppins', Arial, sans-serif;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+        .fun-facts-section h2 {
+            font-size: 36px;
+            color: #000;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+    .facts-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .fact-card {
+        border-radius: 8px;
+        padding: 35px 25px;
+        text-align: left;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .fact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+
+        .fact-card i {
+            font-size: 40px;
+            color: #003366;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .fact-card h3 {
+            font-size: 22px;
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .fact-card p {
+            font-size: 16px;
+            color: #333;
+            margin: 0;
+            font-weight: 400px;
+        }
+
+</style>

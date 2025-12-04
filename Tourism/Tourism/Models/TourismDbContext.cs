@@ -37,6 +37,11 @@ namespace Tourism.Models
         public DbSet<TouristTrip> TouristTrips { get; set; }
         public DbSet<VerificationRequest> VerificationRequests { get; set; }
 
+        // ====== Trip Booking System ======
+        public DbSet<TourPlan> TourPlans { get; set; }
+        public DbSet<TouristCart> TouristCarts { get; set; }
+        public DbSet<PaymentTripBooking> PaymentTripBookings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -78,10 +83,30 @@ namespace Tourism.Models
 
             // Trip ↔ TourGuide
             modelBuilder.Entity<Trip>()
-                .HasOne(t => t.tourGuide)
+                .HasOne(t => t.TourGuide)
                 .WithMany(g => g.trips)
                 .HasForeignKey(t => t.tourGuideId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // TourPlan ↔ Trip
+            modelBuilder.Entity<TourPlan>()
+                .HasOne(tp => tp.Trip)
+                .WithMany(t => t.TourPlans)
+                .HasForeignKey(tp => tp.TripId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // TouristCart ↔ Trip & Tourist
+            modelBuilder.Entity<TouristCart>()
+                .HasOne(tc => tc.Trip)
+                .WithMany(t => t.TouristCarts)
+                .HasForeignKey(tc => tc.TripId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<TouristCart>()
+                .HasOne(tc => tc.Tourist)
+                .WithMany()
+                .HasForeignKey(tc => tc.TouristId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
