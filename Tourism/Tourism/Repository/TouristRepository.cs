@@ -83,6 +83,23 @@ namespace Tourism.Repository
         public void transaction(CreditCard cardfromrequest, decimal money, string operation, int id)
         {
             var mainCC = _context.CreditCards.Find("00000000000000");
+            
+            // Create main system credit card if it doesn't exist
+            if (mainCC == null)
+            {
+                mainCC = new CreditCard
+                {
+                    CardNumber = "00000000000000",
+                    Balance = 0,
+                    CardHolder = "System",
+                    ExpiryDate = "12/99",
+                    CVV = "000",
+                    UserId = null
+                };
+                _context.CreditCards.Add(mainCC);
+                _context.SaveChanges();
+            }
+            
             var tourist = _context.Tourists.FirstOrDefault(t => t.id == id);
             if (operation == "withdraw")
             {
