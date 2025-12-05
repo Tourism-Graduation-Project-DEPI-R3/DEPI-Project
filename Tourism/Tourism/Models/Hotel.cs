@@ -19,14 +19,15 @@ namespace Tourism.Models
         public string passwordHash { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string name { get; set; }
 
         [Required]
-
+        [StringLength(10000)]
         public string description { get; set; }
 
         [Required]
+        [StringLength(200)]
         public string address { get; set; }
         [Required]
         public string hotline { get; set; }

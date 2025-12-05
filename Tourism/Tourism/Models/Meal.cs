@@ -8,10 +8,10 @@ namespace Tourism.Models
         [Key]
         public int id { get; set; }
         [Required]
-        [StringLength(20)]
+        [StringLength(60)]
         public string name { get; set; }
         [Required]
-        [StringLength(60)]
+        [StringLength(500)]
         public string description { get; set; }
         [Required]
         public double price { get; set; }

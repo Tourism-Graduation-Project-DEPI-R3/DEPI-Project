@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Tourism.Models;
 using Tourism.IRepository;
 using Tourism.Repository;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,7 @@ builder.Services.AddSession(options =>
 // ===== Configure DbContext =====
 builder.Services.AddDbContext<TourismDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ??
-                         "Data Source=.;Initial Catalog=Tourism;Integrated Security=True;Encrypt=False;Trust Server Certificate=True"));
+                         "Server=db34409.public.databaseasp.net; Database=db34409; User Id=db34409; Password=Ay5%9P?aMk3#; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;"));
 
 // ===== Authentication & Authorization =====
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -81,5 +82,19 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+// ----------------------------- Seed Default Data -----------------------------
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<TourismDbContext>();
 
+    if (!context.Admins.Any())
+    {
+        var admin = new Admin { email = "admin@tourism.com" };
+        var hasher = new PasswordHasher<Admin>();
+        admin.passwordHash = hasher.HashPassword(admin, "admin123");
+
+        context.Admins.Add(admin);
+        context.SaveChanges();
+    }
+}
 app.Run();

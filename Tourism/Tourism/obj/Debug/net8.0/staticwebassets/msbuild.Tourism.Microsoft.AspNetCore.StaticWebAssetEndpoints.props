@@ -52,13 +52,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4p4yr5i9p519redzz4cV8juzpu82QjxpeGFrKNIf\u002Bk4="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13828"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224p4yr5i9p519redzz4cV8juzpu82QjxpeGFrKNIf\u002Bk4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 05 Dec 2025 11:25:06 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"13828"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224p4yr5i9p519redzz4cV8juzpu82QjxpeGFrKNIf\u002Bk4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 05 Dec 2025 11:29:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/js/script.ygk19mop7v.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ygk19mop7v"},{"Name":"integrity","Value":"sha256-4p4yr5i9p519redzz4cV8juzpu82QjxpeGFrKNIf\u002Bk4="},{"Name":"label","Value":"_content/Tourism/js/script.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13828"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224p4yr5i9p519redzz4cV8juzpu82QjxpeGFrKNIf\u002Bk4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 05 Dec 2025 11:25:06 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"13828"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224p4yr5i9p519redzz4cV8juzpu82QjxpeGFrKNIf\u002Bk4=\u0022"},{"Name":"Last-Modified","Value":"Fri, 05 Dec 2025 11:29:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Tourism/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
