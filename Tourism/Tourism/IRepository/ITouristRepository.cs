@@ -37,6 +37,8 @@ namespace Tourism.IRepository
 
         // ---------- Tourist & Trip lookups ----------
         Task<Tourist?> GetTouristByEmailAsync(string email);
+        Task<Tourist?> GetTouristByIdAsync(int id);
+        Task UpdateTouristAsync(Tourist tourist);
         Task<Trip?> GetTripByIdAsync(int id);
 
         // ---------- Save / Persistence ----------

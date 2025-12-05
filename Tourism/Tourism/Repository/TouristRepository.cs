@@ -383,6 +383,12 @@ namespace Tourism.Repository
 
         // ========== LOOKUPS ==========
         public async Task<Tourist?> GetTouristByEmailAsync(string email) => await _context.Tourists.FirstOrDefaultAsync(t => t.email == email);
+        public async Task<Tourist?> GetTouristByIdAsync(int id) => await _context.Tourists.FindAsync(id);
+        public async Task UpdateTouristAsync(Tourist tourist)
+        {
+            _context.Tourists.Update(tourist);
+            await _context.SaveChangesAsync();
+        }
         public async Task<Trip?> GetTripByIdAsync(int id) => await _context.Trips.FirstOrDefaultAsync(t => t.id == id);
 
         // ========== TOUR GUIDE PAYMENT ==========

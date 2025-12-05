@@ -484,6 +484,20 @@
     </div>
 </div>
 
+@* Success/Error Messages *@
+@if (TempData["SuccessMessage"] != null)
+{
+    <div style="background-color: #d4edda; color: #155724; padding: 15px; margin: 20px auto; border-radius: 8px; border: 1px solid #c3e6cb; max-width: 1200px;">
+        <i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i>@TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div style="background-color: #f8d7da; color: #721c24; padding: 15px; margin: 20px auto; border-radius: 8px; border: 1px solid #f5c6cb; max-width: 1200px;">
+        <i class="fa-solid fa-circle-exclamation" style="margin-right: 8px;"></i>@TempData["ErrorMessage"]
+    </div>
+}
+
 <section class="tour-section">
     <div class="tour-container">
 
@@ -573,30 +587,25 @@
 
                 <!-- BOOK NOW BUTTON -->
                 <div class="book-now-wrapper mt-3 w-100">
-                    <button type="button"
-                            class="btn-book-now btn btn-primary w-100 py-3"
-                            data-trip-id="@Model.id"
-                            data-trip-name="@Model.name"
-                            data-trip-price="@Model.cost"
-                            data-trip-image="@galleryImages.FirstOrDefault()"
-                            data-capacity="@Model.Capacity"
-                            data-remaining="@Model.RemainingSeats"
-                            data-default-text="BOOK NOW"
-                            @(isFull || isTripEnded ? "disabled" : "")>
-
-                        @if (isTripEnded)
-                        {
-                            <text>TRIP ENDED</text>
-                        }
-                        else if (isFull)
-                        {
-                            <text>FULLY BOOKED</text>
-                        }
-                        else
-                        {
-                            <text>Add to Cart</text>
-                        }
-                    </button>
+                    @if (isTripEnded || isFull)
+                    {
+                        <button type="button"
+                                class="btn btn-secondary w-100 py-3"
+                                disabled>
+                            @(isTripEnded ? "TRIP ENDED" : "FULLY BOOKED")
+                        </button>
+                    }
+                    else
+                    {
+                        <form action="@Url.Action("BookTripWithBalance", "TourPackages")" method="post"
+                              onsubmit="return confirm('Are you sure you want to book this trip and pay $@Model.cost.ToString("N2")?');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="tripId" value="@Model.id" />
+                            <button type="submit" class="btn-book-now btn btn-primary w-100 py-3">
+                                <i class="bi bi-credit-card-fill me-2"></i>Book Now
+                            </button>
+                        </form>
+                    }
 
                     @if (isTripEnded)
                     {

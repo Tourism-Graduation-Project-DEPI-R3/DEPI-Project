@@ -1159,10 +1159,56 @@ namespace Tourism.Controllers
 
             int touristId = int.Parse(touristIdClaim);
 
-            var bookings = await _unitOfWork.TouristRooms.GetAllAsync();
-            var touristBookings = bookings.Where(b => b.touristId == touristId);
+            // Get room bookings with related data
+            var allBookings = await _unitOfWork.TouristRooms.GetAllAsync();
+            var touristBookings = allBookings.Where(b => b.touristId == touristId).ToList();
 
-            return View(touristBookings);
+            // Load room and hotel data for each booking
+            var allRooms = await _unitOfWork.Rooms.GetAllAsync();
+            var allHotels = await _unitOfWork.Hotels.GetAllAsync();
+            
+            foreach (var booking in touristBookings)
+            {
+                booking.room = allRooms.FirstOrDefault(r => r.id == booking.roomId);
+                if (booking.room != null)
+                {
+                    booking.room.hotel = allHotels.FirstOrDefault(h => h.id == booking.room.hotelId);
+                }
+            }
+
+            // Get trip bookings
+            var allTripBookings = await _unitOfWork.PaymentTripBookings.GetAllAsync();
+            var touristTripBookings = allTripBookings.Where(b => b.UserId == touristId.ToString()).ToList();
+
+            var tripBookingViewModels = new List<Tourism.ViewModel.TripBookingViewModel>();
+            foreach (var booking in touristTripBookings)
+            {
+                var trip = await _unitOfWork.Trips.GetByIdAsync(booking.TripId);
+                if (trip != null)
+                {
+                    tripBookingViewModels.Add(new Tourism.ViewModel.TripBookingViewModel
+                    {
+                        BookingId = booking.Id,
+                        TripId = trip.id,
+                        TripName = trip.name,
+                        Destination = trip.destination,
+                        TotalPrice = booking.TotalPrice,
+                        BookingDate = booking.BookingDate,
+                        StartDate = trip.StartDate,
+                        Duration = trip.Duration,
+                        MainImage = trip.MainImage,
+                        TourGuideId = trip.tourGuideId
+                    });
+                }
+            }
+
+            var viewModel = new Tourism.ViewModel.MyBookingsViewModel
+            {
+                RoomBookings = touristBookings,
+                TripBookings = tripBookingViewModels
+            };
+
+            return View(viewModel);
         }
 
 

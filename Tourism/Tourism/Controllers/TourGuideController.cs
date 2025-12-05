@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Tourism.IRepository;
 using Tourism.Models;
+using Tourism.Models.Relations;
 using Tourism.ViewModels;
 using Tourism.ViewModel;
 
@@ -16,11 +17,13 @@ namespace Tourism.Controllers
     {
         private readonly ITourGuideRepository _tourGuideRepository;
         private readonly ITripRepository _tripRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public TourGuideController(ITourGuideRepository tourGuideRepository, ITripRepository tripRepository)
+        public TourGuideController(ITourGuideRepository tourGuideRepository, ITripRepository tripRepository, IUnitOfWork unitOfWork)
         {
             _tourGuideRepository = tourGuideRepository;
             _tripRepository = tripRepository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
@@ -90,6 +93,8 @@ namespace Tourism.Controllers
         public async Task<IActionResult> TourGuideRegister(TourGuide model, IFormFile pic)
         {
             ModelState.Remove(nameof(TourGuide.pic));
+            ModelState.Remove(nameof(TourGuide.creditCard));
+            
             if (!string.IsNullOrWhiteSpace(model.email) && await _tourGuideRepository.EmailExistsAsync(model.email))
                 ModelState.AddModelError(nameof(TourGuide.email), "This email is already registered.");
             if (pic == null || pic.Length == 0) ModelState.AddModelError(nameof(TourGuide.pic), "Profile picture is required.");
@@ -100,9 +105,24 @@ namespace Tourism.Controllers
             using (var memoryStream = new MemoryStream()) { await pic.CopyToAsync(memoryStream); model.pic = memoryStream.ToArray(); }
             var hasher = new PasswordHasher<TourGuide>();
             model.passwordHash = hasher.HashPassword(model, model.passwordHash);
+            
+            // Don't save credit card during registration
+            model.creditCard = null;
+            
             await _tourGuideRepository.AddAsync(model);
             await _tourGuideRepository.SaveChangesAsync();
-            return RedirectToAction("ChooseLogin", "Home");
+
+            // Automatically log in the user after registration
+            var claims = new List<Claim>
+            {
+                new Claim("TourGuideId", model.TourGuideId.ToString()),
+                new Claim(ClaimTypes.Role, "TourGuide"),
+                new Claim(ClaimTypes.Name, model.firstName)
+            };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+            return RedirectToAction("TourGuideDashboard");
         }
 
         [Authorize(Roles = "TourGuide")]
@@ -145,7 +165,17 @@ namespace Tourism.Controllers
 
             await _tripRepository.AddAsync(model);
             await _tripRepository.SaveChangesAsync();
-            TempData["ToastMessage"] = "Trip created successfully!";
+
+            // Create service request for admin to review
+            ServiceRequest req = new ServiceRequest
+            {
+                role = "TourGuide",
+                serviceId = model.id
+            };
+            await _unitOfWork.ServiceRequests.AddAsync(req);
+            await _unitOfWork.ServiceRequests.SaveAsync();
+
+            TempData["ToastMessage"] = "Trip created successfully and sent for admin approval!";
             TempData["ToastType"] = "success";
             return RedirectToAction("TourGuideDashboard", "TourGuide");
         }
@@ -175,7 +205,15 @@ namespace Tourism.Controllers
                 }
             }
             
-            return View(await _tripRepository.GetTripsByTourGuideIdAsync(int.Parse(guideIdClaim.Value)));
+            // Get only accepted trips
+            var allTrips = await _tripRepository.GetTripsByTourGuideIdAsync(int.Parse(guideIdClaim.Value));
+            var acceptedTrips = allTrips.Where(t => t.accepted == true).ToList();
+            var pendingTrips = allTrips.Where(t => t.accepted == false).ToList();
+            
+            // Set pending trips count for notification
+            ViewBag.PendingTripsCount = pendingTrips.Count;
+            
+            return View(acceptedTrips);
         }
 
         [HttpGet]
@@ -266,21 +304,53 @@ namespace Tourism.Controllers
         [Authorize(Roles = "TourGuide")]
         public async Task<IActionResult> Orders()
         {
-            var userEmail = User.Identity?.Name;
+            var userEmail = User.FindFirstValue(ClaimTypes.Email);
             if (string.IsNullOrEmpty(userEmail)) return RedirectToAction("ChooseLogin", "Home");
             var tourGuide = await _tourGuideRepository.GetByEmailAsync(userEmail);
             if (tourGuide == null) return RedirectToAction("ChooseLogin", "Home");
 
-            var trips = await _tripRepository.GetTripsWithBookingsByGuideIdAsync(tourGuide.TourGuideId);
-            var model = trips.Where(t => t.TouristCarts.Any()).Select(t => new TripOrdersVM
-            {
-                TripId = t.id,
-                TripName = t.name,
-                Destination = t.destination,
-                Cost = t.cost,
-                TotalBookingsCount = t.TouristCarts.Sum(tc => tc.Quantity),
-                Bookings = t.TouristCarts.Select(tc => new BookingItemVM { TouristId = tc.TouristId, TouristName = $"{tc.Tourist.firstName} {tc.Tourist.LastName}", Quantity = tc.Quantity, TotalPrice = tc.TotalPrice }).ToList()
-            }).ToList();
+            // Get all payment bookings
+            var allBookings = await _unitOfWork.PaymentTripBookings.GetAllAsync();
+            
+            // Get all trips, tourists for this tour guide
+            var allTrips = await _tripRepository.GetAllAsync();
+            var allTourists = await _unitOfWork.Tourists.GetAllAsync();
+            
+            // Filter trips by tour guide
+            var tourGuideTrips = allTrips.Where(t => t.tourGuideId == tourGuide.TourGuideId).ToList();
+            
+            // Group bookings by trip for this tour guide
+            var model = tourGuideTrips
+                .Select(trip =>
+                {
+                    var tripBookings = allBookings.Where(b => b.TripId == trip.id).ToList();
+                    
+                    if (!tripBookings.Any())
+                        return null;
+                    
+                    return new TripOrdersVM
+                    {
+                        TripId = trip.id,
+                        TripName = trip.name,
+                        Destination = trip.destination,
+                        Cost = trip.cost,
+                        TotalBookingsCount = tripBookings.Sum(b => b.Quantity),
+                        Bookings = tripBookings.Select(b =>
+                        {
+                            var tourist = allTourists.FirstOrDefault(t => t.id.ToString() == b.UserId);
+                            return new BookingItemVM
+                            {
+                                TouristId = int.Parse(b.UserId),
+                                TouristName = tourist != null ? $"{tourist.firstName} {tourist.LastName}" : "Unknown",
+                                Quantity = b.Quantity,
+                                TotalPrice = b.TotalPrice
+                            };
+                        }).ToList()
+                    };
+                })
+                .Where(x => x != null)
+                .ToList();
+            
             return View(model);
         }
 
@@ -374,6 +444,15 @@ namespace Tourism.Controllers
 
             await _tourGuideRepository.UpdateAsync(tourGuide);
             await _tourGuideRepository.SaveChangesAsync();
+
+            // Create verification request for admin to review
+            var request = new VerificationRequest
+            {
+                provider_Id = tourGuide.TourGuideId,
+                role = "TourGuide"
+            };
+            await _unitOfWork.VerificationRequests.AddAsync(request);
+            await _unitOfWork.VerificationRequests.SaveAsync();
 
             TempData["ToastMessage"] = "Verification request submitted successfully!";
             TempData["ToastType"] = "success";

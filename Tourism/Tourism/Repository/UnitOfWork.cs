@@ -30,6 +30,7 @@ namespace Tourism.Repository
         private IRepository<TouristRestaurant>? _touristRestaurants;
         private IRepository<CreditCard>? _creditCards;
         private IRepository<TouristRoom> _touristRooms;
+        private IRepository<PaymentTripBooking>? _paymentTripBookings;
 
 
         public UnitOfWork(TourismDbContext context)
@@ -57,6 +58,8 @@ namespace Tourism.Repository
         public IRepository<CreditCard> CreditCards => _creditCards ??= new Repository<CreditCard>(_context);
 
         public IRepository<TouristRoom> TouristRooms => _touristRooms ?? (_touristRooms = new Repository<TouristRoom>(_context));
+
+        public IRepository<PaymentTripBooking> PaymentTripBookings => _paymentTripBookings ??= new Repository<PaymentTripBooking>(_context);
 
 
 

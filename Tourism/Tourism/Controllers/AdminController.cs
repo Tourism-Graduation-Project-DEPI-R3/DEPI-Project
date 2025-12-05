@@ -335,17 +335,16 @@ namespace Tourism.Controllers
             }
             else if (role == "TourGuide")
             {
-                if (msg != null)
-                {
-                    InboxMsg inboxMsg = new();
-                    inboxMsg.content = msg;
-                    inboxMsg.date = DateTime.Now;
-                    inboxMsg.providerType = "TourGuide";
-                    inboxMsg.providerId = providerId;
-                    await _unitOfWork.InboxMessages.AddAsync(inboxMsg);
-                    await _unitOfWork.InboxMessages.SaveAsync();
-                }
-                var trip =await _unitOfWork.Trips.GetByIdAsync(serviceId);
+                // Send acceptance message
+                InboxMsg inboxMsg = new();
+                inboxMsg.content = msg ?? "Congratulations! Your trip has been approved and is now visible to tourists.";
+                inboxMsg.date = DateTime.Now;
+                inboxMsg.providerType = "TourGuide";
+                inboxMsg.providerId = providerId;
+                await _unitOfWork.InboxMessages.AddAsync(inboxMsg);
+                await _unitOfWork.InboxMessages.SaveAsync();
+                
+                var trip = await _unitOfWork.Trips.GetByIdAsync(serviceId);
                 trip.accepted = true;
                 await _unitOfWork.Trips.SaveAsync();
 
@@ -365,6 +364,22 @@ namespace Tourism.Controllers
                 var meal = await _unitOfWork.Meals.GetByIdAsync(serviceId);
                 meal.accepted = true;
                 await _unitOfWork.Meals.SaveAsync();
+            }
+            else if (role == "TourGuide")
+            {
+                if (msg != null)
+                {
+                    InboxMsg inboxMsg = new();
+                    inboxMsg.content = msg;
+                    inboxMsg.date = DateTime.Now;
+                    inboxMsg.providerType = "TourGuide";
+                    inboxMsg.providerId = providerId;
+                    await _unitOfWork.InboxMessages.AddAsync(inboxMsg);
+                    await _unitOfWork.InboxMessages.SaveAsync();
+                }
+                var trip = await _unitOfWork.Trips.GetByIdAsync(serviceId);
+                trip.accepted = true;
+                await _unitOfWork.Trips.SaveAsync();
             }
             else if (role == "Hotel")
             {
@@ -412,17 +427,21 @@ namespace Tourism.Controllers
             }
             else if (role == "TourGuide")
             {
-                if (msg != null)
+                // Send rejection message
+                InboxMsg inboxMsg = new();
+                inboxMsg.content = msg ?? "Your trip submission has been rejected. Please review our guidelines and try again.";
+                inboxMsg.date = DateTime.Now;
+                inboxMsg.providerType = "TourGuide";
+                inboxMsg.providerId = providerId;
+                await _unitOfWork.InboxMessages.AddAsync(inboxMsg);
+                await _unitOfWork.InboxMessages.SaveAsync();
+                
+                var trip = await _unitOfWork.Trips.GetByIdAsync(serviceId);
+                if (trip != null)
                 {
-                    InboxMsg inboxMsg = new();
-                    inboxMsg.content = msg;
-                    inboxMsg.date = DateTime.Now;
-                    inboxMsg.providerType = "TourGuide";
-                    inboxMsg.providerId = providerId;
-                    await _unitOfWork.InboxMessages.AddAsync(inboxMsg);
-                    await _unitOfWork.InboxMessages.SaveAsync();
+                    _unitOfWork.Trips.Delete(trip);
+                    await _unitOfWork.Trips.SaveAsync();
                 }
-
             }
             else if (role == "Restaurant")
             {
@@ -501,6 +520,22 @@ namespace Tourism.Controllers
 
             return View(mealModel);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewTrip(int id)
+        {
+            Trip trip = await _unitOfWork.Trips.GetByIdAsync(id);
+            if (trip == null)
+            {
+                return NotFound();
+            }
+
+            if (trip.TourGuide == null)
+                trip.TourGuide = await _unitOfWork.TourGuides.GetByIdAsync(trip.tourGuideId);
+
+            return View(trip);
+        }
+
         [HttpGet]
         public async Task<IActionResult> ViewRoomServiceRequest(int id)
         {

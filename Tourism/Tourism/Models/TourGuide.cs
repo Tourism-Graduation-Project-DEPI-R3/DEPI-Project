@@ -63,8 +63,7 @@ namespace Tourism.Models
 
         public byte[] ?verificationDocuments { get; set; }
         
-        [Required]
-        public CreditCard creditCard { get; set; }
+        public CreditCard? creditCard { get; set; }
         
         public bool verified { get; set; } = false;
         

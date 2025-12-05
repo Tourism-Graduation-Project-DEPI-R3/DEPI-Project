@@ -495,5 +495,66 @@ namespace Tourism.Controllers
         {
             return View();
         }
+
+        // Direct Trip Booking with Balance Deduction
+        [HttpPost]
+        [Authorize(Roles = "Tourist")]
+        public async Task<IActionResult> BookTripWithBalance(int tripId)
+        {
+            var touristIdClaim = User.FindFirst("TouristId")?.Value;
+            if (string.IsNullOrEmpty(touristIdClaim) || !int.TryParse(touristIdClaim, out int touristId))
+            {
+                TempData["ErrorMessage"] = "Authentication error. Please log in again.";
+                return RedirectToAction("DynamicTrip", new { id = tripId });
+            }
+
+            var trip = await _tripRepository.GetByIdAsync(tripId);
+            if (trip == null)
+            {
+                TempData["ErrorMessage"] = "Trip not found.";
+                return RedirectToAction("TourPackagesHome");
+            }
+
+            if (trip.RemainingSeats <= 0)
+            {
+                TempData["ErrorMessage"] = "No seats available for this trip.";
+                return RedirectToAction("DynamicTrip", new { id = tripId });
+            }
+
+            var tourist = await _repo.GetTouristByIdAsync(touristId);
+            if (tourist == null || tourist.balance < (double)trip.cost)
+            {
+                TempData["ErrorMessage"] = $"Your current balance (${tourist?.balance.ToString("N2")}) is insufficient to cover the trip cost (${trip.cost.ToString("N2")}).";
+                return RedirectToAction("Balance", "Tourist");
+            }
+
+            // Deduct from tourist balance
+            tourist.balance -= (double)trip.cost;
+            await _repo.UpdateTouristAsync(tourist);
+
+            // Reduce remaining seats
+            trip.RemainingSeats -= 1;
+            trip.status = trip.RemainingSeats > 0;
+            await _tripRepository.SaveChangesAsync();
+
+            // Create booking
+            var booking = new PaymentTripBooking
+            {
+                UserId = touristId.ToString(),
+                TripId = trip.id,
+                Quantity = 1,
+                BookingDate = DateTime.UtcNow,
+                TotalPrice = trip.cost
+            };
+            await _repo.AddBookingAsync(booking);
+
+            // Credit tour guide
+            await _repo.CreditTourGuideAsync(trip.tourGuideId, trip.cost);
+
+            await _repo.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = $"Trip booked successfully! ${trip.cost.ToString("N2")} has been deducted from your balance.";
+            return RedirectToAction("DynamicTrip", new { id = tripId });
+        }
     }
 }

@@ -66,6 +66,17 @@
     </div>
 }
 
+@if (ViewBag.PendingTripsCount != null && ViewBag.PendingTripsCount > 0)
+{
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading"><i class="fas fa-hourglass-half"></i> Pending Trips</h4>
+        <p>You have <strong>@ViewBag.PendingTripsCount</strong> trip(s) waiting for admin approval.</p>
+        <hr>
+        <p class="mb-0">These trips will appear in your dashboard once they are reviewed and accepted by the admin.</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <style>
     .hover-move-btn {
         background-color: #1ec1ff; 

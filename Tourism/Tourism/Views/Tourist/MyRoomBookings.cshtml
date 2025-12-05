@@ -1,6 +1,7 @@
 ﻿@using Tourism.Models.Relations
 @using Tourism.Models
-@model IEnumerable<TouristRoom>
+@using Tourism.ViewModel
+@model MyBookingsViewModel
 @using System.Security.Claims
 
 @{
@@ -338,79 +339,85 @@
             }
 
             <!-- Bookings Content -->
-            @if (Model == null || !Model.Any())
+            @if ((Model.RoomBookings == null || !Model.RoomBookings.Any()) && (Model.TripBookings == null || !Model.TripBookings.Any()))
             {
                 <div class="empty-state">
                     <i class="bi bi-journal-x"></i>
                     <p class="lead">You currently have no active bookings.</p>
                     <a asp-action="ShowAllHotels" class="explore-btn">
-                        <i class="bi bi-search me-2"></i>Explore Hotels
+                        <i class="bi bi-search me-2"></i>Explore Hotels & Trips
                     </a>
                 </div>
             }
             else
             {
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    @foreach (var booking in Model.OrderByDescending(b => b.startDate))
-                    {
-                        <div class="col">
-                            <div class="booking-card">
-                                <div class="booking-card-body">
-                                    <h5 class="booking-hotel-name">
-                                        <i class="bi bi-house-door-fill me-2"></i>@(booking.room?.hotel?.name ?? "Hotel Name N/A")
-                                    </h5>
+                <!-- Room Bookings Section -->
+                @if (Model.RoomBookings != null && Model.RoomBookings.Any())
+                {
+                    <h3 class="section-title mb-4" style="color: var(--primary-color);">
+                        <i class="bi bi-building me-2"></i>Hotel Room Bookings
+                    </h3>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+                        @foreach (var booking in Model.RoomBookings.OrderByDescending(b => b.startDate))
+                        {
+                            <div class="col">
+                                <div class="booking-card">
+                                    <div class="booking-card-body">
+                                        <h5 class="booking-hotel-name">
+                                            <i class="bi bi-house-door-fill me-2"></i>@(booking.room?.hotel?.name ?? "Hotel Name N/A")
+                                        </h5>
 
-                                    <p class="booking-subtitle">
-                                        Booking ID: <span class="fw-semibold text-dark">#@booking.bookId</span> |
-                                        Room: <span class="fw-semibold">@(booking.room?.number ?? "N/A")</span>
-                                    </p>
+                                        <p class="booking-subtitle">
+                                            Booking ID: <span class="fw-semibold text-dark">#@booking.bookId</span> |
+                                            Room: <span class="fw-semibold">@(booking.room?.number ?? "N/A")</span>
+                                        </p>
 
-                                    <div class="booking-divider"></div>
+                                        <div class="booking-divider"></div>
 
-                                    <!-- Check-in / Check-out -->
-                                    <div class="booking-date-section">
-                                        <div class="row text-center">
-                                            <div class="col-6">
-                                                <p class="date-label checkin mb-1">Check-In</p>
-                                                <h6 class="date-value mb-0">@booking.startDate.ToString("MMM dd, yyyy")</h6>
-                                            </div>
-                                            <div class="col-6">
-                                                <p class="date-label checkout mb-1">Check-Out</p>
-                                                <h6 class="date-value mb-0">@booking.endDate.ToString("MMM dd, yyyy")</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Guests & Cost -->
-                                    <div class="booking-info-section">
-                                        <div class="row text-center">
-                                            <div class="col-6">
-                                                <p class="info-label mb-1">Guests</p>
-                                                <h6 class="info-value mb-0">
-                                                    <i class="bi bi-person-fill"></i> @booking.numberOfGuests
-                                                </h6>
-                                            </div>
-                                            <div class="col-6">
-                                                <p class="info-label mb-1">Total Cost</p>
-                                                @{
-                                                    double cost = (booking.room?.cost ?? 0) * (booking.endDate - booking.startDate).Days;
-                                                }
-                                                <h6 class="info-value mb-0">@(cost.ToString("N2")) EGP</h6>
+                                        <!-- Check-in / Check-out -->
+                                        <div class="booking-date-section">
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <p class="date-label checkin mb-1">Check-In</p>
+                                                    <h6 class="date-value mb-0">@booking.startDate.ToString("MMM dd, yyyy")</h6>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="date-label checkout mb-1">Check-Out</p>
+                                                    <h6 class="date-value mb-0">@booking.endDate.ToString("MMM dd, yyyy")</h6>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Cancel Button -->
-                                    <div class="d-grid">
-                                        @if (booking.startDate > DateTime.Today.AddDays(2))
-                                        {
-                                            <form asp-action="CancelBookingHotel" asp-controller="Tourist" method="post" onsubmit="return confirm('Are you sure you want to cancel this booking? A refund process will be initiated.')">
-                                                <input type="hidden" name="bookId" value="@booking.bookId" />
-                                                <button type="submit" class="cancel-btn">
-                                                    <i class="bi bi-x-circle me-2"></i>Cancel Booking
-                                                </button>
-                                            </form>
-                                        }
+                                        <!-- Guests & Cost -->
+                                        <div class="booking-info-section">
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <p class="info-label mb-1">Guests</p>
+                                                    <h6 class="info-value mb-0">
+                                                        <i class="bi bi-person-fill"></i> @booking.numberOfGuests
+                                                    </h6>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="info-label mb-1">Total Cost</p>
+                                                    @{
+                                                        double cost = (booking.room?.cost ?? 0) * (booking.endDate - booking.startDate).Days;
+                                                    }
+                                                    <h6 class="info-value mb-0">@(cost.ToString("N2")) EGP</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Cancel Button -->
+                                        <div class="d-grid">
+                                            @if (booking.startDate > DateTime.Today.AddDays(2))
+                                            {
+                                                <form asp-action="CancelBookingHotel" asp-controller="Tourist" method="post" onsubmit="return confirm('Are you sure you want to cancel this booking? A refund process will be initiated.')">
+                                                    <input type="hidden" name="bookId" value="@booking.bookId" />
+                                                    <button type="submit" class="cancel-btn">
+                                                        <i class="bi bi-x-circle me-2"></i>Cancel Booking
+                                                    </button>
+                                                </form>
+                                            }
                                         else
                                         {
                                             <button class="disabled-btn" disabled>
@@ -423,6 +430,93 @@
                         </div>
                     }
                 </div>
+                }
+
+                <!-- Trip Bookings Section -->
+                @if (Model.TripBookings != null && Model.TripBookings.Any())
+                {
+                    <h3 class="section-title mb-4 mt-5" style="color: var(--primary-color);">
+                        <i class="bi bi-compass me-2"></i>Trip Bookings
+                    </h3>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        @foreach (var trip in Model.TripBookings.OrderByDescending(b => b.BookingDate))
+                        {
+                            <div class="col">
+                                <div class="booking-card">
+                                    <div class="booking-card-body">
+                                        @if (trip.MainImage != null && trip.MainImage.Length > 0)
+                                        {
+                                            var base64Image = Convert.ToBase64String(trip.MainImage);
+                                            <img src="data:image/jpeg;base64,@base64Image" alt="@trip.TripName" 
+                                                 style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;" />
+                                        }
+
+                                        <h5 class="booking-hotel-name">
+                                            <i class="bi bi-pin-map-fill me-2"></i>@trip.TripName
+                                        </h5>
+
+                                        <p class="booking-subtitle">
+                                            Booking ID: <span class="fw-semibold text-dark">#@trip.BookingId</span> |
+                                            Destination: <span class="fw-semibold">@trip.Destination</span>
+                                        </p>
+
+                                        <div class="booking-divider"></div>
+
+                                        <!-- Trip Dates -->
+                                        <div class="booking-date-section">
+                                            <div class="row text-center">
+                                                <div class="col-6">
+                                                    <p class="date-label checkin mb-1">Booked On</p>
+                                                    <h6 class="date-value mb-0">@trip.BookingDate.ToString("MMM dd, yyyy")</h6>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="date-label checkout mb-1">Trip Starts</p>
+                                                    <h6 class="date-value mb-0">@trip.StartDate.ToString("MMM dd, yyyy")</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Trip Info -->
+                                        <div class="booking-info-section">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="info-label mb-1">Duration</p>
+                                                    <h6 class="info-value mb-0">@trip.Duration days</h6>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="info-label mb-1">Total Cost</p>
+                                                    <h6 class="info-value mb-0">@trip.TotalPrice.ToString("N2") EGP</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Trip Status -->
+                                        <div class="d-grid">
+                                            @if (trip.StartDate > DateTime.Today.AddDays(2))
+                                            {
+                                                <button class="cancel-btn" disabled>
+                                                    <i class="bi bi-check-circle me-2"></i>Confirmed - Starts @trip.StartDate.ToString("MMM dd")
+                                                </button>
+                                            }
+                                            else if (trip.StartDate <= DateTime.Today && trip.StartDate.AddDays(trip.Duration) >= DateTime.Today)
+                                            {
+                                                <button class="disabled-btn" style="background: var(--success-color);">
+                                                    <i class="bi bi-airplane-fill me-2"></i>Trip In Progress
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="disabled-btn">
+                                                    <i class="bi bi-flag-fill me-2"></i>Trip Completed
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
             }
         </div>
     </main>

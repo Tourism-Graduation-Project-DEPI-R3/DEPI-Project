@@ -377,6 +377,16 @@
                                                 </button>
                                             </form>
                                         }
+                                        else if (@item.serviceType == "TourGuide")
+                                        {
+                                            <form asp-controller="Admin" asp-action="ViewTrip" method="get" style="display:inline;">
+                                                <input type="hidden" name="id" value="@item.serviceId" />
+                                                <button type="submit" class="btn-view">
+                                                    View Details
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </button>
+                                            </form>
+                                        }
                                      
                                     </td>
                                 </tr>

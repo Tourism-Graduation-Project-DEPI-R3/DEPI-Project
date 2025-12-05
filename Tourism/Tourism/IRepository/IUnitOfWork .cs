@@ -25,6 +25,7 @@ namespace Tourism.IRepository
         IRepository<Table> Tables { get; }
         IRepository<CreditCard> CreditCards { get; }
         IRepository<TouristRoom> TouristRooms { get; }
+        IRepository<PaymentTripBooking> PaymentTripBookings { get; }
 
         Task<int> SaveAsync();
 
